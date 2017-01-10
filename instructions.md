@@ -4,11 +4,17 @@ Tous les traducteurs francophones doivent se soumettre à ces quelques règles d
 
 ## Usage de l'impératif
 
-> Enter your credentials
+```
+Enter your credentials
+```
 ne se traduira jamais directement par
-> Saisissez vos informations d'identification
+```
+Saisissez vos informations d'identification
+```
 mais par
-> **Veuillez** saisir vos informations d'identification
+```
+Veuillez** saisir vos informations d'identification
+```
 
 # Traductions
 
@@ -17,18 +23,25 @@ mais par
 Ceci dépend du contexte, si on initialise un champ pour la première fois, 
 on utilise "spécifier", si on doit introduire ses identifiants, c'est "saisir".
 
-> Please enter your email
+```
+Please enter your email
+```
 se traduira par
-> Veuillez **saisir** votre adresse e-mail
-
-> Please enter an email address
+```
+Veuillez **saisir** votre adresse e-mail
+```
+```
+Please enter an email address
+```
 se traduira par
-> Veuillez **spécifier** une adresse e-mail
+```
+Veuillez **spécifier** une adresse e-mail
+```
 
 ## Token / secret key
 
-* Token: Utilisez le mot `jeton` à la place.
-* Secret key: Clé secrète, clé privée dans le cas où il est fait mention de clé publique.
+* `Token`: Utilisez le mot `jeton` à la place.
+* `Secret key`: Clé secrète si c'est une clé utilisée dans le sens clé à ne pas divulguer, clé privée dans le cas où il est fait mention de clé publique ou s'il est question de chiffrement asymétrique.
 
 ## Email address
 
