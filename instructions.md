@@ -1,5 +1,7 @@
 Tous les traducteurs francophones doivent se soumettre à ces quelques règles de traduction.
 
+Le nombre de châines à traduire étant particulièrement grand au sein de Mattermost, si vous trouvez des traductions qui ne respectent pas ces quelques règles, merci de proposer une correction dans [l'interface Pootle de traduction](http://translate.mattermost.com/fr/).
+
 # Style
 
 ## Usage de l'impératif
@@ -64,12 +66,28 @@ On n'utilise le terme `routage` que dans ce cas-ci :
 
 > ASP.NET Routing
 
+se traduira par
 
 > Routage ASP.NET
 
 ---
 
 Pour tout le reste, Microsoft utilise au choix : `route` ou `itinéraire`. Dans le cas de Mattermost, de façon à uniformiser les traductions, et se rapprocher de la version anglophone, nous utiliserons le terme `route`.
+
+---
+
+De même, toujours basé sur l'exemple `Initializing team API routes`, nous n'utilisons pas de pluriel pour qualifier le noeud, ni nous n'utilisons de prépositions de lien.
+
+Les propositions suivantes sont donc invalides et seront refusées dans Mattermost:
+
+> Initialisation des routes de l'API d'équipe
+
+> Initialisation des routes de l'API des équipes
+
+> Initialisation des routes des APIs d'équipes
+
+> Initialisation des routes des APIs de l'équipe
+
 
 ## Trigger
 
