@@ -45,3 +45,37 @@ se traduira par
 Utilisez `adresse e-mail` et non `adresse électronique`. `Adresse électronique` n'a jamais vraiment été utilisé en dehors
 de la France et tend à être rendu nébuleux à cause des protocoles récents tels que le Bitcoin
 ou la Blockchain qui, eux, utilisent une adresse électronique.
+
+## Routes
+
+Bien que ces messages devraient être principalement être vus par du personnel technique et donc sachant parler anglais, il est toutefois préférable de les traduire.
+
+> Initializing team API routes
+
+se traduira par
+
+> Initialisation des routes de l'API équipe
+
+Il faut voir une API comme un arbre ou chaque branche est appelée `route` et chaque embranchement (y compris le tout dernier placé en feuille) est appelé un `noeud`.
+
+Microsoft, dans le cadre de sa plateforme .NET, possède une des rares documentations techniques traduite intégralement en français. Dans le cas qui nous préoccupe, un [article en anglais](https://msdn.microsoft.com/en-us//library/cc668201(v=vs.100).aspx) dispose d'[une correspondance française](https://msdn.microsoft.com/en-us//library/cc668201(v=vs.100).aspx).
+
+On n'utilise le terme `routage` que dans ce cas-ci :
+
+> ASP.NET Routing
+
+
+> Routage ASP.NET
+
+---
+
+Pour tout le reste, Microsoft utilise au choix : `route` ou `itinéraire`. Dans le cas de Mattermost, de façon à uniformiser les traductions, et se rapprocher de la version anglophone, nous utiliserons le terme `route`.
+
+## Trigger
+
+> A trigger word cannot begin with a /
+
+se traduira par
+
+> Un mot**-clé** déclencheur ne peut commencer par un /
+
