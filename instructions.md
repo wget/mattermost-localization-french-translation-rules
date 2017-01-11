@@ -1,6 +1,6 @@
 Tous les traducteurs francophones doivent se soumettre à ces quelques règles de traduction.
 
-Le nombre de châines à traduire étant particulièrement grand au sein de Mattermost, si vous trouvez des traductions qui ne respectent pas ces quelques règles, merci de proposer une correction dans [l'interface Pootle de traduction](http://translate.mattermost.com/fr/).
+Le nombre de chaînes à traduire étant assez élevé au sein du projet Mattermost, si vous trouvez des traductions qui ne respectent pas ces quelques règles, merci de proposer une correction dans l'[interface Pootle de traduction](http://translate.mattermost.com/fr/).
 
 # Style
 
