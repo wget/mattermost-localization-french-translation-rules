@@ -13,7 +13,7 @@ Enfin, veuillez prendre la peine de lire ces quelques règles de traduction à r
 
 Le nombre de chaînes à traduire étant assez élevé au sein du projet Mattermost, si vous trouvez des traductions qui ne respectent pas ces quelques règles, merci de proposer une correction dans l'[interface Pootle de traduction](http://translate.mattermost.com/fr/).
 
-Si vous ne trouvez pas comment traduire un terme, regardez comment le même terme a été traduit les fois précédentes, ou posez votre question sur [le canal Mattermost de traduction francophone](https://pre-release.mattermost.com/core/channels/french-localization).
+Si vous ne trouvez pas comment traduire un terme, regardez comment le même terme a été traduit les fois précédentes, regardez sur l'[ancien glossaire créé par Sun](https://glossaire.traduc.org), ou posez votre question sur [le canal Mattermost de traduction francophone](https://pre-release.mattermost.com/core/channels/french-localization).
 
 ## Style
 
@@ -58,7 +58,7 @@ Utilisez simplement les guillemets anglophones (`"hello world"`) pour l'instant.
 
 ### Traduction trop longues
 
-Si votre traduction s'avère être trop longue pour l'espace que l'interface utilisateur occroie et si compte tenu du sens, vous n'êtes pas en mesure d'aggréger la traduction francophone, veuillez exposer le problème sur le [canal "Localization" de Mattermost](https://pre-release.mattermost.com/core/channels/localization).
+Si votre traduction s'avère être trop longue pour l'espace que l'interface utilisateur occroie et si compte tenu du sens, vous n'êtes pas en mesure d'abbréger la traduction francophone, veuillez exposer le problème sur le [canal "Localization" de Mattermost](https://pre-release.mattermost.com/core/channels/localization).
 
 
 ## Vocabulaire
@@ -75,7 +75,6 @@ se traduira par
 
 > Veuillez **saisir** votre adresse e-mail
 
----
 
 > Please enter an email address
 
@@ -135,11 +134,9 @@ se traduira par
 
 > Routage ASP.NET
 
----
 
 Pour tout le reste, Microsoft utilise au choix : `route` ou `itinéraire`. Dans le cas de Mattermost, de façon à uniformiser les traductions, et se rapprocher de la version anglophone, nous utiliserons le terme `route`.
 
----
 
 De même, toujours basé sur l'exemple `Initializing team API routes`, nous n'utilisons pas de pluriel pour qualifier le noeud, ni nous n'utilisons de prépositions de lien.
 
