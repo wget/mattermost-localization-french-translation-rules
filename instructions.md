@@ -1,9 +1,5 @@
-<div id='section-id-1'/>
-
 # Règles pour la traduction francophone de Mattermost
 
-
-- [Règles pour la traduction francophone de Mattermost](#section-id-1)
   - [Introduction](#section-id-4)
   - [Style](#section-id-18)
     - [Usage de l'impératif](#section-id-21)
