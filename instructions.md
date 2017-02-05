@@ -38,7 +38,7 @@ Les anglophones apprécient placer des majuscules dans des mots qu'ils considèr
 
 ### Abbréviations
 
-Exemple s'agrège en `ex. :`. Notez l'utilisation d'un espace après le point. Bien que vous devriez utiliser une espace insécable, le fait que son insertion [soit assez difficile](https://fr.wikipedia.org/wiki/Espace_ins%C3%A9cable#.C3.80_la_saisie) et que que son utilisation n'ait pas encore été testée au sein de Mattermost, l'utilisation d'espaces simples est recommandée, du moins, pour l'instant.
+Exemple s'agrège en `ex. :`. Notez l'utilisation d'une espace après le point. Vous devriez utiliser une espace insécable pour cette espace. Cependant, le fait que son insertion [soit assez difficile](https://fr.wikipedia.org/wiki/Espace_ins%C3%A9cable#.C3.80_la_saisie) et que son utilisation n'ait pas encore été testée au sein de Mattermost, pour l'instant il est recommandé d'utiliser des espaces simples.
 
 
 ### Guillemets
@@ -46,9 +46,9 @@ Exemple s'agrège en `ex. :`. Notez l'utilisation d'un espace après le point. B
 Utilisez simplement les guillemets anglophones (`"hello world"`) pour l'instant. Ici aussi, insérer des guillemets francophones dans un formulaire HTML est assez compliqué et leur utilisation n'a pas non plus été testée dans l'interface de Mattermost.
 
 
-### Traduction trop longues
+### Traduction trop longue
 
-Si votre traduction s'avère être trop longue pour l'espace que l'interface utilisateur occroie et si compte tenu du sens, vous n'êtes pas en mesure d'abbréger la traduction francophone, veuillez exposer le problème sur le [canal "Localization" de Mattermost](https://pre-release.mattermost.com/core/channels/localization).
+Si votre traduction s'avère être trop longue pour l'espace octroyé par l'interface utilisateur et si, compte tenu du sens, vous n'êtes pas en mesure d'abbréger la traduction francophone, veuillez exposer le problème sur le [canal "Localization" de Mattermost](https://pre-release.mattermost.com/core/channels/localization).
 
 
 ## Vocabulaire
@@ -56,7 +56,7 @@ Si votre traduction s'avère être trop longue pour l'espace que l'interface uti
 
 ### Enter / specify
 
-Ceci dépend du contexte, si on initialise un champ pour la première fois, 
+Ceci dépend du contexte. Si on initialise un champ pour la première fois, 
 on utilise `spécifier`, si on doit introduire ses identifiants, c'est `saisir`.
 
 | EN | FR |
@@ -69,7 +69,7 @@ on utilise `spécifier`, si on doit introduire ses identifiants, c'est `saisir`.
 
 Utilisez `adresse e-mail` et non `adresse électronique`. `Adresse électronique` n'a jamais vraiment été utilisé en dehors
 de la France et tend à être rendu nébuleux à cause des protocoles récents tels que le Bitcoin
-ou la Blockchain qui, eux, utilisent une adresse électronique.
+ou la Blockchain qui, eux, utilisent une adresse que l'on qualifie d'électronique.
 
 
 ### Flag
@@ -104,15 +104,15 @@ Bien que ces messages devraient être principalement être vus par du personnel 
 
 Il faut voir une API comme un arbre ou chaque branche est appelée `route` et chaque embranchement (y compris le tout dernier placé en feuille) est appelé un `noeud`.
 
-Microsoft, dans le cadre de sa plateforme .NET, possède une des rares documentations techniques traduite intégralement en français. Dans le cas qui nous préoccupe, un [article en anglais](https://msdn.microsoft.com/en-us//library/cc668201(v=vs.100).aspx) dispose d'[une correspondance française](https://msdn.microsoft.com/en-us//library/cc668201(v=vs.100).aspx).
+Microsoft, dans le cadre de sa plateforme .NET, possède une des rares documentations techniques traduites intégralement en français. Dans le cas qui nous préoccupe, un [article en anglais sur le sujet qui nous préoccupe](https://msdn.microsoft.com/en-us//library/cc668201(v=vs.100).aspx) dispose d'[une correspondance française](https://msdn.microsoft.com/en-us//library/cc668201(v=vs.100).aspx).
 
-On n'utilise le terme `routage` que dans ce cas-ci :
+On utilise le terme `routage` que dans ce cas-ci :
 
 | EN | FR |
 | --- | --- |
 | ASP.NET Routing | Routage ASP.NET |
 
-Pour tout le reste, Microsoft utilise au choix : `route` ou `itinéraire`. Dans le cas de Mattermost, de façon à uniformiser les traductions, et se rapprocher de la version anglophone, nous utiliserons le terme `route`.
+Pour tout le reste, Microsoft utilise au choix : `route` ou `itinéraire`. Dans le cas de Mattermost, de façon à uniformiser les traductions mais également de se rapprocher de la version anglophone, nous utiliserons le terme `route`.
 
 De même, toujours basé sur l'exemple `Initializing team API routes`, nous n'utilisons pas de pluriel pour qualifier le noeud, ni nous n'utilisons de prépositions de lien.
 
@@ -134,8 +134,8 @@ Il s'agit des commandes que vous saisissez lorsque vous commencez votre message 
 
 ### Token / secret key
 
-* `Token`: Utilisez le mot `jeton` à la place.
-* `Secret key`: Clé secrète si c'est une clé utilisée dans le sens clé à ne pas divulguer, clé privée dans le cas où il est fait mention de clé publique ou s'il est question de chiffrement asymétrique.
+* `token`: Utilisez le mot `jeton` à la place.
+* `secret key`: `clé secrète` si c'est une clé utilisée dans le sens clé à ne pas divulguer, `clé privée` dans le cas où il est fait mention de clé publique ou s'il est question de chiffrement asymétrique.
 
 
 ### Trigger
