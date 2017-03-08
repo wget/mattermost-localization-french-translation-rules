@@ -135,6 +135,14 @@ Il s'agit simplement des indicateurs pour suivre un message.
 | --- | --- |
 | Follow up flag | Indicateur de suivi |
 
+### Permissions
+
+Bien que `permissions` et `droits` pourraient tous deux convenir, il a été choisi de privilégier `permissions`. `Permissions invalides` est également à proscrire. Dans le cas du contexte de permissions qui nous concernne, il est en effet question de permissions qui sont trop restrictives et non de permissions d'accès invalides (ex.: permissions UNIX 775 au lieu de 770 par exemple)
+
+| EN | FR |
+| --- | --- |
+| You do not have the appropriate permissions | Vous n'avez pas les permissions requises |
+| Invalid permissions to regenerate the OAuth2 App Secret | Permissions insuffisantes pour regénérer la clé secrète de l'application OAuth2 |
 
 <div id='section-id-97'/>
 
