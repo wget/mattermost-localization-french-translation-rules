@@ -150,6 +150,11 @@ Bien que `permissions` et `droits` pourraient tous deux convenir, il a été cho
 | Invalid permissions to regenerate the OAuth2 App Secret | Permissions insuffisantes pour regénérer la clé secrète de l'application OAuth2 |
 | Inappropriate channel permissions | Permissions insuffisantes pour ce canal |
 
+
+### Purpose
+
+`Purpose` est souvent employé pour le message de description du canal `purpose message of the channel` par exemple. Il convient donc de le traduire comme `description` dans ce contexte.
+
 <div id='section-id-97'/>
 
 ### Routes
