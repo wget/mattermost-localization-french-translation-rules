@@ -148,6 +148,7 @@ Bien que `permissions` et `droits` pourraient tous deux convenir, il a été cho
 | --- | --- |
 | You do not have the appropriate permissions | Vous n'avez pas les permissions requises |
 | Invalid permissions to regenerate the OAuth2 App Secret | Permissions insuffisantes pour regénérer la clé secrète de l'application OAuth2 |
+| Inappropriate channel permissions | Permissions insuffisantes pour ce canal |
 
 <div id='section-id-97'/>
 
