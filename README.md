@@ -92,6 +92,21 @@ Si votre traduction s'avère être trop longue pour l'espace octroyé par l'inte
 
 ## Vocabulaire
 
+### Batch
+
+L'envoi par lots.
+
+| EN | FR |
+| --- | --- |
+| Email batching job's receiving channel was full. Please increase the EmailBatchingBufferSize. | Le canal recevant les e-mail envoyés par lot est plein. Veuillez augmenter le paramètre EmailBatchingBufferSize. |
+
+### BG
+
+`BG` correspond à `background`. On n'utilise pas `fond` mais bien `arrière-plan`.
+
+| EN | FR |
+| --- | --- |
+| Button BG | Arrière-plan du bouton |
 
 <div id='section-id-57'/>
 
@@ -154,6 +169,18 @@ Bien que `permissions` et `droits` pourraient tous deux convenir, il a été cho
 ### Purpose
 
 `Purpose` est souvent employé pour le message de description du canal `purpose message of the channel` par exemple. Il convient donc de le traduire comme `description` dans ce contexte.
+
+### Rate limits
+
+Souvent employé pour désigner une limite de taux. Dans le contexte de Mattermost, il s'agit d'un taux pour limiter le nombre d'appels sur l'API Mattermost que l'utilisateur peut faire dans un temps donné par exemple.
+
+Bien que rencontré parfois dans les domaines du réseau, ce concept de limite n'est pas facile à exprimer en français. Si vous disposez d'une traduction plus appropriée, merci de nous en faire part.
+
+| EN | FR |
+| --- | --- |
+| Invalid memory store size for rate limit settings. Must be a positive number | Taille du stockage mémoire invalide pour les paramètres de limite de fréquence. Doit être un entier positif. |
+| Unable to initialize rate limiting. | Impossible d'initialiser le taux de limite d'appel sur l'API. |
+
 
 <div id='section-id-97'/>
 
