@@ -21,6 +21,7 @@
     * [Rate limits](#rate-limits)
     * [Routes](#routes)
     * [Slash commands](#slash-commands)
+    * [SSO](#sso)
     * [Token / secret key](#token--secret-key)
     * [Trigger](#trigger)
 
@@ -191,6 +192,16 @@ Les propositions suivantes sont donc invalides et seront refusées dans Mattermo
 ### Slash commands
 
 Il s'agit des commandes que vous saisissez lorsque vous commencez votre message par un slash dans Mattermost. La décision a été de traduire ce terme par `commandes slash`.
+
+### SSO
+
+| EN | FR |
+| --- | --- |
+| SSO / Single Sign-On | Authentification unique (SSO) |
+
+Dans le jargon technique, le terme SSO tend à prendre le pas sur le terme "Authentification unique". Dans le cadre de Mattermost, il a donc été choisi de suffixer la traduction française par le terme SSO entre parenthèses de façon à préciser le contexte. En effet, le terme authentification pourrait être confondu avec le terme authentification multi-facteurs (MFA), autre fonctionnalité présente au sein de Mattermost.
+
+Les traductions telles que "authentification simplifiée" ou "connexion unique" sont à proscrire.
 
 ### Token / secret key
 
