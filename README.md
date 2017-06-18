@@ -9,6 +9,7 @@
     * [Guillemets](#guillemets)
     * [Pluriel de majesté](#pluriel-de-majest)
     * [Traduction trop longue](#traduction-trop-longue)
+    * [Gestion du pluriel](#gestion-du-pluriel)
 * [Vocabulaire](#vocabulaire)
     * [Batch](#batch)
     * [BG](#bg)
@@ -76,6 +77,70 @@ De façon à se calquer au plus près des autres traductions, pareil texte sera 
 ### Traduction trop longue
 
 Si votre traduction s'avère être trop longue pour l'espace octroyé par l'interface utilisateur et si, compte tenu du sens, vous n'êtes pas en mesure d'abbréger la traduction francophone, veuillez exposer le problème sur le [canal "Localization" de Mattermost](https://pre-release.mattermost.com/core/channels/localization).
+
+### Gestion du pluriel
+
+Au sein de Mattermsot, les règles de pluralisation en fonction de la langue sont gérées par la bibliothèque formatjs. Il se peut que vous rencontriez la syntaxe de cette bibliothèque au gré de vos traductions. La syntaxe de formatjs se matérialise comme tel:
+
+    {key, plural, matches}
+
+* `key`: il s'agit de la variable qui représente le nombre d'éléments
+* `plural`: il s'agit d'un mot clé fixe (en l'occurrence `plural`) qui indique que le mapping concerne un appel à la bibliothèque formatjs.
+* `matches`: il s'agit de la syntaxe propre à formatjs qui va s'occuper de déterminer si la proposition va concerner le singulier, ou le pluriel, voire un nombre particulier (0, 1, 2, etc.).
+
+En place de `matches` peuvent donc se trouver un ou plusieurs des mots clés suivants:
+
+* `zero`: Cette catégorie est utilisée pour les langues qui ont une grammaire spécifique lorsqu'il n'y a aucun élément, comme l'arabe ou le letton. Le français n'étant pas directement concerné par cet élément, on pourra utiliser celui relatif au singulier en lieu et place de cette catégorie.
+* `one`: Cette catégorie est utilisée pour les langues qui ont une grammaire spécifique pour un seul élément, ce qui concerne de nombreuses langues. De nombreuses langues asiatiques, comme le chinois ou le japonais, n'utilisent PAS cette catégorie. Le français est conserné par cette grammaire. On utilisera donc ce mot clé, souvent en combinaison de `other`, cf. plus bas.
+* `two`: Cette catégorie est utilisée pour les langues qui ont une grammaire spécifique pour deux éléments, comme l'arabe ou le gallois. Le français est également concerné, bien que `other` puisse être utilisé en lieu et place.
+* `few`: Cette catégorie est utilisée pour les langues qui ont une grammaire spécifique pour quelques éléments. Certaines langues ont des règles pour 2-4 éléments, d'autres pour 3-10, et d'autres disposent de règles encore plus complexes. Le français n'est pas concerné par cette règle.
+* `many`: Cette catégorie est utilisée pour les langues qui ont une grammaire spécifique pour beaucoup d'éléments comme l'arabe, le polonais ou le russe.
+* `other`: Cette catégorie est utilisée si aucune value ne correspond à l'une des catégories précédentes. Cette catégorie est souvent utilisée comme la forme pluriel pour certaines langues comme le français ou l'anglais qui ont une grammaire distincte seulement pour les éléments singuliers et ceux pluriel.
+* `=value`: Cette catégorie est utilisée pour faire correspondre à une certaine valeur peu importe la catégorie de pluriel utilisée plus haut.
+
+Pour illustrer le [fonctionnement de cette bibliothèque](https://formatjs.io/guides/message-syntax/#plural-format), prenons les exemples suivants.
+
+    New {count, plural, one {message} other {messages}} below
+
+donne au sein de l'interface `New message below` au singulier et `New messages below` pour le pluriel.
+
+En français, 2 versions de traduction sont nécessaires également. Une pour le singulier (`Nouveau message ci-dessous`) et l'autre pour le pluriel (`Nouveaux messages ci-dessous`).
+
+Dans le syntaxe de formatjs, ceci donne la déclaration suivante:
+
+    {count, plural, one {Nouveau message} other {Nouveaux messages}} ci-dessous
+
+Un autre exemple:
+
+    {count} {count, plural, =0 {0 members} one {member} other {members}} of {total} total
+
+    {count} {count, plural, =0 {0 canal} one {canal} other {canaux}}
+
+Produira les 2 traductions suivantes: `0 canal` vs `1 canal` vs `x canaux`.
+
+Un autre exemple:
+
+    {count} {count, plural, =0 {0 members} one {member} other {members}} of {total} total
+
+    {count} {count, plural, =0 {0 membre} one {membre} other {membres}} d'un total de {total}
+
+Produira les 3 traductions suivantes: `0 membre d'un total de x` vs `1 membre d'un total de x` vs `x membres d'un total de x`.
+
+Un autre exemple:
+
+    {count, number} {count, plural, one {Feature} other {Features}} Enabled
+
+    {count, number} {count, plural, one {fonctionnalité activée} other {fonctionnalités activées}}
+
+Comme vous pouvez le voir, selon le contexte, il est possible que vous deviez placer plus de mots dans les accolades de façon à accorder l'ajectif. L'adjectif est en effet invariable en anglais, les chaines anglaises ne tiennent pas compte de ce détail. `1 fonctionnalité activée` vs `x fonctionnalités activées`.
+
+Un autre exemple:
+
+    Every {count, plural, one {minute} other {{count, number} minutes}}
+
+    {count, plural, one {Chaque minute} other {Toutes les {count, number} minutes}}
+
+Ici, il est question d'un changement important, la tournure de phrase ne se traduit pas du tout de la même façon suivant qu'il s'agisse du singulier ou du pluriel: `Chaque minute` vs `Toutes les x minutes`.
 
 ## Vocabulaire
 
