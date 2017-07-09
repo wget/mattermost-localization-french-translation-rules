@@ -7,17 +7,21 @@
     * [Majuscules](#majuscules)
     * [Abbréviations](#abbrviations)
     * [Guillemets](#guillemets)
-    * [Pluriel de majesté](#pluriel-de-majest)
+    * [Pluriel de majesté (We couldn't...)](#pluriel-de-majest-we-couldnt)
     * [Traduction trop longue](#traduction-trop-longue)
     * [Gestion du pluriel](#gestion-du-pluriel)
 * [Vocabulaire](#vocabulaire)
     * [Batch](#batch)
     * [BG](#bg)
+    * [Direct](#direct)
     * [Enter / specify](#enter--specify)
     * [Email](#email)
+    * [Emoji](#emoji)
     * [Flag](#flag)
     * [Follow up](#follow-up)
     * [Permissions](#permissions)
+    * [Pinned posts](#pinned-posts)
+    * [Private message](#private-message)
     * [Purpose](#purpose)
     * [Rate limits](#rate-limits)
     * [Routes](#routes)
@@ -54,11 +58,18 @@ Si vous ne trouvez pas comment traduire un terme, regardez comment le même term
 
 Les anglophones apprécient placer des majuscules dans des mots qu'ils considèrent composés. En français, nous n'utilisons pas de majuscules.
 
-
 | EN | FR |
 | --- | --- |
 | System Console |Console **s**ystème |
 | Private Messages | Messages **p**rivés |
+
+De même, en plein milieu d'une phrase de description de fonctionnalité, comme `Aller dans la console système`, nous ne plaçons pas de majuscules. Nous en plaçons uniquement lorsque nous spécifions les menus.
+
+ex.:
+
+| EN | FR |
+| --- | --- |
+| Please configure your {docsLink} in the System Console or in gitlab.rb if you're using GitLab Mattermost. | Veuillez configurer votre {docsLink} dans la console système ou dans le fichier gitlab.rb si vous utilisez GitLab Mattermost. |
 
 ### Abbréviations
 
@@ -68,7 +79,7 @@ Exemple s'agrège en `ex. :`. Notez l'utilisation d'une espace après le point. 
 
 Utilisez simplement les guillemets anglophones (`"hello world"`) pour l'instant. Ici aussi, insérer des guillemets francophones dans un formulaire HTML est assez compliqué et leur utilisation n'a pas non plus été testée dans l'interface de Mattermost.
 
-### Pluriel de majesté
+### Pluriel de majesté (We couldn't...)
 
 Il s'avère quelques fois que les messages de Mattermost s'expriment en `nous` plutôt qu'en `il`, par exemple: `We couldn't check the permissions`. Une traduction telle que `Nous ne pouvons pas vérifier les permissions` est tout à fait incorrecte.
 
@@ -160,6 +171,15 @@ L'envoi par lots.
 | --- | --- |
 | Button BG | Arrière-plan du bouton |
 
+### Direct
+
+| EN | FR |
+| --- | --- |
+| Invalid user ID for direct channel creation | ID utilisateur invalide pour la création du canal de messages privés |
+| Failed to create direct channel | Impossible de créer le canal de messages privés |
+| Failed to create group channel | Impossible de créer le canal de messages de groupe |
+| Missing required direct channel property: members | La propriété requise pour un canal de messages privés est manquante: members |
+
 ### Enter / specify
 
 Ceci dépend du contexte. Si on initialise un champ pour la première fois, 
@@ -175,6 +195,10 @@ on utilise `spécifier`, si on doit introduire ses identifiants, c'est `saisir`.
 Utilisez `adresse e-mail` et non `adresse électronique`. `Adresse électronique` n'a jamais vraiment été utilisé en dehors
 de la France et tend à être rendu nébuleux à cause des protocoles récents tels que le Bitcoin
 ou la Blockchain qui, eux, utilisent une adresse que l'on qualifie d'électronique.
+
+### Emoji
+
+On privilégie `émoticône` dans la traduction de Mattermost.
 
 ### Flag
 
@@ -206,6 +230,17 @@ Bien que `permissions` et `droits` pourraient tous deux convenir, il a été cho
 | Invalid permissions to regenerate the OAuth2 App Secret | Permissions insuffisantes pour regénérer la clé secrète de l'application OAuth2 |
 | Inappropriate channel permissions | Permissions insuffisantes pour ce canal |
 
+### Pinned posts
+
+| EN | FR |
+| --- | --- |
+| We couldn't find the pinned posts | Impossible de récupérer les messages épinglés |
+
+Bien que `find` aurait pu être traduit par `trouver`, de façon à assurer une certaine cohérence avec les autres messages d'erreur de ce type, nous employons ici le verbe `récupérer`.
+
+### Private message
+
+On utilise ici la traduction `Message privé` et non `Message direct` (cf. l'utilisation de `Direct` plus haut).
 
 ### Purpose
 
