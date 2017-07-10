@@ -19,6 +19,7 @@
     * [Emoji](#emoji)
     * [Flag](#flag)
     * [Follow up](#follow-up)
+    * [Notifications](#notifications)
     * [Permissions](#permissions)
     * [Pinned posts](#pinned-posts)
     * [Private message](#private-message)
@@ -192,9 +193,11 @@ on utilise `spécifier`, si on doit introduire ses identifiants, c'est `saisir`.
 
 ### Email
 
-Utilisez `adresse e-mail` et non `adresse électronique`. `Adresse électronique` n'a jamais vraiment été utilisé en dehors
-de la France et tend à être rendu nébuleux à cause des protocoles récents tels que le Bitcoin
-ou la Blockchain qui, eux, utilisent une adresse que l'on qualifie d'électronique.
+Utilisez `adresse e-mail` et non `adresse électronique`. `Adresse électronique` n'a jamais vraiment été utilisé en dehors de la France et tend à être rendu nébuleux à cause des protocoles récents tels que le Bitcoin ou la Blockchain qui, eux, utilisent une adresse que l'on qualifie d'électronique.
+
+| EN | FR |
+| --- | --- |
+| Unable to find status of recipient for batched email notification | Impossible de trouver le statut du destinataire pour l'envoi par lot des e-mails de notification |
 
 ### Emoji
 
@@ -219,6 +222,14 @@ Il s'agit simplement des indicateurs pour suivre un message.
 | EN | FR |
 | --- | --- |
 | Follow up flag | Indicateur de suivi |
+
+### Notifications
+
+| EN | FR |
+| --- | --- |
+| Desktop notifications | Notifications de bureau |
+
+Ne pas employer `sur le bureau`.
 
 ### Permissions
 
