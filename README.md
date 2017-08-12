@@ -4,6 +4,7 @@
 * [Introduction](#introduction)
 * [Style](#style)
     * [Usage de l'impératif](#usage-de-limpratif)
+    * [Usage du futur simple](#usage-du-futur-simple)
     * [Majuscules](#majuscules)
     * [Abbréviations](#abbrviations)
     * [Guillemets](#guillemets)
@@ -11,17 +12,24 @@
     * [Traduction trop longue](#traduction-trop-longue)
     * [Gestion du pluriel](#gestion-du-pluriel)
 * [Vocabulaire](#vocabulaire)
+    * [Attach](#attach)
     * [Batch](#batch)
     * [BG](#bg)
     * [Direct](#direct)
-    * [Enter / specify](#enter--specify)
+    * [Enter / specify / input field](#enter--specify--input-field)
     * [Email](#email)
     * [Emoji](#emoji)
+    * [Endpoint](#endpoint)
+    * [FileInfos](#fileinfos)
     * [Flag](#flag)
     * [Follow up](#follow-up)
-    * [Notifications](#notifications)
+    * [Get](#get)
+    * [Hours / timezone](#hours--timezone)
+    * [Jobs](#jobs)
+    * [Notifications push / mobile / desktop](#notifications-push--mobile--desktop)
     * [Permissions](#permissions)
     * [Pinned posts](#pinned-posts)
+    * [Posted / posts / publication](#posted--posts--publication)
     * [Private message](#private-message)
     * [Purpose](#purpose)
     * [Rate limits](#rate-limits)
@@ -55,22 +63,29 @@ Si vous ne trouvez pas comment traduire un terme, regardez comment le même term
 | --- | --- |
 | Enter your credentials | **Veuillez** saisir vos informations d'identification |
 
-### Majuscules
+De façon à assouplir l'ordre, nous utiliserons `vouloir` à l'impératif avant le verbe représentant l'action à effectuer; pas de mention `s'il vous plait`.
 
-Les anglophones apprécient placer des majuscules dans des mots qu'ils considèrent composés. En français, nous n'utilisons pas de majuscules.
+### Usage du futur simple
+
+| EN | FR |
+| --- | --- |
+| When true, the OAuth 2.0 application is considered trusted by the Mattermost server | Lorsqu'activé, l'application OAuth 2.0 est considérée comme étant de confiance par le serveur | 
+
+Ne vous calquez pas sur le temps utilisé dans la version anglaise. Selon une petite étude menée avec des francophones natifs, utiliser l'indicatif futur simple donne l’impression d’une fonctionnalité documentée mais pas encore implémentée.
+
+L'indicatif présent (ici à la voix passive) sonne plus naturellement et semble moins étrange. L'important est ici encore de garder une certaine cohérence. Notre traduction utilise le plus possible de l'indicatif présent; utiliser un temps passé ou futur est, la plupart du temps, à proscrire.
+
+### Majuscules
 
 | EN | FR |
 | --- | --- |
 | System Console |Console **s**ystème |
 | Private Messages | Messages **p**rivés |
+| Please configure your {docsLink} in the System Console or in gitlab.rb if you're using GitLab Mattermost. | Veuillez configurer votre {docsLink} dans la console système ou dans le fichier gitlab.rb si vous utilisez GitLab Mattermost. |
+
+Les anglophones apprécient placer des majuscules dans des mots qu'ils considèrent composés. En français, nous n'utilisons pas de majuscules.
 
 De même, en plein milieu d'une phrase de description de fonctionnalité, comme `Aller dans la console système`, nous ne plaçons pas de majuscules. Nous en plaçons uniquement lorsque nous spécifions les menus.
-
-ex.:
-
-| EN | FR |
-| --- | --- |
-| Please configure your {docsLink} in the System Console or in gitlab.rb if you're using GitLab Mattermost. | Veuillez configurer votre {docsLink} dans la console système ou dans le fichier gitlab.rb si vous utilisez GitLab Mattermost. |
 
 ### Abbréviations
 
@@ -112,31 +127,23 @@ En place de `matches` peuvent donc se trouver un ou plusieurs des mots clés sui
 
 Pour illustrer le [fonctionnement de cette bibliothèque](https://formatjs.io/guides/message-syntax/#plural-format), prenons les exemples suivants.
 
-    New {count, plural, one {message} other {messages}} below
+    New {count, plural, one {message} other {messages}}
 
-donne au sein de l'interface `New message below` au singulier et `New messages below` pour le pluriel.
+donne au sein de l'interface `New message` au singulier et `New messages` pour le pluriel.
 
-En français, 2 versions de traduction sont nécessaires également. Une pour le singulier (`Nouveau message ci-dessous`) et l'autre pour le pluriel (`Nouveaux messages ci-dessous`).
+En français, 2 versions de traduction sont nécessaires également. Une pour le singulier (`Nouveau message`) et l'autre pour le pluriel (`Nouveaux messages`).
 
 Dans le syntaxe de formatjs, ceci donne la déclaration suivante:
 
-    {count, plural, one {Nouveau message} other {Nouveaux messages}} ci-dessous
+    {count, plural, one {Nouveau message} other {Nouveaux messages}}
 
 Un autre exemple:
 
-    {count} {count, plural, =0 {0 members} one {member} other {members}} of {total} total
+    {count, number} {count, plural, one {user} other {users}} of {total, number} total
 
-    {count} {count, plural, =0 {0 canal} one {canal} other {canaux}}
+    {count, number} {count, plural, one {utilisateur} other {utilisateurs}} d'un total de {total, number}
 
-Produira les 2 traductions suivantes: `0 canal` vs `1 canal` vs `x canaux`.
-
-Un autre exemple:
-
-    {count} {count, plural, =0 {0 members} one {member} other {members}} of {total} total
-
-    {count} {count, plural, =0 {0 membre} one {membre} other {membres}} d'un total de {total}
-
-Produira les 3 traductions suivantes: `0 membre d'un total de x` vs `1 membre d'un total de x` vs `x membres d'un total de x`.
+Produira les 2 traductions suivantes: `1 utilisateur d'un total de x` vs `x membres d'un total de x`.
 
 Un autre exemple:
 
@@ -156,21 +163,34 @@ Ici, il est question d'un changement important, la tournure de phrase ne se trad
 
 ## Vocabulaire
 
-### Batch
+### Attach
 
-L'envoi par lots.
+| EN | FR |
+| --- | --- |
+| Error attaching files to post. postId=%v, fileIds=%v, message=%v | Une erreur s'est produite lors du lien des fichiers au message. postId=%v, fileIds=%v, message=%v |
+| Unable to attach emoji data to request | Impossible de lier une émoticône à la requête |
+| Attaching Files | Joindre des fichiers |
+| To import posts with attached files, see {slackAdvancedExporterLink} for details. | Pour importer des messages avec fichiers joints, voir {slackAdvancedExporterLink} pour plus de détails. |
+
+En parlant de pièces jointes (`attachments`) et donc de fichiers, utilisez le terme `joint`/`joindre`.
+
+Dans le cas contraire, utilisez le plus possible la mention de `lien`. En effet, nous utilisons déjà le terme `joindre`/`rejoindre` dans le cas d'un utilisateur joignant/quittant un canal.
+
+### Batch
 
 | EN | FR |
 | --- | --- |
 | Email batching job's receiving channel was full. Please increase the EmailBatchingBufferSize. | Le canal recevant les e-mail envoyés par lot est plein. Veuillez augmenter le paramètre EmailBatchingBufferSize. |
 
-### BG
+L'envoi par lots.
 
-`BG` correspond à `background`. On n'utilise pas `fond` mais bien `arrière-plan`.
+### BG
 
 | EN | FR |
 | --- | --- |
 | Button BG | Arrière-plan du bouton |
+
+`BG` correspond à `background`. On n'utilise pas `fond` mais bien `arrière-plan`.
 
 ### Direct
 
@@ -181,33 +201,44 @@ L'envoi par lots.
 | Failed to create group channel | Impossible de créer le canal de messages de groupe |
 | Missing required direct channel property: members | La propriété requise pour un canal de messages privés est manquante: members |
 
-### Enter / specify
-
-Ceci dépend du contexte. Si on initialise un champ pour la première fois, 
-on utilise `spécifier`, si on doit introduire ses identifiants, c'est `saisir`.
+### Enter / specify / input field
 
 | EN | FR |
 | --- | --- |
-| Please enter your email | Veuillez **saisir** votre adresse e-mail |
+| Please enter your email | Veuillez **spécifier** votre adresse e-mail |
 | Please enter an email address | Veuillez **spécifier** une adresse e-mail |
+| SHIFT+DOWN (in input field): Highlight text to the next line\n | MAJ+BAS (dans le champ de saisie) : Sélectionne le texte jusqu'à la ligne suivante\n |
+| Delete a message by clicking the **[...]** icon next to any message text that you’ve composed | Supprimez un message en cliquant sur l'icône **[...]** située à côté de chaque message que vous avez composé | 
+
+Par mesure de cohérence, la règle générale est d'utiliser le terme `spécifier`. `saisir` est uniquement employé pour qualifier la `zone de saisie`.
+
+Pour ce qui est des messages qui ne spécifient pas une option : une publication, un message de texte, on utilisera le terme `composer`.
 
 ### Email
-
-Utilisez `adresse e-mail` et non `adresse électronique`. `Adresse électronique` n'a jamais vraiment été utilisé en dehors de la France et tend à être rendu nébuleux à cause des protocoles récents tels que le Bitcoin ou la Blockchain qui, eux, utilisent une adresse que l'on qualifie d'électronique.
 
 | EN | FR |
 | --- | --- |
 | Unable to find status of recipient for batched email notification | Impossible de trouver le statut du destinataire pour l'envoi par lot des e-mails de notification |
 
+Utilisez `adresse e-mail` et non `adresse électronique`. `Adresse électronique` n'a jamais vraiment été utilisé en dehors de la France et tend à être rendu nébuleux à cause des protocoles récents tels que le Bitcoin ou la Blockchain qui, eux, utilisent une adresse que l'on qualifie d'électronique.
+
 ### Emoji
 
 On privilégie `émoticône` dans la traduction de Mattermost.
+
+### Endpoint
+
+[cf. section relatives aux APIs et aux routes d'API](#Routes)
+
+### FileInfos
+
+A l'instar de [`NotifyProps`, cf. plus bas](#Notifications push / mobile / desktop), il s'agit du nom d'un objet et doit être traduit en fonction du contexte. Si le message est lié à l'API par exemple, on laissera le terme FileInfos; dans le cas où le message est destiné à l'utilisateur final, on traduira par `informations du fichiers`.
 
 ### Flag
 
 | EN | FR |
 | --- | --- |
-| Flagged Posts | Messages marqués d'un indicateur |
+| Flagged Posts | Publications marquées d'un indicateur |
 | Flag | Marquer avec un indicateur |
 | Flag | Ajouter un indicateur |
 | Flag | Marquer |
@@ -217,23 +248,55 @@ Remarquons que plusieurs traductions pour `flag` ont été utilisées ci-dessus.
 
 ### Follow up
 
-Il s'agit simplement des indicateurs pour suivre un message. 
-
 | EN | FR |
 | --- | --- |
 | Follow up flag | Indicateur de suivi |
 
-### Notifications
+Il s'agit simplement des indicateurs pour suivre un message. 
+
+### Get
+
+| EN | FR |
+| --- | --- |
+| We couldn't get the team members | Impossible de récupérer les membres de l'équipe |
+
+On utilise le terme `récupérer` de façon à assurer une certaine cohérence.
+
+### Hours / timezone
+
+| EN | FR |
+| --- | --- |
+| {{.SenderName}} - {{.Hour}}:{{.Minute}} {{.TimeZone}}, {{.Month}} {{.Day}} | {{.SenderName}} - {{.Day}}/{{.Month}}, {{.Hour}}:{{.Minute}} {{.Timezone}} |
+
+Le travail de traduction n'implique pas seulement une traduction bête et méchante des chaînes de caractères. Ces dernières doivent également être adaptée en fonction de la coutume ou des habitudes. Dans la francophonie, l'ordre des éléments d'une date n'est pas le même qu'en anglais. Il s'agit là tout d'un travail de localisation.
+
+Ici, en l'occurrence, on placera la date avant l'heure et les éléments de la chaîne de la data seront séparés par un slash (`/`).
+
+### Jobs
+
+| EN | FR |
+| --- | --- |
+| No indexing jobs queued. | Aucune tâche d'indexation mise en file d'attente. |
+
+Il s'agit du terme `tâche` à employer dans le jargon (cf. les `tâches planifiées` sous Windows).
+
+### Notifications push / mobile / desktop
 
 | EN | FR |
 | --- | --- |
 | Desktop notifications | Notifications de bureau |
+| Invalid Channel Trigger Notify Prop for user. | La propriété utilisateur de déclencheur de notification de canal est invalide. |
+| Invalid Comment Trigger Notify Prop for user. | La propriété utilisateur de déclencheur de notification de commentaire est invalide. |
+| Mobile Push | Notifications push sur mobile |
+| Encountered error when getting files for notification message, post_id=%v, err=%v | Une erreur s'est produite lors de la récupération des fichiers pour la notification de nouvelle publication, post_id=%v, err=%v |
 
-Ne pas employer `sur le bureau`.
+Traduisez les termes `desktop` et `mobile`. N'employez pas le terme `sur le bureau` ou `sur le mobile`.
+
+Faites que votre traduction soit claire lorsqu'il est question de `push`, mentionnez la mantion `notification` lorsqu'elle est absente et n'utilisez par le terme `poussée`. Gardez à l'esprit que notification push tend à être de plus en plus utilisé. Un terme moins employé rendra l'application plus difficile à appréhender.
+
+Considérez les termes `NotifyProps` et `Notify Props` comme semblables. Ils doivent être traduits. `notify_props` est un champ JSON, conservez le tel quel.
 
 ### Permissions
-
-Bien que `permissions` et `droits` pourraient tous deux convenir, il a été choisi de privilégier `permissions`. `Permissions invalides` est également à proscrire. Dans le cas du contexte de permissions qui nous concernne, il est en effet question de permissions qui sont trop restrictives et non de permissions d'accès invalides (ex.: permissions UNIX 775 au lieu de 770 par exemple)
 
 | EN | FR |
 | --- | --- |
@@ -241,13 +304,25 @@ Bien que `permissions` et `droits` pourraient tous deux convenir, il a été cho
 | Invalid permissions to regenerate the OAuth2 App Secret | Permissions insuffisantes pour regénérer la clé secrète de l'application OAuth2 |
 | Inappropriate channel permissions | Permissions insuffisantes pour ce canal |
 
+Bien que `permissions` et `droits` pourraient tous deux convenir, il a été choisi de privilégier `permissions`. `Permissions invalides` est également à proscrire. Dans le cas du contexte de permissions qui nous concernne, il est en effet question de permissions qui sont trop restrictives et non de permissions d'accès invalides (ex.: permissions UNIX 775 au lieu de 770 par exemple)
+
 ### Pinned posts
 
 | EN | FR |
 | --- | --- |
-| We couldn't find the pinned posts | Impossible de récupérer les messages épinglés |
+| We couldn't find the pinned posts | Impossible de récupérer les publications épinglées |
 
 Bien que `find` aurait pu être traduit par `trouver`, de façon à assurer une certaine cohérence avec les autres messages d'erreur de ce type, nous employons ici le verbe `récupérer`.
+
+### Posted / posts / publication
+
+| EN | FR |
+| --- | --- |
+| Unable to create /echo post, err=%v | Impossible de créer le message avec la commande /echo, err=%v |
+
+Un `post` ou `poste` est un anglicisme. Dans le cas de Mattermost, une publication peut être composée d'un message ou d'un objet (fichier tel que photo, etc.). Attention, selon le contexte, même si on devrait utiliser le terme publication, certaines commandes ou fonctionnalités ne sont en réalité que des messages (texte), ex.:
+
+En effet la commande slash `echo` ne publie que du texte, il est donc question de message ici. Faites donc attention et veuillez à vous documenter lorsque vous tentez de traduire des parties du logiciel faisant appel à des fonctionnalités que vous ne maîtrisez pas totalement.
 
 ### Private message
 
@@ -259,28 +334,29 @@ On utilise ici la traduction `Message privé` et non `Message direct` (cf. l'uti
 
 ### Rate limits
 
-Souvent employé pour désigner une limite de taux. Dans le contexte de Mattermost, il s'agit d'un taux pour limiter le nombre d'appels sur l'API Mattermost que l'utilisateur peut faire dans un temps donné par exemple.
-
-Bien que rencontré parfois dans les domaines du réseau, ce concept de limite n'est pas facile à exprimer en français. Si vous disposez d'une traduction plus appropriée, merci de nous en faire part.
-
 | EN | FR |
 | --- | --- |
 | Invalid memory store size for rate limit settings. Must be a positive number | Taille du stockage mémoire invalide pour les paramètres de limite de fréquence. Doit être un entier positif. |
 | Unable to initialize rate limiting. | Impossible d'initialiser le taux de limite d'appel sur l'API. |
 
-### Routes
+Souvent employé pour désigner une limite de taux. Dans le contexte de Mattermost, il s'agit d'un taux pour limiter le nombre d'appels sur l'API Mattermost que l'utilisateur peut faire dans un temps donné par exemple.
 
-Bien que ces messages devraient être principalement être vus par du personnel technique et donc sachant parler anglais, il est toutefois préférable de les traduire.
+Bien que rencontré parfois dans les domaines du réseau, ce concept de limite n'est pas facile à exprimer en français. Si vous disposez d'une traduction plus appropriée, merci de nous en faire part.
+
+### Routes
 
 | EN | FR |
 | --- | --- |
 | Initializing team API routes | Initialisation des routes de l'API équipe |
+| Auth Endpoint: | Noeud d'authentification (auth endpoint) |
 
-Il faut voir une API comme un arbre ou chaque branche est appelée `route` et chaque embranchement (y compris le tout dernier placé en feuille) est appelé un `noeud`.
+Bien que ces messages devraient être principalement être vus par du personnel technique et donc sachant parler anglais, il est toutefois préférable de les traduire.
 
-Microsoft, dans le cadre de sa plateforme .NET, possède une des rares documentations techniques traduites intégralement en français. Dans le cas qui nous préoccupe, un [article en anglais sur le sujet qui nous préoccupe](https://msdn.microsoft.com/en-us//library/cc668201(v=vs.100).aspx) dispose d'[une correspondance française](https://msdn.microsoft.com/en-us//library/cc668201(v=vs.100).aspx).
+Il faut voir une API comme un arbre ou chaque branche est appelée `route` et chaque embranchement (y compris le tout dernier placé en feuille) est appelé un `noeud`. Dans le cas d'une feuille, on appelle souvent ce noeud particulier le `noeud de terminaison` (`endpoint` en anglais). Ici, à cause de l'espace restreint, nous supprimons le terme `de terminaison`. Il est parfois utile de repréciser le terme anglais original; les guides et tutoriels en ligne sont souvent en anglais, avoir le terme en anglais, facilite la correspondance.
 
-On utilise le terme `routage` que dans ce cas-ci :
+Microsoft, dans le cadre de sa plateforme .NET, possède une des rares documentations techniques traduites intégralement en français. Un [article en anglais sur le sujet qui nous préoccupe](https://msdn.microsoft.com/en-us//library/cc668201(v=vs.100).aspx) dispose d'[une correspondance française](https://msdn.microsoft.com/en-us//library/cc668201(v=vs.100).aspx).
+
+On utilise le terme `routage` uniquement dans ce cas-ci :
 
 | EN | FR |
 | --- | --- |
@@ -290,7 +366,7 @@ Pour tout le reste, Microsoft utilise au choix : `route` ou `itinéraire`. Dans 
 
 De même, toujours basé sur l'exemple `Initializing team API routes`, nous n'utilisons pas de pluriel pour qualifier le noeud, ni nous n'utilisons de prépositions de lien.
 
-Les propositions suivantes sont donc invalides et seront refusées dans Mattermost:
+Les propositions suivantes seront donc considérées comme invalides et seront refusées dans Mattermost:
 
 > Initialisation des routes de l'API d'équipe
 
@@ -302,7 +378,7 @@ Les propositions suivantes sont donc invalides et seront refusées dans Mattermo
 
 ### Slash commands
 
-Il s'agit des commandes que vous saisissez lorsque vous commencez votre message par un slash dans Mattermost. La décision a été de traduire ce terme par `commandes slash`.
+Il s'agit des commandes que vous spécifiez lorsque vous commencez votre message par un slash dans Mattermost. La décision a été de traduire ce terme par `commandes slash`.
 
 ### SSO
 
