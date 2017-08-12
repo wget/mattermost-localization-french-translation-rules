@@ -3,12 +3,12 @@
 <!-- vim-markdown-toc GFM -->
 * [Introduction](#introduction)
 * [Style](#style)
-    * [Usage de l'impératif](#usage-de-limpratif)
+    * [Usage de l'impératif](#usage-de-limpératif)
     * [Usage du futur simple](#usage-du-futur-simple)
     * [Majuscules](#majuscules)
-    * [Abbréviations](#abbrviations)
+    * [Abbréviations](#abbréviations)
     * [Guillemets](#guillemets)
-    * [Pluriel de majesté (We couldn't...)](#pluriel-de-majest-we-couldnt)
+    * [Pluriel de majesté (We couldn't...)](#pluriel-de-majesté-we-couldnt)
     * [Traduction trop longue](#traduction-trop-longue)
     * [Gestion du pluriel](#gestion-du-pluriel)
 * [Vocabulaire](#vocabulaire)
@@ -71,7 +71,7 @@ De façon à assouplir l'ordre, nous utiliserons `vouloir` à l'impératif avant
 | --- | --- |
 | When true, the OAuth 2.0 application is considered trusted by the Mattermost server | Lorsqu'activé, l'application OAuth 2.0 est considérée comme étant de confiance par le serveur | 
 
-Ne vous calquez pas sur le temps utilisé dans la version anglaise. Selon une petite étude menée avec des francophones natifs, utiliser l'indicatif futur simple donne l’impression d’une fonctionnalité documentée mais pas encore implémentée.
+Ne vous calquez pas sur le temps utilisé dans la version anglaise. [Selon une petite étude menée avec des francophones natifs](https://irc.died.re/2017/08/12/#line-536), utiliser l'indicatif futur simple donne l’impression d’une fonctionnalité documentée mais pas encore implémentée.
 
 L'indicatif présent (ici à la voix passive) sonne plus naturellement et semble moins étrange. L'important est ici encore de garder une certaine cohérence. Notre traduction utilise le plus possible de l'indicatif présent; utiliser un temps passé ou futur est, la plupart du temps, à proscrire.
 
