@@ -70,10 +70,21 @@ De façon à assouplir l'ordre, nous utiliserons `vouloir` à l'impératif avant
 | EN | FR |
 | --- | --- |
 | When true, the OAuth 2.0 application is considered trusted by the Mattermost server | Lorsqu'activé, l'application OAuth 2.0 est considérée comme étant de confiance par le serveur | 
+| The URL for the About link on the Mattermost login and sign-up pages. If this field is empty, the About link is hidden from users. | L'URL vers la page À propos apparaissant sur les pages de connexion et d'enregistrement de Mattermost. Si ce champ est laissé vide, le lien sera masqué pour les utilisateurs. |
+| Slack Import: Channel {{.ChannelName}} header exceeds the maximum length. It will be truncated when imported. | Importateur Slack : L'entête du canal {{.ChannelName}} excède la longueur maximale. Il sera tronqué lors de l'importation. |
+| (Optional) The attribute in the AD/LDAP server that will be used to populate the first name of users in Mattermost. When set, users will not be able to edit their first name, since it is synchronized with the LDAP server. When left blank, users can set their own first name in Account Settings. | (Optionnel) L'attribut dans le serveur AD/LDAP qui est utilisé pour les prénoms des utilisateurs de Mattermost. Lorsque défini, les utilisateurs ne peuvent pas éditer leur prénom étant donné qu'il est alors synchronisé avec le serveur LDAP. Lorsque laissé vide, les utilisateurs peuvent définir leur propre prénom dans les paramètres du compte. |
 
 Ne vous calquez pas sur le temps utilisé dans la version anglaise. [Selon une petite étude menée avec des francophones natifs](https://irc.died.re/2017/08/12/#line-536), utiliser l'indicatif futur simple donne l’impression d’une fonctionnalité documentée mais pas encore implémentée.
 
 L'indicatif présent (ici à la voix passive) sonne plus naturellement et semble moins étrange. L'important est ici encore de garder une certaine cohérence. Notre traduction utilise le plus possible de l'indicatif présent; utiliser un temps passé ou futur est, la plupart du temps, à proscrire.
+
+Dans tous les cas, veuillez conserver une concordance des temps correcte. [Pour rappel](https://www.francaisfacile.com/exercices/exercice-francais-2/exercice-francais-15267.php):
+
+* si + présent -> futur simple (ou présent) =>Si tu veux, je viendrai / je viens. (selon le contexte)
+
+* si + imparfait -> conditionnel présent => Si tu voulais, tu pourrais.
+
+* si + plus-que-parfait -> conditionnel passé => Si tu avais voulu, tu aurais pu.
 
 ### Majuscules
 
