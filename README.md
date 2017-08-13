@@ -3,6 +3,7 @@
 <!-- vim-markdown-toc GFM -->
 * [Introduction](#introduction)
 * [Style](#style)
+    * [Jargon](#jargon)
     * [Usage de l'impératif](#usage-de-limpératif)
     * [Usage du futur simple](#usage-du-futur-simple)
     * [Majuscules](#majuscules)
@@ -28,7 +29,6 @@
     * [Jobs](#jobs)
     * [Notifications push / mobile / desktop](#notifications-push--mobile--desktop)
     * [Permissions](#permissions)
-    * [Pinned posts](#pinned-posts)
     * [Posted / posts / publication](#posted--posts--publication)
     * [Private message](#private-message)
     * [Purpose](#purpose)
@@ -56,6 +56,23 @@ Le nombre de chaînes à traduire étant assez élevé au sein du projet Matterm
 Si vous ne trouvez pas comment traduire un terme, regardez comment le même terme a été traduit les fois précédentes, regardez sur l'[ancien glossaire créé par Sun](https://glossaire.traduc.org), ou posez votre question sur [le canal Mattermost de traduction francophone](https://pre-release.mattermost.com/core/channels/french-localization).
 
 ## Style
+
+### Jargon
+
+Mattermost est utilisé pour envoyer des `messages`. Ces messages peuvent être composés de texte et/ou d'objets tels que des fichiers (images, documents, émoticônes, etc.).
+
+Mattermost distingue 2 types de messages:
+
+* les publications qui sont les messages parents qui débutent un fil de discussion;
+* les réponses qui sont les messages répondant à un message parent (publication) dans un fil de discusion.
+
+Si un utilisateur répond à un message sans passer par la fonctionalité de fil de discusion dans la barre latérale de droite, son message sera considéré comme une publication et ouvrira un nouveau fil.
+
+On `envoie` un message et on `publie` une publication.
+
+On `compose` un message, une publication ou une réponse.
+
+cf. [Posted / posts / publication](#posted--posts--publication)
 
 ### Usage de l'impératif
 
@@ -229,7 +246,7 @@ Pour ce qui est des messages qui ne spécifient pas une option : une publication
 
 | EN | FR |
 | --- | --- |
-| Unable to find status of recipient for batched email notification | Impossible de trouver le statut du destinataire pour l'envoi par lot des e-mails de notification |
+| Unable to find status of recipient for batched email notification | Impossible de trouver le statut du destinataire pour l'envoi par lot des notifications par e-mail |
 
 Utilisez `adresse e-mail` et non `adresse électronique`. `Adresse électronique` n'a jamais vraiment été utilisé en dehors de la France et tend à être rendu nébuleux à cause des protocoles récents tels que le Bitcoin ou la Blockchain qui, eux, utilisent une adresse que l'on qualifie d'électronique.
 
@@ -300,10 +317,13 @@ Il s'agit du terme `tâche` à employer dans le jargon (cf. les `tâches planifi
 | Invalid Comment Trigger Notify Prop for user. | La propriété utilisateur de déclencheur de notification de commentaire est invalide. |
 | Mobile Push | Notifications push sur mobile |
 | Encountered error when getting files for notification message, post_id=%v, err=%v | Une erreur s'est produite lors de la récupération des fichiers pour la notification de nouvelle publication, post_id=%v, err=%v |
+| Invalid Email Notify Prop value for user. | La valeur de la propriété de notification par e-mail est invalide pour l'utilisateur. |
 
 Traduisez les termes `desktop` et `mobile`. N'employez pas le terme `sur le bureau` ou `sur le mobile`.
 
 Faites que votre traduction soit claire lorsqu'il est question de `push`, mentionnez la mantion `notification` lorsqu'elle est absente et n'utilisez par le terme `poussée`. Gardez à l'esprit que notification push tend à être de plus en plus utilisé. Un terme moins employé rendra l'application plus difficile à appréhender.
+
+Veillez à placer la mention `notification` en premier lieu, de façon à rester cohérent avec les termes tels que `notifications push` et `notifications mobiles`. Il s'agit donc bien d'une `notification par e-mail` et non d'un `e-mail de notification`.
 
 Considérez les termes `NotifyProps` et `Notify Props` comme semblables. Ils doivent être traduits. `notify_props` est un champ JSON, conservez le tel quel.
 
@@ -317,23 +337,24 @@ Considérez les termes `NotifyProps` et `Notify Props` comme semblables. Ils doi
 
 Bien que `permissions` et `droits` pourraient tous deux convenir, il a été choisi de privilégier `permissions`. `Permissions invalides` est également à proscrire. Dans le cas du contexte de permissions qui nous concernne, il est en effet question de permissions qui sont trop restrictives et non de permissions d'accès invalides (ex.: permissions UNIX 775 au lieu de 770 par exemple)
 
-### Pinned posts
-
-| EN | FR |
-| --- | --- |
-| We couldn't find the pinned posts | Impossible de récupérer les publications épinglées |
-
-Bien que `find` aurait pu être traduit par `trouver`, de façon à assurer une certaine cohérence avec les autres messages d'erreur de ce type, nous employons ici le verbe `récupérer`.
-
 ### Posted / posts / publication
 
 | EN | FR |
 | --- | --- |
 | Unable to create /echo post, err=%v | Impossible de créer le message avec la commande /echo, err=%v |
+| We couldn't find the pinned posts | Impossible de récupérer les messages épinglés |
+| Failed to post update channel header message | Impossible de publier le message indiquant le changement de l'entête du canal |
+| Go to Post | Aller au message |
 
-Un `post` ou `poste` est un anglicisme. Dans le cas de Mattermost, une publication peut être composée d'un message ou d'un objet (fichier tel que photo, etc.). Attention, selon le contexte, même si on devrait utiliser le terme publication, certaines commandes ou fonctionnalités ne sont en réalité que des messages (texte), ex.:
+Un `post` ou `poste` est un anglicisme. La règle générale est de garer la mention `message` et le verbe `envoyer` plutôt que `publier`.
 
-En effet la commande slash `echo` ne publie que du texte, il est donc question de message ici. Faites donc attention et veuillez à vous documenter lorsque vous tentez de traduire des parties du logiciel faisant appel à des fonctionnalités que vous ne maîtrisez pas totalement.
+Dans de très rares cas, comme lorsqu'on parle d'un fil de discusion, on parlera de `publication`.
+
+Notez que pour `Go to Post`, étant donné que ce texte concerne tous types de messages, il n'est pas visible uniquement pour les publications, mais pour tous les messages. Faites donc attention et veuillez à vous documenter lorsque vous tentez de traduire des parties du logiciel faisant appel à des fonctionnalités que vous ne maîtrisez pas totalement.
+
+Lorsqu'un message est publié par un utilisateur, on dit qu'il est `envoyé`, lorsque le message est publié par le système (message `join`/`leave`/changement d'entête), on dit qu'il est `publié`.
+
+Concernant les messages épinglés, bien que `find` aurait pu être traduit par `trouver`, de façon à assurer une certaine cohérence avec les autres messages d'erreur de ce type, nous employons ici le verbe `récupérer` (cf. [Get](#Get) plus haut).
 
 ### Private message
 
