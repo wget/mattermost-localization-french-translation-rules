@@ -62,6 +62,7 @@ Si vous ne trouvez pas comment traduire un terme, regardez comment le même term
 La traduction francophone est déjà dans un très bon état. Parmi les points à améliorer pour les prochaines versions:
 
 * Utiliser l'espace fine insécable plutôt que l'espace fine, souvent source d'erreurs (cf. [bug chromium](https://bugs.chromium.org/p/chromium/issues/detail?id=346096)) [cf. le rapport sur l'espace fine insécable auquel j'avais contribué en son temps](http://malizor.org/public/fines/fines.pdf).
+* Remplacer les guillemets américains par leur version francophone.
 * L'instauration de la fonctionnalité des groupes privés casse d'une certaine manière la façon dont les messages privés avec une personne en particulier avaient été traduits dans Mattermost (`canaux privés` et `messages privés`). Sur Twitter, la fonctionnalité de messages directs est traduite par `message privé`, mais ne disposant que de cette fonctionnalité, cela ne lui porte pas préjudice. L'idée est donc de traduire à l'instar de la version anglaise de Mattermost vers `messages directs` ou `messages personnels`.
 
 ## Style
