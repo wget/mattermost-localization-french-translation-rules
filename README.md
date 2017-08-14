@@ -2,6 +2,7 @@
 
 <!-- vim-markdown-toc GFM -->
 * [Introduction](#introduction)
+* [Points à améliorer](#points-à-améliorer)
 * [Style](#style)
     * [Jargon](#jargon)
     * [Usage de l'impératif](#usage-de-limpératif)
@@ -55,6 +56,13 @@ Enfin, veuillez prendre la peine de lire ces quelques règles de traduction à r
 Le nombre de chaînes à traduire étant assez élevé au sein du projet Mattermost, si vous trouvez des traductions qui ne respectent pas ces quelques règles, merci de proposer une correction dans l'[interface Pootle de traduction](http://translate.mattermost.com/fr/).
 
 Si vous ne trouvez pas comment traduire un terme, regardez comment le même terme a été traduit les fois précédentes, regardez sur l'[ancien glossaire créé par Sun](https://glossaire.traduc.org), ou posez votre question sur [le canal Mattermost de traduction francophone](https://pre-release.mattermost.com/core/channels/french-localization).
+
+## Points à améliorer
+
+La traduction francophone est déjà dans un très bon état. Parmi les points à améliorer pour les prochaines versions:
+
+* Utiliser l'espace fine insécable plutôt que l'espace fine, souvent source d'erreurs (cf. [bug chromium](https://bugs.chromium.org/p/chromium/issues/detail?id=346096)) [cf. le rapport sur l'espace fine insécable auquel j'avais contribué en son temps](http://malizor.org/public/fines/fines.pdf).
+* L'instauration de la fonctionnalité des groupes privés casse d'une certaine manière la façon dont les messages privés avec une personne en particulier avaient été traduits dans Mattermost (`canaux privés` et `messages privés`). Sur Twitter, la fonctionnalité de messages directs est traduite par `message privé`, mais ne disposant que de cette fonctionnalité, cela ne lui porte pas préjudice. L'idée est donc de traduire à l'instar de la version anglaise de Mattermost vers `messages directs` ou `messages personnels`.
 
 ## Style
 
