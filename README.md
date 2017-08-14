@@ -12,6 +12,7 @@
     * [Pluriel de majesté (We couldn't...)](#pluriel-de-majesté-we-couldnt)
     * [Traduction trop longue](#traduction-trop-longue)
     * [Gestion du pluriel](#gestion-du-pluriel)
+* [Outils pour le traducteur](#outils-pour-le-traducteur)
 * [Vocabulaire](#vocabulaire)
     * [Attach](#attach)
     * [Batch](#batch)
@@ -188,6 +189,20 @@ Un autre exemple:
     {count, plural, one {Chaque minute} other {Toutes les {count, number} minutes}}
 
 Ici, il est question d'un changement important, la tournure de phrase ne se traduit pas du tout de la même façon suivant qu'il s'agisse du singulier ou du pluriel: `Chaque minute` vs `Toutes les x minutes`.
+
+## Outils pour le traducteur
+
+[La communauté francophone de KDE](https://fr.l10n.kde.org/pology.php) utilise un outil écrit en python appelé "pology". Cet outil permet d'effectuer toutes sortes d'opérations sur des fichiers po (gettext). Pour en savoir davantage sur les fonctinnalités de pology, [veuillez lire sa documentation](http://pology.nedohodnik.net//doc/user/en_US/index-mono.html).
+
+Installez le paquet correspondant à pology sous votre distribution (sous Arch Linux, utilisez [pology-svn](https://aur.archlinux.org/packages/pology-svn/)) ou clonez le dépôt SVN:
+
+    svn co svn://anonsvn.kde.org/home/kde/trunk/l10n-support/pology
+
+Pour vous assurer que votre traduction dispose d'espaces insécables, ce qui est vivement recommandé en français, téléchargez les fichiers .po de l'instance pootle et exécutez pology de faon à ajouter automatiquement des espaces insécables sur le fichier .po (! le fichier sera modifié, pensez à faire une sauvegarde avant):
+
+    /usr/share/pology/scripts/posieve.py fr:setUbsp ./web_static.po
+
+Les autres commandes de pology telles que `check_rules`, `check_spell`, `check_grammar` et `find_messages` n'ont soit pas été testées, soit ne sont pas compatibles à cause du fait que les chaînes de Mattermost disposent d'une syntaxe particulière propres à la façon dont le langage Go souhaite que les variables soient affichées. La présence de `{{.varName}}`, par exemple, est considérée comme une erreur par pology.
 
 ## Vocabulaire
 
