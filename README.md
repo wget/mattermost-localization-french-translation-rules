@@ -62,7 +62,29 @@ Enfin, veuillez prendre la peine de lire ces quelques règles de traduction à r
 
 Le nombre de chaînes à traduire étant assez élevé au sein du projet Mattermost, si vous trouvez des traductions qui ne respectent pas ces quelques règles, merci de proposer une correction dans l'[interface Pootle de traduction](http://translate.mattermost.com/fr/).
 
-Si vous ne trouvez pas comment traduire un terme, regardez comment le même terme a été traduit les fois précédentes, regardez sur l'[ancien glossaire créé par Sun](https://glossaire.traduc.org), ou posez votre question sur [le canal Mattermost de traduction francophone](https://pre-release.mattermost.com/core/channels/french-localization).
+Si vous ne trouvez pas comment traduire un terme, regardez comment le même terme a été traduit les fois précédentes, regardez sur le [glossaire de Traduc.org (organisation de volontaires de traducteurs francophones pour logiciels libres)](https://glossaire.traduc.org), ou posez votre question sur [le canal Mattermost de traduction francophone](https://pre-release.mattermost.com/core/channels/french-localization).
+
+## Commentaires pour les traducteurs
+
+Pootle supporte l'ajout de commentaires permettant d'aider le traducteur. Ils sont utiles pour préciser à l'utilisateur si une chaîne doit se traduire à l'infinitif ou à l'impératif par exemple. En effet, en anglais il n'y a aucune différence entre ces deux formes, seul le contexte et la cohérence du reste de la boite de dialogue nous permettent de choisir un temps plutôt qu'un autre.
+
+![Exemple de commentaire Pootle](pootle_comments_0001.png)
+
+Ces commentaires peuvent être ajoutés par le biais de Pootle ou par le biais de tout autre logiciel supportant les fichiers .po (gettext). Ils sont en effet sauvegardés au sein du fichier.
+
+Cependant, veuillez garder à l'esprit que ces commentaires doivent être courts.
+
+**Veuillez ne pas placer de retours à la ligne** insérés par `CTRL+ENTREE` dans ces commentaires. Le caractère produit `^M` (ou `0d` (zero d) en hexadecimal) n'est pas reconnu par `po2i18n` lorsqu'il est placé en début de ligne de commentaire. `po2i18n` fait partie de [Mattermosti18n](https://github.com/rodcorsi/mattermosti18n), une suite d'utilitaires écrits en Go, utilisés par Mattermost pour convertir les fichiers .po en fichiers JSON et inversément. Ces retours à la ligne créent également des problèmes avec l'instance Pootle utilisée par Mattermost. Une fois des commentaires avec des retours à la ligne ajoutés, même si ces commentaires sont supprimés par après, [ils sont toujours conservés dans les fichiers .po](https://pre-release.mattermost.com/core/pl/xw9j5r1uij8hxn8j35ippztxsh). Le responsable de Mattermost doit alors modifier le fichier manuellement. Nous ne savons pas quelle pourrait être la cause de ce problème; nous ne parvenons pas à reproduire le problème sur une installation fraîche de Pootle utilisée localement.
+
+## Traduction hors ligne
+
+Bien que l'instance Pootle utilisée par Mattermost offre la possibilité de télécharger les fichiers .po afin de les tester sur une instance de test de Mattermost, le responsable technique de Mattermost [a désactivé manuellement](https://pre-release.mattermost.com/core/pl/9x5msk5iuifuxfm8wyjadsdyec) la possibilité d'envoyer et remplacer les traductions par nos propres fichiers .po sur la plateforme pour les raisons suivantes.
+
+* Toutes les chaînes sont marquées comme `traduites` après que le fichier ait été envoyé, même si des chaînes n'ont pas été traduites;
+* Les traductions peuvent être périmées entre le moment auquel le contributeur télécharge son fichier et renvoie le fichier sur Pootle;
+* Renvoyer les fichiers sur la plateforme écrase la version précédente; dans le cas d'un problème, comme celui évoqué au point précédent avec les commentaires, il faut qu'un développeur puisse restaurer le fichier dans le cas où il se rend compte que la convertion .po -> JSON échoue. Mattermost ne peut pas garantir qu'un développeur dispose du temps nécessaire pour affectuer cette action.
+
+C'est pourquoi, même si ces raisons sont discutables lorsqu'un contributeur agit en âme et conscience, la seule façon de traduire, c'est en ligne par le biais de l'instance Pootle mise à disposition. Les traductions hors lignes ne sont pas possibles.
 
 ## Insertion de caractères unicodes
 
