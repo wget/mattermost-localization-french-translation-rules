@@ -2,6 +2,13 @@
 
 <!-- vim-markdown-toc GFM -->
 * [Introduction](#introduction)
+* [Commentaires pour les traducteurs](#commentaires-pour-les-traducteurs)
+* [Traduction hors ligne](#traduction-hors-ligne)
+* [Insertion de caractères unicodes](#insertion-de-caractères-unicodes)
+    * [Introduction](#introduction-1)
+    * [Touche compose](#touche-compose)
+    * [Table de caractères](#table-de-caractères)
+    * [Code des caractères](#code-des-caractères)
 * [Points à améliorer](#points-à-améliorer)
 * [Style](#style)
     * [Jargon](#jargon)
@@ -57,11 +64,63 @@ Le nombre de chaînes à traduire étant assez élevé au sein du projet Matterm
 
 Si vous ne trouvez pas comment traduire un terme, regardez comment le même terme a été traduit les fois précédentes, regardez sur l'[ancien glossaire créé par Sun](https://glossaire.traduc.org), ou posez votre question sur [le canal Mattermost de traduction francophone](https://pre-release.mattermost.com/core/channels/french-localization).
 
+## Insertion de caractères unicodes
+
+### Introduction
+
+Cette section est utile pour savoir comment insérer un caractère tel que les guillemets français ou l'espace fine insécable, deux caractères nécessaires à la traduction francophone de Mattermost.
+
+Pour savoir comment insérer un caractère unicode, la meilleure façon est de taper son caractère unicode ou d'utiliser la touche compose. Pour ce faire, veuillez vous référer à [la page Wikipedia en question (en englais)](https://en.wikipedia.org/wiki/Unicode_input#Hexadecimal_code_input). En fonction des systèmes d'exploitation, des bibliothèques logicielles et des composants de d'entrée système (Wayland/Xorg), la méthode diffère.
+
+Si vous utilisez Firefox ou Chrome/Chromium sous Linux, étant donné que ces logiciels sont basés sur GTK, outre la touche compose, vous pouvez utiliser `Ctrl+Maj` suivi de `u` et du code hexadécimal (ex.: `202f` pour l'espace fine insécable).
+
+### Touche compose
+
+Comme expliqué dans l'article Wikipedia, les utilisateurs de KDE ou de programmes écrits à l'aide de la bibliothèque Qt, doivent utiliser la touche compose. Cette derière peut être liée à une touche de clavier que vous pouvez spécifier parmi une liste de touches prédéfinies. Ce lien s'effectue dans les paramètres sytèmes de KDE Plasma: `System Settings` > `Input Devices` > `Keyboard` > `Advanced` > `Position of Compose key` ([src.](https://unix.stackexchange.com/a/222791/146454#comment378580_222791)). La touche `Ctrl` de droite est un bon choix. Si vous spécifiez `Alt`, vous allez rentrer en conflict avec la touche `AltGr` utilisée pour placer le dièse par exemple ou tout autre caractère accessible par le 3ième niveau de touche sur les clavier francophones (Azerty belge et Azerty français).
+
+Sous Windows, il vous est également possible d'utiliser le logiciel [WinCompose](https://github.com/samhocevar/wincompose). L'espace fine insécable n'est pas supporté par défaut. Pour le supporter, ajoutez simplement un fichier dans `%USERPROFILE%\.XCompose` avec la ligne suivante:
+
+    <Multi_key> <space> <space> <space>		: " "	U202f		# NARROW NO-BREAK SPACE
+
+[Un patch a été fourni upstream](https://github.com/wget/wincompose/commit/f1fc2c301e1773a0ed517bbc165b008dbc700280) pour supporter ce caractère.
+
+Une fois le logiciel WinCompose relancé, il vous suffira de tapper sur la touche Compose (par défaut `Alt` droit, ce paramètre peut être changé dans les options de WinCompose) suivie de trois fois la touche `espace`.
+
+Sous Linux, le principe est le même, placer dans votre `$HOME`, un fichier `.XCompose` et relancez Xorg (redémarrez simplement votre machine).
+
+### Table de caractères
+
+Il est également possible de copier coller le caractère de votre choix en utilisant l'[insertion de caractères spéciaux dans LibreOffice Writer](https://help.libreoffice.org/Common/Special_Character/fr) ou d'utiliser un ogiciel de table de caractère propre à votre OS.
+
+* Sous Windows, ouvrez `charmap.exe`, cochez la case `Advanced view`, tappez le caractère que vous souhaitez en toutes lettres en anglais, cliquez sur `Search`, sélectionnez le caractère dans la table de résultats et cliquez sur `Copy`.
+
+ ![Table de caractère sous Windows](charmap_windows_10_0001.png)
+
+* En utilisant l'application KDE `kcharselect`, le principe est similaire:
+
+ ![Table de caractères sous KDE Plasma](kcharselect_plasma_0001.png)
+
+### Code des caractères
+
+Espace fine insécable (` `):
+
+* Avec la touche compose configurée précédemment: `compose+space+space+space`.
+
+Guillemets ouvrants (`« `):
+
+* Avec la touche compose configurée précédemment: `compose+<+<` suivi d'une espace fine insécable `compose+space+space+space`.
+* Sans la touche compose: lire [article wikipedia pour les guillemets](https://en.wikipedia.org/wiki/Guillemet#Typing_.22.C2.AB.22_and_.22.C2.BB.22_on_computers) et [article wikipedia pour les espace fines insécables](https://en.wikipedia.org/wiki/Non-breaking_space#Keyboard_entry_methods)
+
+Guillemets fermants (` »`):
+
+* similaire aux guillemets ouvrants, en inversant le sens et les `<` par `>`.
+
+
 ## Points à améliorer
 
 La traduction francophone est déjà dans un très bon état. Parmi les points à améliorer pour les prochaines versions:
 
-* Utiliser l'espace fine insécable plutôt que l'espace fine, souvent source d'erreurs (cf. [bug chromium](https://bugs.chromium.org/p/chromium/issues/detail?id=346096)) [cf. le rapport sur l'espace fine insécable auquel j'avais contribué en son temps](http://malizor.org/public/fines/fines.pdf).
+* Utiliser l'espace fine insécable plutôt que l'espace insécable est recommandé selon les règles typographiques francophones. Le caractère représentant l'espace fine insécable est disponible depuis la sortie de Unicode 3.0 et est bien supporté par les logiciels (cf. [le rapport sur l'utilisation de l'espace fine insécable au sein des logiciels libres](http://malizor.org/public/fines/fines.pdf)). L'espace insécable est, quant à lui, dans le monde du web et du domaine des zones de texte, souvent source d'erreurs (cf. [bug chromium](https://bugs.chromium.org/p/chromium/issues/detail?id=346096)) .
 * Remplacer les guillemets américains par leur version francophone.
 * L'instauration de la fonctionnalité des groupes privés casse d'une certaine manière la façon dont les messages privés avec une personne en particulier avaient été traduits dans Mattermost (`canaux privés` et `messages privés`). Sur Twitter, la fonctionnalité de messages directs est traduite par `message privé`, mais ne disposant que de cette fonctionnalité, cela ne lui porte pas préjudice. L'idée est donc de traduire à l'instar de la version anglaise de Mattermost vers `messages directs` ou `messages personnels`.
 
@@ -127,11 +186,11 @@ De même, en plein milieu d'une phrase de description de fonctionnalité, comme 
 
 ### Abbréviations
 
-Exemple s'agrège en `ex. :`. Notez l'utilisation d'une espace après le point. Vous devriez utiliser une espace insécable pour cette espace. Cependant, le fait que son insertion [soit assez difficile](https://fr.wikipedia.org/wiki/Espace_ins%C3%A9cable#.C3.80_la_saisie) et que son utilisation n'ait pas encore été testée au sein de Mattermost, pour l'instant il est recommandé d'utiliser des espaces simples.
+Exemple s'agrège en `ex. :`. Notez l'utilisation d'une espace après le point. Vous devriez utiliser une espace fine insécable pour cette espace (cf. [Insertion de caractères unicodes](#insertion-de-caractères-unicodes)).
 
 ### Guillemets
 
-Utilisez simplement les guillemets anglophones (`"hello world"`) pour l'instant. Ici aussi, insérer des guillemets francophones dans un formulaire HTML est assez compliqué et leur utilisation n'a pas non plus été testée dans l'interface de Mattermost.
+Utilisez les guillemets francophones (cf. [Insertion de caractères unicodes](#insertion-de-caractères-unicodes)).
 
 ### Pluriel de majesté (We couldn't...)
 
