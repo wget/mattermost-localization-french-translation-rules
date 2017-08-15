@@ -144,7 +144,7 @@ La traduction francophone est déjà dans un très bon état. Parmi les points �
 
 * Utiliser l'espace fine insécable plutôt que l'espace insécable est recommandé selon les règles typographiques francophones. Le caractère représentant l'espace fine insécable est disponible depuis la sortie de Unicode 3.0 et est bien supporté par les logiciels (cf. [le rapport sur l'utilisation de l'espace fine insécable au sein des logiciels libres](http://malizor.org/public/fines/fines.pdf)). L'espace insécable est, quant à lui, dans le monde du web et du domaine des zones de texte, souvent source d'erreurs (cf. [bug chromium](https://bugs.chromium.org/p/chromium/issues/detail?id=346096)) .
 * Remplacer les guillemets américains par leur version francophone.
-* L'instauration de la fonctionnalité des groupes privés casse d'une certaine manière la façon dont les messages privés avec une personne en particulier avaient été traduits dans Mattermost (`canaux privés` et `messages privés`). Sur Twitter, la fonctionnalité de messages directs est traduite par `message privé`, mais ne disposant que de cette fonctionnalité, cela ne lui porte pas préjudice. L'idée est donc de traduire à l'instar de la version anglaise de Mattermost vers `messages directs` ou `messages personnels`.
+* L'instauration de la fonctionnalité des groupes privés casse d'une certaine manière la façon dont les messages privés avec une personne en particulier avaient été traduits dans Mattermost (`canaux privés` et `messages privés`). Sur Twitter, la fonctionnalité de messages directs est traduite par `message privé`, mais le concept de message de groupes privés étant melé au ceoncept de message direct, cette traduction ne porte pas préjudice à Twitter. L'idée est donc de traduire à l'instar de la version anglaise de Mattermost vers `messages directs` ou `messages personnels`.
 
 ## Style
 
@@ -188,11 +188,17 @@ L'indicatif présent (ici à la voix passive) sonne plus naturellement et semble
 
 Dans tous les cas, veuillez conserver une concordance des temps correcte. [Pour rappel](https://www.francaisfacile.com/exercices/exercice-francais-2/exercice-francais-15267.php):
 
-* si + présent -> futur simple (ou présent) =>Si tu veux, je viendrai / je viens. (selon le contexte)
+* si + présent -> futur simple (ou présent)
 
-* si + imparfait -> conditionnel présent => Si tu voulais, tu pourrais.
+ `Si tu veux, je viendrai / je viens.` (selon le contexte)
 
-* si + plus-que-parfait -> conditionnel passé => Si tu avais voulu, tu aurais pu.
+* si + imparfait -> conditionnel présent
+
+  `Si tu voulais, tu pourrais.`
+
+* si + plus-que-parfait -> conditionnel passé
+
+  `Si tu avais voulu, tu aurais pu.`
 
 ### Majuscules
 
@@ -204,7 +210,7 @@ Dans tous les cas, veuillez conserver une concordance des temps correcte. [Pour 
 
 Les anglophones apprécient placer des majuscules dans des mots qu'ils considèrent composés. En français, nous n'utilisons pas de majuscules.
 
-De même, en plein milieu d'une phrase de description de fonctionnalité, comme `Aller dans la console système`, nous ne plaçons pas de majuscules. Nous en plaçons uniquement lorsque nous spécifions les menus.
+De même, en plein milieu d'une phrase de description de fonctionnalité, comme `Aller dans la console système`, nous ne plaçons pas de majuscules. Nous en plaçons uniquement lorsque nous spécifions les menus (ex.: `Paramètres du compte` > `Options avancées` > `...`).
 
 ### Abbréviations
 
@@ -282,17 +288,17 @@ Ici, il est question d'un changement important, la tournure de phrase ne se trad
 
 ## Outils pour le traducteur
 
-[La communauté francophone de KDE](https://fr.l10n.kde.org/pology.php) utilise un outil écrit en python appelé "pology". Cet outil permet d'effectuer toutes sortes d'opérations sur des fichiers po (gettext). Pour en savoir davantage sur les fonctinnalités de pology, [veuillez lire sa documentation](http://pology.nedohodnik.net//doc/user/en_US/index-mono.html).
+[La communauté francophone de KDE](https://fr.l10n.kde.org/pology.php) utilise un outil écrit en python appelé "pology". Cet outil permet d'effectuer toutes sortes d'opérations sur des fichiers po (gettext). Pour en savoir davantage sur les fonctionnalités de pology, [veuillez lire sa documentation](http://pology.nedohodnik.net//doc/user/en_US/index-mono.html).
 
 Installez le paquet correspondant à pology sous votre distribution (sous Arch Linux, utilisez [pology-svn](https://aur.archlinux.org/packages/pology-svn/)) ou clonez le dépôt SVN:
 
     svn co svn://anonsvn.kde.org/home/kde/trunk/l10n-support/pology
 
-Pour vous assurer que votre traduction dispose d'espaces insécables, ce qui est vivement recommandé en français, téléchargez les fichiers .po de l'instance pootle et exécutez pology de faon à ajouter automatiquement des espaces insécables sur le fichier .po (! le fichier sera modifié, pensez à faire une sauvegarde avant):
+Pour vous assurer que votre traduction dispose d'espaces insécables, ce qui est vivement recommandé en français, téléchargez les fichiers .po de l'instance pootle et exécutez pology de façon à ajouter automatiquement des espaces insécables sur le fichier .po (! le fichier sera modifié, pensez à faire une sauvegarde avant):
 
     /usr/share/pology/scripts/posieve.py fr:setUbsp ./web_static.po
 
-Les autres commandes de pology telles que `check_rules`, `check_spell`, `check_grammar` et `find_messages` n'ont soit pas été testées, soit ne sont pas compatibles à cause du fait que les chaînes de Mattermost disposent d'une syntaxe particulière propres à la façon dont le langage Go souhaite que les variables soient affichées. La présence de `{{.varName}}`, par exemple, est considérée comme une erreur par pology.
+Les autres commandes de pology telles que `check_rules`, `check_spell`, `check_grammar` et `find_messages` n'ont soit pas été testées, soit ne sont pas compatibles à cause de la façon dont les paramètres des chaînes de Mattermost sont représentés dans le langage Go. La présence de `{{.varName}}`, par exemple, est considérée comme une erreur par pology (un espace est requis après un point, etc.).
 
 ## Vocabulaire
 
