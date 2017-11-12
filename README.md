@@ -1,6 +1,7 @@
 # Règles pour la traduction francophone de Mattermost
 
 <!-- vim-markdown-toc GFM -->
+
 * [Introduction](#introduction)
 * [Commentaires pour les traducteurs](#commentaires-pour-les-traducteurs)
 * [Traduction hors ligne](#traduction-hors-ligne)
@@ -20,6 +21,10 @@
     * [Pluriel de majesté (We couldn't...)](#pluriel-de-majesté-we-couldnt)
     * [Traduction trop longue](#traduction-trop-longue)
     * [Gestion du pluriel](#gestion-du-pluriel)
+        * [Exemple 1](#exemple-1)
+        * [Exemple 2](#exemple-2)
+        * [Exemple 3](#exemple-3)
+        * [Exemple 4](#exemple-4)
 * [Outils pour le traducteur](#outils-pour-le-traducteur)
 * [Vocabulaire](#vocabulaire)
     * [Attach](#attach)
@@ -29,6 +34,7 @@
     * [Enter / specify / input field](#enter--specify--input-field)
     * [Email](#email)
     * [Emoji](#emoji)
+    * [Encountered](#encountered)
     * [Endpoint](#endpoint)
     * [FileInfos](#fileinfos)
     * [Flag](#flag)
@@ -36,7 +42,11 @@
     * [Get](#get)
     * [Hours / timezone](#hours--timezone)
     * [Jobs](#jobs)
+    * [Kick / ban / remove](#kick--ban--remove)
+    * [Message](#message)
     * [Notifications push / mobile / desktop](#notifications-push--mobile--desktop)
+    * [Parse / parser](#parse--parser)
+    * [Permanently](#permanently)
     * [Permissions](#permissions)
     * [Posted / posts / publication](#posted--posts--publication)
     * [Private message](#private-message)
@@ -47,6 +57,7 @@
     * [SSO](#sso)
     * [Token / secret key](#token--secret-key)
     * [Trigger](#trigger)
+    * [Worker](#worker)
 
 <!-- vim-markdown-toc -->
 
@@ -74,17 +85,17 @@ Ces commentaires peuvent être ajoutés par le biais de Pootle ou par le biais d
 
 Cependant, veuillez garder à l'esprit que ces commentaires doivent être courts.
 
-**Veuillez ne pas placer de retours à la ligne** insérés par `CTRL+ENTREE` dans ces commentaires. Le caractère produit `^M` (ou `0d` (zero d) en hexadecimal) n'est pas reconnu par `po2i18n` lorsqu'il est placé en début de ligne de commentaire. `po2i18n` fait partie de [Mattermosti18n](https://github.com/rodcorsi/mattermosti18n), une suite d'utilitaires écrits en Go, utilisés par Mattermost pour convertir les fichiers .po en fichiers JSON et inversément. Ces retours à la ligne créent également des problèmes avec l'instance Pootle utilisée par Mattermost. Une fois des commentaires avec des retours à la ligne ajoutés, même si ces commentaires sont supprimés par après, [ils sont toujours conservés dans les fichiers .po](https://pre-release.mattermost.com/core/pl/xw9j5r1uij8hxn8j35ippztxsh). Le responsable de Mattermost doit alors modifier le fichier manuellement. Nous ne savons pas quelle pourrait être la cause de ce problème; nous ne parvenons pas à reproduire le problème sur une installation fraîche de Pootle utilisée localement.
+**Veuillez ne pas placer de retours à la ligne** insérés par `CTRL+ENTREE` dans ces commentaires. Le caractère produit `^M` (ou `0d` -zero d- en hexadecimal) n'est pas reconnu par `po2i18n` lorsqu'il est placé en début de ligne de commentaire. `po2i18n` fait partie de [Mattermosti18n](https://github.com/rodcorsi/mattermosti18n), une suite d'utilitaires écrits en Go, utilisés par Mattermost pour convertir les fichiers .po en fichiers JSON et inversément. Ces retours à la ligne créent également des problèmes avec l'instance Pootle utilisée par Mattermost. Une fois des commentaires avec des retours à la ligne ajoutés, même si ces commentaires sont supprimés par après, [ils sont toujours conservés dans les fichiers .po](https://pre-release.mattermost.com/core/pl/xw9j5r1uij8hxn8j35ippztxsh). Le responsable de Mattermost doit alors modifier le fichier manuellement. Nous ne savons pas quelle pourrait être la cause de ce problème; nous ne parvenons pas à reproduire le problème sur une installation fraîche de Pootle utilisée localement.
 
 ## Traduction hors ligne
 
-Bien que l'instance Pootle utilisée par Mattermost offre la possibilité de télécharger les fichiers .po afin de les tester sur une instance de test de Mattermost, le responsable technique de Mattermost [a désactivé manuellement](https://pre-release.mattermost.com/core/pl/9x5msk5iuifuxfm8wyjadsdyec) la possibilité d'envoyer et remplacer les traductions par nos propres fichiers .po sur la plateforme pour les raisons suivantes.
+Bien que l'instance Pootle utilisée par Mattermost offre la possibilité de télécharger les fichiers .po afin de les tester sur une instance de test de Mattermost, le responsable technique de Mattermost [a désactivé manuellement sur Pootle](https://pre-release.mattermost.com/core/pl/9x5msk5iuifuxfm8wyjadsdyec) la possibilité d'envoyer et remplacer les traductions par nos propres fichiers .po pour les raisons suivantes.
 
 * Toutes les chaînes sont marquées comme `traduites` après que le fichier ait été envoyé, même si des chaînes n'ont pas été traduites;
 * Les traductions peuvent être périmées entre le moment auquel le contributeur télécharge son fichier et renvoie le fichier sur Pootle;
-* Renvoyer les fichiers sur la plateforme écrase la version précédente; dans le cas d'un problème, comme celui évoqué au point précédent avec les commentaires, il faut qu'un développeur puisse restaurer le fichier dans le cas où il se rend compte que la convertion .po -> JSON échoue. Mattermost ne peut pas garantir qu'un développeur dispose du temps nécessaire pour affectuer cette action.
+* Renvoyer les fichiers sur la plateforme écrase la version précédente; dans le cas d'un problème, comme celui évoqué au point précédent avec les commentaires qui peuvent corrompre le build process, il faut qu'un développeur puisse restaurer le fichier dans le cas où il se rend compte que la convertion .po -> JSON échoue. Mattermost ne peut pas garantir qu'un développeur dispose du temps nécessaire pour affectuer cette action.
 
-C'est pourquoi, même si ces raisons sont discutables lorsqu'un contributeur agit en âme et conscience, la seule façon de traduire, c'est en ligne par le biais de l'instance Pootle mise à disposition. Les traductions hors lignes ne sont pas possibles.
+C'est pourquoi, même si ces raisons sont discutables lorsqu'un contributeur agit en âme et conscience, la seule façon de traduire Mattermost, c'est en ligne par le biais de l'instance Pootle mise à disposition. Les traductions hors lignes ne sont pas possibles.
 
 ## Insertion de caractères unicodes
 
@@ -92,27 +103,27 @@ C'est pourquoi, même si ces raisons sont discutables lorsqu'un contributeur agi
 
 Cette section est utile pour savoir comment insérer un caractère tel que les guillemets français ou l'espace fine insécable, deux caractères nécessaires à la traduction francophone de Mattermost.
 
-Pour savoir comment insérer un caractère unicode, la meilleure façon est de taper son caractère unicode ou d'utiliser la touche compose. Pour ce faire, veuillez vous référer à [la page Wikipedia en question (en englais)](https://en.wikipedia.org/wiki/Unicode_input#Hexadecimal_code_input). En fonction des systèmes d'exploitation, des bibliothèques logicielles et des composants de d'entrée système (Wayland/Xorg), la méthode diffère.
+Pour savoir comment insérer un caractère unicode, la meilleure façon est de taper son caractère unicode ou d'utiliser la touche compose. Pour ce faire, veuillez vous référer à [la page Wikipedia en question (en englais)](https://en.wikipedia.org/wiki/Unicode_input#Hexadecimal_code_input). En fonction des systèmes d'exploitation, des bibliothèques logicielles et des composants d'entrée système (Wayland/Xorg), la méthode diffère.
 
-Si vous utilisez Firefox ou Chrome/Chromium sous Linux, étant donné que ces logiciels sont basés sur GTK, outre la touche compose, vous pouvez utiliser `Ctrl+Maj` suivi de `u` et du code hexadécimal (ex.: `202f` pour l'espace fine insécable).
+Il en est de même en fonction de votre navigateur web. Si vous utilisez Firefox ou Chrome/Chromium sous Linux, étant donné que ces logiciels sont basés sur GTK, outre la touche compose, vous pouvez utiliser la combinaison offerte par GTK `Ctrl+Maj` suivi de `u` et du code hexadécimal (ex.: `202f` pour l'espace fine insécable).
 
 ### Touche compose
 
-Comme expliqué dans l'article Wikipedia, les utilisateurs de KDE ou de programmes écrits à l'aide de la bibliothèque Qt, doivent utiliser la touche compose. Cette derière peut être liée à une touche de clavier que vous pouvez spécifier parmi une liste de touches prédéfinies. Ce lien s'effectue dans les paramètres sytèmes de KDE Plasma: `System Settings` > `Input Devices` > `Keyboard` > `Advanced` > `Position of Compose key` ([src.](https://unix.stackexchange.com/a/222791/146454#comment378580_222791)). La touche `Ctrl` de droite est un bon choix. Si vous spécifiez `Alt`, vous allez rentrer en conflict avec la touche `AltGr` utilisée pour placer le dièse par exemple ou tout autre caractère accessible par le 3ième niveau de touche sur les clavier francophones (Azerty belge et Azerty français).
+Comme expliqué dans l'article Wikipedia, les utilisateurs de KDE ou de programmes écrits à l'aide de la bibliothèque Qt ne peuvent qu'utiliser la touche compose. Cette derière peut être liée à une touche de clavier que vous pouvez spécifier parmi une liste de touches prédéfinies. Ce lien s'effectue dans les paramètres sytèmes de KDE Plasma: `System Settings` > `Input Devices` > `Keyboard` > `Advanced` > `Position of Compose key` ([src.](https://unix.stackexchange.com/a/222791/146454#comment378580_222791)). La touche `Ctrl` de droite est un bon choix. Si vous spécifiez `Alt`, vous allez rentrer en conflict avec la touche `AltGr` utilisée pour placer le dièse par exemple ou tout autre caractère accessible par le 3ième niveau de touche sur les clavier francophones (Azerty belge et Azerty français).
 
 Sous Windows, il vous est également possible d'utiliser le logiciel [WinCompose](https://github.com/samhocevar/wincompose). L'espace fine insécable n'est pas supporté par défaut. Pour le supporter, ajoutez simplement un fichier dans `%USERPROFILE%\.XCompose` avec la ligne suivante:
 
     <Multi_key> <space> <space> <space>		: " "	U202f		# NARROW NO-BREAK SPACE
 
-[Un patch a été fourni upstream](https://github.com/wget/wincompose/commit/f1fc2c301e1773a0ed517bbc165b008dbc700280) pour supporter ce caractère.
+[Un patch a été fourni pour xcompose -un projet utilisé par WinCompose-](https://github.com/kragen/xcompose/pull/33) pour supporter ce caractère.
 
-Une fois le logiciel WinCompose relancé, il vous suffira de tapper sur la touche Compose (par défaut `Alt` droit, ce paramètre peut être changé dans les options de WinCompose) suivie de trois fois la touche `espace`.
+Une fois le logiciel WinCompose relancé, il vous suffira de taper sur la touche Compose (par défaut `Alt` droit, ce paramètre peut être changé dans les options de WinCompose) suivie de trois fois la touche `espace`.
 
 Sous Linux, le principe est le même, placer dans votre `$HOME`, un fichier `.XCompose` et relancez Xorg (redémarrez simplement votre machine).
 
 ### Table de caractères
 
-Il est également possible de copier coller le caractère de votre choix en utilisant l'[insertion de caractères spéciaux dans LibreOffice Writer](https://help.libreoffice.org/Common/Special_Character/fr) ou d'utiliser un ogiciel de table de caractère propre à votre OS.
+Il est également possible de copier coller le caractère de votre choix en utilisant l'[insertion de caractères spéciaux dans LibreOffice Writer](https://help.libreoffice.org/Common/Special_Character/fr) ou d'utiliser le logiciel de table de caractère propre à votre OS.
 
 * Sous Windows, ouvrez `charmap.exe`, cochez la case `Advanced view`, tappez le caractère que vous souhaitez en toutes lettres en anglais, cliquez sur `Search`, sélectionnez le caractère dans la table de résultats et cliquez sur `Copy`.
 
@@ -140,30 +151,16 @@ Guillemets fermants (` »`):
 
 ## Points à améliorer
 
-La traduction francophone est déjà dans un très bon état. Parmi les points à améliorer pour les prochaines versions:
+La traduction francophone est déjà dans un très bon état. Parmi les points à améliorer pour les prochaines versions :
 
 * Utiliser l'espace fine insécable plutôt que l'espace insécable est recommandé selon les règles typographiques francophones. Le caractère représentant l'espace fine insécable est disponible depuis la sortie de Unicode 3.0 et est bien supporté par les logiciels (cf. [le rapport sur l'utilisation de l'espace fine insécable au sein des logiciels libres](http://malizor.org/public/fines/fines.pdf)). L'espace insécable est, quant à lui, dans le monde du web et du domaine des zones de texte, souvent source d'erreurs (cf. [bug chromium](https://bugs.chromium.org/p/chromium/issues/detail?id=346096)) .
 * Remplacer les guillemets américains par leur version francophone.
-* L'instauration de la fonctionnalité des groupes privés casse d'une certaine manière la façon dont les messages privés avec une personne en particulier avaient été traduits dans Mattermost (`canaux privés` et `messages privés`). Sur Twitter, la fonctionnalité de messages directs est traduite par `message privé`, mais le concept de message de groupes privés étant melé au ceoncept de message direct, cette traduction ne porte pas préjudice à Twitter. L'idée est donc de traduire à l'instar de la version anglaise de Mattermost vers `messages directs` ou `messages personnels`.
 
 ## Style
 
 ### Jargon
 
-Mattermost est utilisé pour envoyer des `messages`. Ces messages peuvent être composés de texte et/ou d'objets tels que des fichiers (images, documents, émoticônes, etc.).
-
-Mattermost distingue 2 types de messages:
-
-* les publications qui sont les messages parents qui débutent un fil de discussion;
-* les réponses qui sont les messages répondant à un message parent (publication) dans un fil de discusion.
-
-Si un utilisateur répond à un message sans passer par la fonctionalité de fil de discusion dans la barre latérale de droite, son message sera considéré comme une publication et ouvrira un nouveau fil.
-
-On `envoie` un message et on `publie` une publication.
-
-On `compose` un message, une publication ou une réponse.
-
-cf. [Posted / posts / publication](#posted--posts--publication)
+Mattermost dispose de son propre jargon. Pour en prendre connaissance, lisez la section [Message](#message).
 
 ### Usage de l'impératif
 
@@ -171,7 +168,7 @@ cf. [Posted / posts / publication](#posted--posts--publication)
 | --- | --- |
 | Enter your credentials | **Veuillez** saisir vos informations d'identification |
 
-De façon à assouplir l'ordre, nous utiliserons `vouloir` à l'impératif avant le verbe représentant l'action à effectuer; pas de mention `s'il vous plait`.
+De façon à assouplir l'ordre, nous employons `vouloir` à l'impératif avant le verbe représentant l'action à effectuer; sans utiliser de mention `s'il vous plait`.
 
 ### Usage du futur simple
 
@@ -190,7 +187,7 @@ Dans tous les cas, veuillez conserver une concordance des temps correcte. [Pour 
 
 * si + présent -> futur simple (ou présent)
 
- `Si tu veux, je viendrai / je viens.` (selon le contexte)
+  `Si tu veux, je viendrai / je viens.` (selon le contexte)
 
 * si + imparfait -> conditionnel présent
 
@@ -214,7 +211,7 @@ De même, en plein milieu d'une phrase de description de fonctionnalité, comme 
 
 ### Abbréviations
 
-Exemple s'agrège en `ex. :`. Notez l'utilisation d'une espace après le point. Vous devriez utiliser une espace fine insécable pour cette espace (cf. [Insertion de caractères unicodes](#insertion-de-caractères-unicodes)).
+Exemple s'abrège en `ex. :`. Notez l'utilisation d'une espace après le point. Vous devriez utiliser une espace fine insécable pour cette espace (cf. [Insertion de caractères unicodes](#insertion-de-caractères-unicodes)).
 
 ### Guillemets
 
@@ -228,11 +225,11 @@ De façon à se calquer au plus près des autres traductions, pareil texte sera 
 
 ### Traduction trop longue
 
-Si votre traduction s'avère être trop longue pour l'espace octroyé par l'interface utilisateur et si, compte tenu du sens, vous n'êtes pas en mesure d'abbréger la traduction francophone, veuillez exposer le problème sur le [canal "Localization" de Mattermost](https://pre-release.mattermost.com/core/channels/localization).
+Si votre traduction s'avère être trop longue pour l'espace octroyé par l'interface utilisateur et si, compte tenu du sens, vous n'êtes pas en mesure d'abréger la traduction francophone, veuillez exposer le problème sur le [canal "Localization" de Mattermost](https://pre-release.mattermost.com/core/channels/localization).
 
 ### Gestion du pluriel
 
-Au sein de Mattermsot, les règles de pluralisation en fonction de la langue sont gérées par la bibliothèque formatjs. Il se peut que vous rencontriez la syntaxe de cette bibliothèque au gré de vos traductions. La syntaxe de formatjs se matérialise comme tel:
+Au sein de Mattermost, les règles de pluralisation en fonction de la langue sont gérées par la bibliothèque formatjs. Il se peut que vous rencontriez la syntaxe de cette bibliothèque au gré de vos traductions. La syntaxe de formatjs se matérialise comme tel:
 
     {key, plural, matches}
 
@@ -252,17 +249,19 @@ En place de `matches` peuvent donc se trouver un ou plusieurs des mots clés sui
 
 Pour illustrer le [fonctionnement de cette bibliothèque](https://formatjs.io/guides/message-syntax/#plural-format), prenons les exemples suivants.
 
+#### Exemple 1
+
     New {count, plural, one {message} other {messages}}
 
 donne au sein de l'interface `New message` au singulier et `New messages` pour le pluriel.
 
 En français, 2 versions de traduction sont nécessaires également. Une pour le singulier (`Nouveau message`) et l'autre pour le pluriel (`Nouveaux messages`).
 
-Dans le syntaxe de formatjs, ceci donne la déclaration suivante:
+Dans le syntaxe de formatjs, ceci donne la déclaration suivante :
 
     {count, plural, one {Nouveau message} other {Nouveaux messages}}
 
-Un autre exemple:
+#### Exemple 2
 
     {count, number} {count, plural, one {user} other {users}} of {total, number} total
 
@@ -270,7 +269,7 @@ Un autre exemple:
 
 Produira les 2 traductions suivantes: `1 utilisateur d'un total de x` vs `x membres d'un total de x`.
 
-Un autre exemple:
+#### Exemple 3
 
     {count, number} {count, plural, one {Feature} other {Features}} Enabled
 
@@ -278,7 +277,7 @@ Un autre exemple:
 
 Comme vous pouvez le voir, selon le contexte, il est possible que vous deviez placer plus de mots dans les accolades de façon à accorder l'ajectif. L'adjectif est en effet invariable en anglais, les chaines anglaises ne tiennent pas compte de ce détail. `1 fonctionnalité activée` vs `x fonctionnalités activées`.
 
-Un autre exemple:
+#### Exemple 4
 
     Every {count, plural, one {minute} other {{count, number} minutes}}
 
@@ -294,11 +293,11 @@ Installez le paquet correspondant à pology sous votre distribution (sous Arch L
 
     svn co svn://anonsvn.kde.org/home/kde/trunk/l10n-support/pology
 
-Pour vous assurer que votre traduction dispose d'espaces insécables, ce qui est vivement recommandé en français, téléchargez les fichiers .po de l'instance pootle et exécutez pology de façon à ajouter automatiquement des espaces insécables sur le fichier .po (! le fichier sera modifié, pensez à faire une sauvegarde avant):
+Pour vous assurer que votre traduction dispose d'espaces insécables, ce qui est vivement recommandé en français, téléchargez les fichiers .po de l'instance pootle et exécutez pology de façon à ajouter automatiquement des espaces insécables sur le fichier .po (ATTENTION: exécuter cette commande modifie directement le fichier, pensez donc à le sauvegarder avant) :
 
     /usr/share/pology/scripts/posieve.py fr:setUbsp ./web_static.po
 
-Les autres commandes de pology telles que `check_rules`, `check_spell`, `check_grammar` et `find_messages` n'ont soit pas été testées, soit ne sont pas compatibles à cause de la façon dont les paramètres des chaînes de Mattermost sont représentés dans le langage Go. La présence de `{{.varName}}`, par exemple, est considérée comme une erreur par pology (un espace est requis après un point, etc.).
+Les autres commandes de pology telles que `check_rules`, `check_spell`, `check_grammar` et `find_messages` soit n'ont pas été testées, soit ne sont pas compatibles à cause de la façon dont les paramètres des chaînes de Mattermost sont représentés dans le langage Go. La présence de `{{.varName}}`, par exemple, est considérée comme une erreur par pology (un espace est requis après un point, etc.).
 
 ## Vocabulaire
 
@@ -333,12 +332,7 @@ L'envoi par lots.
 
 ### Direct
 
-| EN | FR |
-| --- | --- |
-| Invalid user ID for direct channel creation | ID utilisateur invalide pour la création du canal de messages privés |
-| Failed to create direct channel | Impossible de créer le canal de messages privés |
-| Failed to create group channel | Impossible de créer le canal de messages de groupe |
-| Missing required direct channel property: members | La propriété requise pour un canal de messages privés est manquante: members |
+[cf. Message](#message)
 
 ### Enter / specify / input field
 
@@ -351,7 +345,7 @@ L'envoi par lots.
 
 Par mesure de cohérence, la règle générale est d'utiliser le terme `spécifier`. `saisir` est uniquement employé pour qualifier la `zone de saisie`.
 
-Pour ce qui est des messages qui ne spécifient pas une option : une publication, un message de texte, on utilisera le terme `composer`.
+Pour ce qui est des messages qui ne spécifient pas une option : une publication, un message de texte, on utilisera le terme `composer` ([cf. Message](#message)).
 
 ### Email
 
@@ -363,7 +357,15 @@ Utilisez `adresse e-mail` et non `adresse électronique`. `Adresse électronique
 
 ### Emoji
 
-On privilégie `émoticône` dans la traduction de Mattermost.
+`émoticône` est à privilégier dans la traduction de Mattermost.
+
+### Encountered
+
+| EN | FR |
+| --- | --- |
+| An error encountered | Une erreur s'est produite |
+
+`est survenue` aurait pu être correct également, mais `s'est produite` est à privilégier pour des raisons de cohérence.
 
 ### Endpoint
 
@@ -371,7 +373,7 @@ On privilégie `émoticône` dans la traduction de Mattermost.
 
 ### FileInfos
 
-A l'instar de [`NotifyProps`, cf. plus bas](#Notifications push / mobile / desktop), il s'agit du nom d'un objet et doit être traduit en fonction du contexte. Si le message est lié à l'API par exemple, on laissera le terme FileInfos; dans le cas où le message est destiné à l'utilisateur final, on traduira par `informations du fichiers`.
+A l'instar de [`NotifyProps`, cf. plus bas](#Notifications push / mobile / desktop), il s'agit du nom d'un objet et doit être traduit en fonction du contexte. Si le message est lié à l'API par exemple, on laissera le terme `FileInfos`; dans le cas où le message est destiné à l'utilisateur final, on traduira par `informations du fichier`.
 
 ### Flag
 
@@ -399,7 +401,7 @@ Il s'agit simplement des indicateurs pour suivre un message.
 | --- | --- |
 | We couldn't get the team members | Impossible de récupérer les membres de l'équipe |
 
-On utilise le terme `récupérer` de façon à assurer une certaine cohérence.
+`récupérer` est à privilégier pour des raisons de cohérence.
 
 ### Hours / timezone
 
@@ -417,7 +419,59 @@ Ici, en l'occurrence, on placera la date avant l'heure et les éléments de la c
 | --- | --- |
 | No indexing jobs queued. | Aucune tâche d'indexation mise en file d'attente. |
 
-Il s'agit du terme `tâche` à employer dans le jargon (cf. les `tâches planifiées` sous Windows).
+Le terme `tâche` est à employer dans le jargon (cf. les `tâches planifiées` sous Windows).
+
+### Kick / ban / remove
+
+| EN | FR |
+| --- | --- |
+| Remove a member from the channel | Éjecte un membre du canal |
+| Failed to add user to channel because they have been removed from the team. | Impossible d'ajouter l'utilisateur au canal car il a été retiré de l'équipe.|
+| Failed to find user to be removed | Impossible de trouver l'utilisateur à supprimer |
+| Unable to remove license file, err=%v | Impossible de supprimer le fichier de licence, err=%v |
+
+* Pour un fichier, on utilise `supprimer`.
+* Pour le fait de retirer un utilisateur d'un canal ou d'une équipe, on emploie `retirer`.
+* Pour un `ban`/`banissement` on utilisera `bannir` de façon à se rapprocher de l'anglais et éviter les termes comme `exclure`.
+* Pour un `kick`, on emploie `éjecter`.
+* Pour le fait de supprimer un utilisateur complètement, on emploie `supprimer`.
+
+La différence entre un `bannissement` et une `éjection` se traduit par la possibilité pour l'utilisateur de se reconncter par la suite ou non. Pour le banissement, l'utilisateur ne pourra plus se connecter tant que l'administrateur du canal n'aura pas changé d'avis.
+
+### Message
+
+Mattermost est utilisé pour envoyer des `messages`. Ces messages peuvent être composés de texte et/ou d'objets tels que des fichiers (images, documents, émoticônes, etc.).
+
+Au sein de Mattermost, il existe 3 types de canaux et donc 3 types de messages :
+
+* Les messages publics qui sont les messages publiés dans des canaux publics (groupes publics)
+
+* Les messages privés sont les messages publiés dans les canaux privés (groupes privés)
+
+* Les messages personnels qui sont les messages s'adressant en direct à une personne, en un-à-un (one-to-one). Plus communément appelés Messages Directs (ou DM) sur Twitter, ce terme est cependant à proscrire au sein de Mattermost. En effet, sur Twitter la fonctionnalité de DM reprend à la fois les messages par groupes privés et les messages en un-à-un. La fonctionnalité est scindée en 2 fonctionnalités bien distinctes au sein de Mattermost.
+
+Pour chaque type de canal, Mattermost considère 2 types de messages : 
+
+* les publications qui sont les messages parents qui débutent un fil de discussion;
+
+* les réponses qui sont les messages répondant à un message parent (publication) dans un fil de discusion.
+
+Si un utilisateur répond à un message sans passer par la fonctionalité de fil de discusion située dans la barre latérale de droite, son message sera considéré comme une publication et ouvrira un nouveau fil.
+
+On `envoie` un message et on `publie` une publication.
+
+On `compose` un message, une publication ou une réponse.
+
+
+
+| EN | FR |
+| --- | --- |
+| Invalid user ID for direct channel creation | ID utilisateur invalide pour la création du canal de messages privés |
+| Failed to create direct channel | Impossible de créer le canal de messages privés |
+| Failed to create group channel | Impossible de créer le canal de messages de groupe |
+| Missing required direct channel property: members | La propriété requise pour un canal de messages privés est manquante: members |
+
+[cf. Posted / posts / publication](#posted--posts--publication)
 
 ### Notifications push / mobile / desktop
 
@@ -432,11 +486,24 @@ Il s'agit du terme `tâche` à employer dans le jargon (cf. les `tâches planifi
 
 Traduisez les termes `desktop` et `mobile`. N'employez pas le terme `sur le bureau` ou `sur le mobile`.
 
-Faites que votre traduction soit claire lorsqu'il est question de `push`, mentionnez la mantion `notification` lorsqu'elle est absente et n'utilisez par le terme `poussée`. Gardez à l'esprit que notification push tend à être de plus en plus utilisé. Un terme moins employé rendra l'application plus difficile à appréhender.
+Faites que votre traduction soit claire lorsqu'il est question de `push`, mentionnez la mention `notification` lorsqu'elle est absente et n'utilisez par le terme `poussée`. Gardez à l'esprit que notification push tend à être de plus en plus utilisé, même en francophonie. Un terme moins employé rendra l'application plus difficile à appréhender.
 
 Veillez à placer la mention `notification` en premier lieu, de façon à rester cohérent avec les termes tels que `notifications push` et `notifications mobiles`. Il s'agit donc bien d'une `notification par e-mail` et non d'un `e-mail de notification`.
 
-Considérez les termes `NotifyProps` et `Notify Props` comme semblables. Ils doivent être traduits. `notify_props` est un champ JSON, conservez le tel quel.
+Considérez les termes `NotifyProps` et `Notify Props` comme semblables. Ils doivent être traduits. `notify_props` quant à lui est un champ JSON, conservez le tel quel.
+
+### Parse / parser
+
+Ne pas traduire par `analyser`, même si ce terme le plus fréquent représente l'analyse de la syntaxe grammaticale d'un langage, `interpréter` dans le sens comprendre est plus correct dans ce cas d'utilisation.
+
+| EN | FR |
+| --- | --- |
+| Elasticsearch indexing worker failed to parse the start time | Le système d’agrégation Elasticsearch n'a pas pu interpréter l'heure de début |
+| Could not parse multipart form | Impossible d'analyser le formulaire (multipart form)|
+
+### Permanently
+
+Utilisez `définitivement` à la place de `de façon permanente`.
 
 ### Permissions
 
@@ -446,7 +513,9 @@ Considérez les termes `NotifyProps` et `Notify Props` comme semblables. Ils doi
 | Invalid permissions to regenerate the OAuth2 App Secret | Permissions insuffisantes pour regénérer la clé secrète de l'application OAuth2 |
 | Inappropriate channel permissions | Permissions insuffisantes pour ce canal |
 
-Bien que `permissions` et `droits` pourraient tous deux convenir, il a été choisi de privilégier `permissions`. `Permissions invalides` est également à proscrire. Dans le cas du contexte de permissions qui nous concernne, il est en effet question de permissions qui sont trop restrictives et non de permissions d'accès invalides (ex.: permissions UNIX 775 au lieu de 770 par exemple)
+`permissions` est à privilégier pour des raisons de cohérence et de rapprochement avec la version anglaise. `Permissions invalides`, `permissions` et `droits` sont à proscrire.
+
+Dans le cas du contexte de permissions qui nous concerne, il est question de permissions qui sont trop restrictives et non de permissions d'accès invalides (permissions UNIX 775 au lieu de 770 par exemple).
 
 ### Posted / posts / publication
 
@@ -457,9 +526,9 @@ Bien que `permissions` et `droits` pourraient tous deux convenir, il a été cho
 | Failed to post update channel header message | Impossible de publier le message indiquant le changement de l'entête du canal |
 | Go to Post | Aller au message |
 
-Un `post` ou `poste` est un anglicisme. La règle générale est de garer la mention `message` et le verbe `envoyer` plutôt que `publier`.
+Un `post` ou `poste` est un anglicisme. La règle générale est de garder la mention `message` et le verbe `envoyer` plutôt que `publier` ([cf. Message](#message)).
 
-Dans de très rares cas, comme lorsqu'on parle d'un fil de discusion, on parlera de `publication`.
+Dans de très rares cas, comme lorsqu'on parle d'un fil de discusion, `publication` est à privilégier. Lorsque l'on qualifie les messages d'un canal, on emploiera le terme 'les messages publiés dans le canal X' par exemple.
 
 Notez que pour `Go to Post`, étant donné que ce texte concerne tous types de messages, il n'est pas visible uniquement pour les publications, mais pour tous les messages. Faites donc attention et veuillez à vous documenter lorsque vous tentez de traduire des parties du logiciel faisant appel à des fonctionnalités que vous ne maîtrisez pas totalement.
 
@@ -469,7 +538,7 @@ Concernant les messages épinglés, bien que `find` aurait pu être traduit par 
 
 ### Private message
 
-On utilise ici la traduction `Message privé` et non `Message direct` (cf. l'utilisation de `Direct` plus haut).
+[cf. Message](#message)
 
 ### Purpose
 
@@ -495,7 +564,7 @@ Bien que rencontré parfois dans les domaines du réseau, ce concept de limite n
 
 Bien que ces messages devraient être principalement être vus par du personnel technique et donc sachant parler anglais, il est toutefois préférable de les traduire.
 
-Il faut voir une API comme un arbre ou chaque branche est appelée `route` et chaque embranchement (y compris le tout dernier placé en feuille) est appelé un `noeud`. Dans le cas d'une feuille, on appelle souvent ce noeud particulier le `noeud de terminaison` (`endpoint` en anglais). Ici, à cause de l'espace restreint, nous supprimons le terme `de terminaison`. Il est parfois utile de repréciser le terme anglais original; les guides et tutoriels en ligne sont souvent en anglais, avoir le terme en anglais, facilite la correspondance.
+Il faut voir une API comme un arbre composé de branche et de feuilles. Dans le contexte d'une API, chaque branche est appelée `route`, chaque embranchement (y compris le tout dernier placé en feuille) est appelé un `noeud`. Dans le cas d'une feuille, on appelle souvent ce noeud particulier le `noeud de terminaison` (`endpoint` en anglais). Ici, à cause de l'espace restreint, nous supprimons le terme `de terminaison`. Compte tenu de l'emplacement au sein du logiciel, il est préférable de repréciser le terme anglais original à coté du terme francisé, car ces chaines sont vues majoritairement par du personnel technique et les guides et tutoriels en ligne sont souvent en anglais, avoir le terme en anglais, facilite donc la recherche de correspondance.
 
 Microsoft, dans le cadre de sa plateforme .NET, possède une des rares documentations techniques traduites intégralement en français. Un [article en anglais sur le sujet qui nous préoccupe](https://msdn.microsoft.com/en-us//library/cc668201(v=vs.100).aspx) dispose d'[une correspondance française](https://msdn.microsoft.com/en-us//library/cc668201(v=vs.100).aspx).
 
@@ -511,17 +580,14 @@ De même, toujours basé sur l'exemple `Initializing team API routes`, nous n'ut
 
 Les propositions suivantes seront donc considérées comme invalides et seront refusées dans Mattermost:
 
-> Initialisation des routes de l'API d'équipe
-
-> Initialisation des routes de l'API des équipes
-
-> Initialisation des routes des APIs d'équipes
-
-> Initialisation des routes des APIs de l'équipe
+| EN | FR |
+| --- | --- |
+| Initialisation des routes de l'API d'équipe | Initialisation des routes de l'API des équipes |
+| Initialisation des routes des APIs d'équipes | Initialisation des routes des APIs de l'équipe |
 
 ### Slash commands
 
-Il s'agit des commandes que vous spécifiez lorsque vous commencez votre message par un slash dans Mattermost. La décision a été de traduire ce terme par `commandes slash`.
+Il s'agit des commandes que vous spécifiez lorsque vous commencez votre message par un slash dans Mattermost. `commandes slash` est à privilégier pour des raisons de cohérence.
 
 ### SSO
 
@@ -529,9 +595,9 @@ Il s'agit des commandes que vous spécifiez lorsque vous commencez votre message
 | --- | --- |
 | SSO / Single Sign-On | Authentification unique (SSO) |
 
-Dans le jargon technique, le terme SSO tend à prendre le pas sur le terme "Authentification unique". Dans le cadre de Mattermost, il a donc été choisi de suffixer la traduction française par le terme SSO entre parenthèses de façon à préciser le contexte. En effet, le terme authentification pourrait être confondu avec le terme authentification multi-facteurs (MFA), autre fonctionnalité présente au sein de Mattermost.
+Dans le jargon technique, le terme SSO tend à prendre le pas sur le terme `Authentification unique`. Dans le cadre de Mattermost, il a donc été choisi de suffixer la traduction française par le terme SSO entre parenthèses de façon à préciser le contexte. En effet, le terme `authentification` pourrait être confondu avec le terme `authentification multi-facteurs` (MFA), autre fonctionnalité présente au sein de Mattermost.
 
-Les traductions telles que "authentification simplifiée" ou "connexion unique" sont à proscrire.
+Les traductions telles que `authentification simplifiée` ou `connexion unique` sont à proscrire.
 
 ### Token / secret key
 
@@ -543,3 +609,12 @@ Les traductions telles que "authentification simplifiée" ou "connexion unique" 
 | EN | FR |
 | --- | --- |
 | A trigger word cannot begin with a / | Un mot**-clé** déclencheur ne peut commencer par un / |
+
+### Worker
+
+| EN | FR |
+| --- | --- |
+| Elasticsearch indexing worker failed to parse the end time | Le système d’agrégation Elasticsearch n'a pas pu analyser l'heure de fin |
+
+Bien que le terme doive se traduire par `travailleur`, on enploiera le terme `système de` en fonction du contexte.
+
