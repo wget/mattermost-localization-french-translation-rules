@@ -67,6 +67,8 @@ Bonjour et merci de participer à la traduction francophone de Mattermost !
 
 Mattermost utilise [une instance Pootle pour ses traductions](http://translate.mattermost.com/fr/). Si ce n'est pas déjà fait, veuillez créer une compte sur cette instance pour pouvoir participer.
 
+Veuillez noter que cette instance est habituellement indisponible tous les jours de minuit à une heure du matin. L'instance doit en effet être coupée lorsque les traductions sont en cours de synchronisation avec le repository git de Mattermost.
+
 De même, il est vivement recommandé d'[utiliser une version de développement de Mattermost](https://docs.mattermost.com/developer/developer-setup.html) de façon à pouvoir vous [assurer que vos traductions soient correctes selon le contexte](https://docs.mattermost.com/developer/localization-process.html#test-translations).
 
 Enfin, veuillez prendre la peine de lire ces quelques règles de traduction à respecter.
