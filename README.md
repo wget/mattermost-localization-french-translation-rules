@@ -65,9 +65,9 @@
 
 Bonjour et merci de participer à la traduction francophone de Mattermost !
 
-Mattermost utilise [une instance Pootle pour ses traductions](http://translate.mattermost.com/fr/). Si ce n'est pas déjà fait, veuillez créer une compte sur cette instance pour pouvoir participer.
+Mattermost utilise [une instance Pootle pour ses traductions](http://translate.mattermost.com/fr/). Si ce n'est pas déjà fait, veuillez créer un compte sur cette instance pour pouvoir participer.
 
-Veuillez noter que cette instance est habituellement indisponible tous les jours de minuit à une heure du matin. L'instance doit en effet être coupée lorsque les traductions sont en cours de synchronisation avec le repository git de Mattermost.
+Veuillez noter que cette instance est habituellement indisponible tous les jours de minuit à une heure du matin (UTC+1). L'instance doit en effet être coupée lorsque les traductions sont en cours de synchronisation avec le repository git de Mattermost.
 
 De même, il est vivement recommandé d'[utiliser une version de développement de Mattermost](https://docs.mattermost.com/developer/developer-setup.html) de façon à pouvoir vous [assurer que vos traductions soient correctes selon le contexte](https://docs.mattermost.com/developer/localization-process.html#test-translations).
 
@@ -225,6 +225,14 @@ Il s'avère quelques fois que les messages de Mattermost s'expriment en `nous` p
 
 De façon à se calquer au plus près des autres traductions, pareil texte sera traduit par `Impossible de vérifier les permissions` plutôt que `Les permissions n'ont pas pu être vérifiées`.
 
+### Ecriture inclusive
+
+| EN | FR |
+| --- | --- |
+| @{{.Username}} was mentioned, but they did not receive notifications because they do not belong to this channel. | @{{.Username}} a été mentionné(e), mais, ne faisant pas partie de ce canal, il/elle ne recevra pas de notification. |
+
+Nous n'utilisons pas l'écriture inclusive, celle utilisant le '·', car en plus de ne pas avoir été validée par l'Académie française, elle rend le texte plus difficile à comprendre. Nous pensons qu'il s'agit surtout d'une solution temporaire, surfant sur la vague du féminisme français. Toutefois, lorsque rendu nécessaire comme dans le texte ci-dessus, nous privilégions plutôt les parenthèses ou la mention explicite il/elle, qui sont des emplois beaucoup plus répandus en francophonie. Par facilité de lecture, nous nous refusons à ajouter des contreparties féminines à tous les termes masculins; par conséquent nous considérons toujours la règle « le masculin l'emporte » comme étant valable au sein de cet effort de traduction/régionalisation.
+
 ### Traduction trop longue
 
 Si votre traduction s'avère être trop longue pour l'espace octroyé par l'interface utilisateur et si, compte tenu du sens, vous n'êtes pas en mesure d'abréger la traduction francophone, veuillez exposer le problème sur le [canal "Localization" de Mattermost](https://pre-release.mattermost.com/core/channels/localization).
@@ -303,6 +311,14 @@ Les autres commandes de pology telles que `check_rules`, `check_spell`, `check_g
 
 ## Vocabulaire
 
+### API
+
+| EN | FR |
+| --- | --- |
+| Empty array under 'image' in request | Tableau vide dans le paramètre 'image' de la requête |
+
+Bien que « section » aurait pu convenir dans ce contexte, dans le cadre d'une requête sur une API, il est plus question de « paramètre ».
+
 ### Attach
 
 | EN | FR |
@@ -335,6 +351,10 @@ L'envoi par lots.
 ### Direct
 
 [cf. Message](#message)
+
+### Directory
+
+On utilise le terme dossier au sein de la traduction, excepté pour AD/LDAP ou Active Directory qui restent, eux, sans traduction vu qu'il s'agit du nom d'un produit.
 
 ### Enter / specify / input field
 
@@ -389,6 +409,10 @@ A l'instar de [`NotifyProps`, cf. plus bas](#Notifications push / mobile / deskt
 
 Remarquons que plusieurs traductions pour `flag` ont été utilisées ci-dessus. Choisissez simplement celle qui convient en fonction de la taille disponible.
 
+### Folder
+
+[cf. Directory](#directory)
+
 ### Follow up
 
 | EN | FR |
@@ -397,13 +421,23 @@ Remarquons que plusieurs traductions pour `flag` ont été utilisées ci-dessus.
 
 Il s'agit simplement des indicateurs pour suivre un message. 
 
-### Get
+### Get / retrieve
 
 | EN | FR |
 | --- | --- |
 | We couldn't get the team members | Impossible de récupérer les membres de l'équipe |
+| Error to retrieve the current channel. | Impossible de récupérer le canal courant. |
 
 `récupérer` est à privilégier pour des raisons de cohérence.
+
+### Handle
+
+| EN | FR |
+| --- | --- |
+| A channel with that handle already exists | Un canal avec ce pseudonyme existe déjà |
+| This field is handled through your login provider. If you want to change it, you need to do so through your login provider. | Ce champ est géré par le service d'authentification. Si vous souhaitez le modifier, vous devez le faire par le biais de votre service d'authentification. |
+
+Veuillez ne pas utiliser pseudonyme dans ce contexte. Identifiant est suffisant.
 
 ### Hours / timezone
 
@@ -432,13 +466,13 @@ Le terme `tâche` est à employer dans le jargon (cf. les `tâches planifiées` 
 | Failed to find user to be removed | Impossible de trouver l'utilisateur à supprimer |
 | Unable to remove license file, err=%v | Impossible de supprimer le fichier de licence, err=%v |
 
+
 * Pour un fichier, on utilise `supprimer`.
 * Pour le fait de retirer un utilisateur d'un canal ou d'une équipe, on emploie `retirer`.
 * Pour un `ban`/`banissement` on utilisera `bannir` de façon à se rapprocher de l'anglais et éviter les termes comme `exclure`.
 * Pour un `kick`, on emploie `éjecter`.
 * Pour le fait de supprimer un utilisateur complètement, on emploie `supprimer`.
-
-La différence entre un `bannissement` et une `éjection` se traduit par la possibilité pour l'utilisateur de se reconncter par la suite ou non. Pour le banissement, l'utilisateur ne pourra plus se connecter tant que l'administrateur du canal n'aura pas changé d'avis.
+* La différence entre un `bannissement` et une `éjection` se traduit par la possibilité pour l'utilisateur de se reconncter par la suite ou non. Pour le banissement, l'utilisateur ne pourra plus se connecter tant que l'administrateur du canal n'aura pas changé d'avis.
 
 ### Message
 
@@ -464,8 +498,6 @@ On `envoie` un message et on `publie` une publication.
 
 On `compose` un message, une publication ou une réponse.
 
-
-
 | EN | FR |
 | --- | --- |
 | Invalid user ID for direct channel creation | ID utilisateur invalide pour la création du canal de messages privés |
@@ -474,6 +506,19 @@ On `compose` un message, une publication ou une réponse.
 | Missing required direct channel property: members | La propriété requise pour un canal de messages privés est manquante: members |
 
 [cf. Posted / posts / publication](#posted--posts--publication)
+
+### Message export job
+
+| EN | FR |
+| --- | --- |
+| Message export job BatchSize must be a positive integer | Le paramètre BatchSize de la tâche d'exportation de messages doit être un entier positif |
+
+### Mute
+
+| EN | FR |
+| --- | --- |
+| mute | sourdine |
+| Could not mute channel {{.Channel}} as you are not a member. | Impossible de mettre en sourdine le cnal {{.Channel}}, car vous n'êtes pas membre de celui-ci. |
 
 ### Notifications push / mobile / desktop
 
@@ -485,23 +530,34 @@ On `compose` un message, une publication ou une réponse.
 | Mobile Push | Notifications push sur mobile |
 | Encountered error when getting files for notification message, post_id=%v, err=%v | Une erreur s'est produite lors de la récupération des fichiers pour la notification de nouvelle publication, post_id=%v, err=%v |
 | Invalid Email Notify Prop value for user. | La valeur de la propriété de notification par e-mail est invalide pour l'utilisateur. |
+| Turns off desktop, email and push notifications for the current channel or the [channel] specified. | Désactive les notifications de bureau, par e-mail et push pour le canal actuel ou pour le canal [channel]. |
 
 Traduisez les termes `desktop` et `mobile`. N'employez pas le terme `sur le bureau` ou `sur le mobile`.
 
-Faites que votre traduction soit claire lorsqu'il est question de `push`, mentionnez la mention `notification` lorsqu'elle est absente et n'utilisez par le terme `poussée`. Gardez à l'esprit que notification push tend à être de plus en plus utilisé, même en francophonie. Un terme moins employé rendra l'application plus difficile à appréhender.
+Faites attention à ce que votre traduction soit claire lorsqu'il est question de `push`, mentionnez la mention `notification` lorsqu'elle est absente et n'utilisez par le terme `poussée`. Gardez à l'esprit que notification push tend à être de plus en plus utilisé, même en francophonie. Un terme moins employé rendra l'application plus difficile à appréhender.
 
 Veillez à placer la mention `notification` en premier lieu, de façon à rester cohérent avec les termes tels que `notifications push` et `notifications mobiles`. Il s'agit donc bien d'une `notification par e-mail` et non d'un `e-mail de notification`.
 
 Considérez les termes `NotifyProps` et `Notify Props` comme semblables. Ils doivent être traduits. `notify_props` quant à lui est un champ JSON, conservez le tel quel.
 
-### Parse / parser
+### Optional
 
-Ne pas traduire par `analyser`, même si ce terme le plus fréquent représente l'analyse de la syntaxe grammaticale d'un langage, `interpréter` dans le sens comprendre est plus correct dans ce cas d'utilisation.
+Par mesure de consistance, il est recommandé d'utilisé « Facultatif » au lieu du terme « Optionnel ».
+
+### Override
+
+| EN | FR |
+| --- | --- |
+| Enable integrations to override usernames | Permettre aux intégrations de redéfinir les noms d'utilisateur |
+
+### Parse / parser
 
 | EN | FR |
 | --- | --- |
 | Elasticsearch indexing worker failed to parse the start time | Le système d’agrégation Elasticsearch n'a pas pu interpréter l'heure de début |
 | Could not parse multipart form | Impossible d'analyser le formulaire (multipart form)|
+
+Ne pas traduire par `analyser`, même si ce terme le plus fréquent représente l'analyse de la syntaxe grammaticale d'un langage, `interpréter` dans le sens comprendre est plus correct dans ce cas d'utilisation.
 
 ### Permanently
 
@@ -530,7 +586,7 @@ Dans le cas du contexte de permissions qui nous concerne, il est question de per
 
 Un `post` ou `poste` est un anglicisme. La règle générale est de garder la mention `message` et le verbe `envoyer` plutôt que `publier` ([cf. Message](#message)).
 
-Dans de très rares cas, comme lorsqu'on parle d'un fil de discusion, `publication` est à privilégier. Lorsque l'on qualifie les messages d'un canal, on emploiera le terme 'les messages publiés dans le canal X' par exemple.
+Dans de très rares cas, comme lorsqu'on veut explicitement identifier le premier message d'un fil de discusion ou lorsque l'on parle d'un message publié par une intégration (un service tiers lié à Mattermost), le terme `publication` est à privilégier. De même, lorsque l'on qualifie globalement les messages d'un canal, on emploiera le terme 'les messages publiés dans le canal X' par exemple.
 
 Notez que pour `Go to Post`, étant donné que ce texte concerne tous types de messages, il n'est pas visible uniquement pour les publications, mais pour tous les messages. Faites donc attention et veuillez à vous documenter lorsque vous tentez de traduire des parties du logiciel faisant appel à des fonctionnalités que vous ne maîtrisez pas totalement.
 
@@ -556,6 +612,21 @@ Concernant les messages épinglés, bien que `find` aurait pu être traduit par 
 Souvent employé pour désigner une limite de taux. Dans le contexte de Mattermost, il s'agit d'un taux pour limiter le nombre d'appels sur l'API Mattermost que l'utilisateur peut faire dans un temps donné par exemple.
 
 Bien que rencontré parfois dans les domaines du réseau, ce concept de limite n'est pas facile à exprimer en français. Si vous disposez d'une traduction plus appropriée, merci de nous en faire part.
+
+### Reactions
+
+| EN | FR |
+| --- | --- |
+| Reaction CreateAt property must be greater than the parent post CreateAt. | La propriété de réponse CreateAt doit être plus grande que la valeur de la propriété CreateAt parente. |
+| Missing required Reaction property: create_at. | La propriété requise de réaction est manquante : create_at. |
+
+Au sein de Mattermost, les réactions déterminent les +1 / -1 à des messages. A l'instar d'autres solutions de messagerie comme Facebook Messenger, les réactions peuvent également contenir des émoticônes de la collection standard fournie avec Mattermost voire même des émoticônes personnalisées.
+
+Les réactions ne doivent donc pas être confondues avec les réponses à un message ([cf. Message](#message)).
+
+### Retrieve
+
+[cf. Get](#get)
 
 ### Routes
 
@@ -611,6 +682,19 @@ Les traductions telles que `authentification simplifiée` ou `connexion unique` 
 | EN | FR |
 | --- | --- |
 | A trigger word cannot begin with a / | Un mot**-clé** déclencheur ne peut commencer par un / |
+
+### Unread
+
+Ni l'Académie françaine, ni les différents dictionnaires semblent s'accorder sur l'usage du tiret entre « non » et l'adjectif. [src.](https://www.dicollecte.org/thread.php?prj=fr&t=17)
+Ici il est proposé de ne pas placer de tiret et d'utiliser donc « non lu ».
+
+### URL signing
+
+| EN | FR |
+| --- | --- |
+| Additional options such as the URL signing key. Refer to your image proxy documentation to learn more about what options are supported. | Paramètres additionnels tels que la clé de signature d'URL. Veuillez vous référer à la documentation du proxy d'images pour en savoir plus sur les paramètres supportés. |
+
+L'URL signing est un principe permettant de protéger les fichiers d'un serveur web d'accès non autorisés à l'aide d'une clé parfois spécifiée dans l'URL elle-même. [src.](https://www.limestonenetworks.com/support/knowledge-center/24/112/what_is_url_signing.html) En pratique nous pouvons traduire par `clé de signature d'URL`.
 
 ### Worker
 
