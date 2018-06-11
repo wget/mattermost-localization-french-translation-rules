@@ -19,6 +19,7 @@
     * [Abbréviations](#abbréviations)
     * [Guillemets](#guillemets)
     * [Pluriel de majesté (We couldn't...)](#pluriel-de-majesté-we-couldnt)
+    * [Ecriture inclusive](#ecriture-inclusive)
     * [Traduction trop longue](#traduction-trop-longue)
     * [Gestion du pluriel](#gestion-du-pluriel)
         * [Exemple 1](#exemple-1)
@@ -27,10 +28,12 @@
         * [Exemple 4](#exemple-4)
 * [Outils pour le traducteur](#outils-pour-le-traducteur)
 * [Vocabulaire](#vocabulaire)
+    * [API](#api)
     * [Attach](#attach)
     * [Batch](#batch)
     * [BG](#bg)
     * [Direct](#direct)
+    * [Directory](#directory)
     * [Enter / specify / input field](#enter--specify--input-field)
     * [Email](#email)
     * [Emoji](#emoji)
@@ -38,25 +41,40 @@
     * [Endpoint](#endpoint)
     * [FileInfos](#fileinfos)
     * [Flag](#flag)
+    * [Folder](#folder)
     * [Follow up](#follow-up)
-    * [Get](#get)
+    * [Get / retrieve](#get--retrieve)
+    * [Handle](#handle)
     * [Hours / timezone](#hours--timezone)
     * [Jobs](#jobs)
     * [Kick / ban / remove](#kick--ban--remove)
     * [Message](#message)
+    * [Message export job](#message-export-job)
+    * [Mute](#mute)
     * [Notifications push / mobile / desktop](#notifications-push--mobile--desktop)
+    * [Optional](#optional)
+    * [Override](#override)
+    * [Packaged](#packaged)
     * [Parse / parser](#parse--parser)
     * [Permanently](#permanently)
     * [Permissions](#permissions)
+    * [Populate](#populate)
     * [Posted / posts / publication](#posted--posts--publication)
     * [Private message](#private-message)
+    * [Preview mode](#preview-mode)
     * [Purpose](#purpose)
     * [Rate limits](#rate-limits)
+    * [Reactions](#reactions)
+    * [Retrieve](#retrieve)
+    * [Rollback](#rollback)
     * [Routes](#routes)
+    * [Scheme](#scheme)
     * [Slash commands](#slash-commands)
     * [SSO](#sso)
     * [Token / secret key](#token--secret-key)
     * [Trigger](#trigger)
+    * [Unread](#unread)
+    * [URL signing](#url-signing)
     * [Worker](#worker)
 
 <!-- vim-markdown-toc -->
@@ -121,11 +139,11 @@ Sous Windows, il vous est également possible d'utiliser le logiciel [WinCompose
 
 Une fois le logiciel WinCompose relancé, il vous suffira de taper sur la touche Compose (par défaut `Alt` droit, ce paramètre peut être changé dans les options de WinCompose) suivie de trois fois la touche `espace`.
 
-Sous Linux, le principe est le même, placer dans votre `$HOME`, un fichier `.XCompose` et relancez Xorg (redémarrez simplement votre machine).
+Sous Linux, le principe est le même, placez dans votre `$HOME` un fichier `.XCompose` et relancez Xorg (ou redémarrez simplement votre machine).
 
 ### Table de caractères
 
-Il est également possible de copier coller le caractère de votre choix en utilisant l'[insertion de caractères spéciaux dans LibreOffice Writer](https://help.libreoffice.org/Common/Special_Character/fr) ou d'utiliser le logiciel de table de caractère propre à votre OS.
+Il est également possible de copier-coller le caractère de votre choix en utilisant l'[insertion de caractères spéciaux dans LibreOffice Writer](https://help.libreoffice.org/Common/Special_Character/fr) ou d'utiliser le logiciel de table de caractère propre à votre OS.
 
 * Sous Windows, ouvrez `charmap.exe`, cochez la case `Advanced view`, tappez le caractère que vous souhaitez en toutes lettres en anglais, cliquez sur `Search`, sélectionnez le caractère dans la table de résultats et cliquez sur `Copy`.
 
@@ -409,6 +427,8 @@ A l'instar de [`NotifyProps`, cf. plus bas](#Notifications push / mobile / deskt
 
 Remarquons que plusieurs traductions pour `flag` ont été utilisées ci-dessus. Choisissez simplement celle qui convient en fonction de la taille disponible.
 
+Attention, le mot `flag` est également utilisé pour les catégories d'émoticônes (cf. `.mobile.emoji_picker.flags`). Dans ce cas de figure et uniquement dans celui-ci, utilisez le terme `Drapeaux`.
+
 ### Folder
 
 [cf. Directory](#directory)
@@ -466,7 +486,6 @@ Le terme `tâche` est à employer dans le jargon (cf. les `tâches planifiées` 
 | Failed to find user to be removed | Impossible de trouver l'utilisateur à supprimer |
 | Unable to remove license file, err=%v | Impossible de supprimer le fichier de licence, err=%v |
 
-
 * Pour un fichier, on utilise `supprimer`.
 * Pour le fait de retirer un utilisateur d'un canal ou d'une équipe, on emploie `retirer`.
 * Pour un `ban`/`banissement` on utilisera `bannir` de façon à se rapprocher de l'anglais et éviter les termes comme `exclure`.
@@ -484,7 +503,7 @@ Au sein de Mattermost, il existe 3 types de canaux et donc 3 types de messages :
 
 * Les messages privés sont les messages publiés dans les canaux privés (groupes privés)
 
-* Les messages personnels qui sont les messages s'adressant en direct à une personne, en un-à-un (one-to-one). Plus communément appelés Messages Directs (ou DM) sur Twitter, ce terme est cependant à proscrire au sein de Mattermost. En effet, sur Twitter la fonctionnalité de DM reprend à la fois les messages par groupes privés et les messages en un-à-un. La fonctionnalité est scindée en 2 fonctionnalités bien distinctes au sein de Mattermost.
+* Les messages personnels qui sont les messages s'adressant en direct à une personne, en un-à-un (one-to-one), ou depuis récemment en petits groupes jusqu'à maximum 5 personnes. Plus communément appelés Messages Directs (ou DM) sur Twitter, ce terme est cependant à proscrire au sein de Mattermost. En effet, sur Twitter la fonctionnalité de DM reprend à la fois les messages par groupes privés et les messages en un-à-un. La fonctionnalité est scindée en 2 fonctionnalités bien distinctes au sein de Mattermost.
 
 Pour chaque type de canal, Mattermost considère 2 types de messages : 
 
@@ -550,6 +569,14 @@ Par mesure de consistance, il est recommandé d'utilisé « Facultatif » au l
 | --- | --- |
 | Enable integrations to override usernames | Permettre aux intégrations de redéfinir les noms d'utilisateur |
 
+### Packaged
+
+| EN | FR |
+| --- | --- |
+| Cannot install prepackaged plugin | Impossible d'installer le plugin préempaqueté |
+
+Rappel: il n'y a pas de trait d'union avec le préfixe `pré`.
+
 ### Parse / parser
 
 | EN | FR |
@@ -575,6 +602,12 @@ Utilisez `définitivement` à la place de `de façon permanente`.
 
 Dans le cas du contexte de permissions qui nous concerne, il est question de permissions qui sont trop restrictives et non de permissions d'accès invalides (permissions UNIX 775 au lieu de 770 par exemple).
 
+### Populate
+
+| EN | FR |
+| --- | --- |
+| (Optional) The attribute in the AD/LDAP server used to populate the first name of users in Mattermost. When set, users cannot edit their first name, since it is synchronized with the LDAP server. When left blank, users can set their first name in Account Settings. | (Facultatif) L'attribut du serveur AD/LDAP qui est utilisé pour remplir les prénoms des utilisateurs de Mattermost. Lorsque défini, les utilisateurs ne peuvent pas éditer leur prénom étant donné qu'il est alors synchronisé avec le serveur LDAP. Lorsque laissé vide, les utilisateurs peuvent définir leur propre prénom dans les paramètres du compte. |
+
 ### Posted / posts / publication
 
 | EN | FR |
@@ -592,11 +625,15 @@ Notez que pour `Go to Post`, étant donné que ce texte concerne tous types de m
 
 Lorsqu'un message est publié par un utilisateur, on dit qu'il est `envoyé`, lorsque le message est publié par le système (message `join`/`leave`/changement d'entête), on dit qu'il est `publié`.
 
-Concernant les messages épinglés, bien que `find` aurait pu être traduit par `trouver`, de façon à assurer une certaine cohérence avec les autres messages d'erreur de ce type, nous employons ici le verbe `récupérer` (cf. [Get](#Get) plus haut).
+Concernant les messages épinglés, bien que `find` aurait pu être traduit par `trouver`, de façon à assurer une certaine cohérence avec les autres messages d'erreur de ce type, nous employons ici le verbe `récupérer` (cf. [Get / retrieve](#get--retrieve) plus haut).
 
 ### Private message
 
 [cf. Message](#message)
+
+### Preview mode
+
+Il s'agit du mode dans lequel se trouve Mattermost lorsque les notifications par e-mail ne sont pas activées et que dés lors, la configuration n'est pas totalement terminée. De façon à ne pas créer de confusion, nous utilisons le terme « Mode de démo ».
 
 ### Purpose
 
@@ -626,7 +663,11 @@ Les réactions ne doivent donc pas être confondues avec les réponses à un mes
 
 ### Retrieve
 
-[cf. Get](#get)
+[cf. Get](#get--retrieve)
+
+### Rollback
+
+Dans le contexte des bases de données et des transactions, on utilisera « annuler la transaction ».
 
 ### Routes
 
@@ -658,6 +699,20 @@ Les propositions suivantes seront donc considérées comme invalides et seront r
 | Initialisation des routes de l'API d'équipe | Initialisation des routes de l'API des équipes |
 | Initialisation des routes des APIs d'équipes | Initialisation des routes des APIs de l'équipe |
 
+### Scheme
+
+Attention à ce terme, il est utilisé à plusieurs endroits pour des significations radicalement différentes.
+* L'URI scheme est le protocole utilisé dans une URI comme http://, https://, wss://, ftp://, etc. On emploiera « protocole URI » ou « protocole URL » dans ce contexte.
+* Dans le cadre des permissions avancées et droits d'accès, un scheme est un ensemble de règles par défaut pour rejoindre un système, une équipe ou un canal. Dans ce contexte, en plus d'avoir une certaine similitude avec le terme anglophone « scheme », on emploiera « schéma de permissions » (« schémas de permissions » au pluriel). En effet, pour attribuer des règles et droits d'accès dans une organisation, il est souvent nécessaire de faire un plan ou un organigramme, et donc un schéma. « stratégie » sera proscrit ici, même si souvent employé dans les environnements Windows.
+
+| EN | FR |
+| --- | --- |
+| The custom URL scheme {{.Scheme}} is invalid. Custom URL schemes must start with a letter and contain only letters, numbers, plus (+), period (.), and hyphen (-). | Le protocole URL personnalisé {{.Scheme}} est invalide. Les protocoles URL personnalisés doivent commencer par une lettre et ne peuvent contenir que des lettres, des chiffres, et les caractères plus (+), point (.), et trait d'union (-). |
+| The provided role is managed by a Scheme and therefore cannot be applied directly to a Channel Member | Le rôle spécifié est géré par un schéma de permissions et ne peut donc pas être appliqué directement à un membre d'équipe |
+| New Team Override Scheme | Nouveau schéma de permissions personnalisé |
+
+Nous n'utilisons pas de constructions de phrase traduisant littéralement le terme « override »; ceci donne des phrases trop compliquées.
+
 ### Slash commands
 
 Il s'agit des commandes que vous spécifiez lorsque vous commencez votre message par un slash dans Mattermost. `commandes slash` est à privilégier pour des raisons de cohérence.
@@ -685,7 +740,7 @@ Les traductions telles que `authentification simplifiée` ou `connexion unique` 
 
 ### Unread
 
-Ni l'Académie françaine, ni les différents dictionnaires semblent s'accorder sur l'usage du tiret entre « non » et l'adjectif. [src.](https://www.dicollecte.org/thread.php?prj=fr&t=17)
+Ni l'Académie françaine, ni les différents dictionnaires semblent s'accorder sur l'usage du tiret entre « non » et l'adjectif ([src.](https://www.dicollecte.org/thread.php?prj=fr&t=17)).
 Ici il est proposé de ne pas placer de tiret et d'utiliser donc « non lu ».
 
 ### URL signing
@@ -694,7 +749,7 @@ Ici il est proposé de ne pas placer de tiret et d'utiliser donc « non lu ».
 | --- | --- |
 | Additional options such as the URL signing key. Refer to your image proxy documentation to learn more about what options are supported. | Paramètres additionnels tels que la clé de signature d'URL. Veuillez vous référer à la documentation du proxy d'images pour en savoir plus sur les paramètres supportés. |
 
-L'URL signing est un principe permettant de protéger les fichiers d'un serveur web d'accès non autorisés à l'aide d'une clé parfois spécifiée dans l'URL elle-même. [src.](https://www.limestonenetworks.com/support/knowledge-center/24/112/what_is_url_signing.html) En pratique nous pouvons traduire par `clé de signature d'URL`.
+L'URL signing est un principe permettant de protéger les fichiers d'un serveur web d'accès non autorisés à l'aide d'une clé parfois spécifiée dans l'URL elle-même ([src.](https://www.limestonenetworks.com/support/knowledge-center/24/112/what_is_url_signing.html)). En pratique nous pouvons traduire par `clé de signature d'URL`.
 
 ### Worker
 
