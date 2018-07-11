@@ -32,6 +32,7 @@
     * [API](#api)
     * [Attach](#attach)
     * [Batch](#batch)
+    * [Before taking effect](#before-taking-effect)
     * [BG](#bg)
     * [Direct](#direct)
     * [Directory](#directory)
@@ -373,6 +374,14 @@ Dans le cas contraire, utilisez le plus possible la mention de `lien`. En effet,
 | Email batching job's receiving channel was full. Please increase the EmailBatchingBufferSize. | Le canal recevant les e-mail envoyés par lot est plein. Veuillez augmenter le paramètre EmailBatchingBufferSize. |
 
 L'envoi par lots.
+
+### Before taking effect
+
+| EN | FR |
+| --- | --- |
+| Changing properties in this section will require a server restart before taking effect. | Modifier les paramètres de cette section nécessite un redémarrage du serveur avant de prendre effet. |
+
+Simplement traduit de façon littérale. Ne pas utiliser `Pour prendre effet`.
 
 ### BG
 
