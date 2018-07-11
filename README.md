@@ -36,6 +36,7 @@
     * [BG](#bg)
     * [Direct](#direct)
     * [Directory](#directory)
+    * [Documentation](#documentation)
     * [Enter / specify / input field](#enter--specify--input-field)
     * [Email](#email)
     * [Emoji](#emoji)
@@ -398,6 +399,12 @@ Simplement traduit de façon littérale. Ne pas utiliser `Pour prendre effet`.
 ### Directory
 
 On utilise le terme dossier au sein de la traduction, excepté pour AD/LDAP ou Active Directory qui restent, eux, sans traduction vu qu'il s'agit du nom d'un produit.
+
+### Documentation
+
+Dans ce contexte, on utilise le terme `Consultez la documentation pour en savoir plus.`. On n'utilise pas la tournure de phrase `pour en savoir davantage` c'est trop long. Il en est de même pour `Veuillez vous référer` qui est également trop long.
+
+Lorsque des mentions comme `our documentation` sont employées, il est important de les traduire par `notre documentation` et non par `la documentation`. En effet, on rencontre pareilles mentions dans le cas de ElasticSearch. Dans ce contexte, il s'agit de la documentation ElasticSearch propre et donc spécifique à Mattermost; il ne faudrait pas que l'utilisateur se rende sur la documentation générique de ElasticSearch qui ne l'aidera pas dans ce cas de figure.
 
 ### Enter / specify / input field
 
