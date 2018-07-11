@@ -28,6 +28,7 @@
         * [Exemple 4](#exemple-4)
 * [Outils pour le traducteur](#outils-pour-le-traducteur)
 * [Vocabulaire](#vocabulaire)
+    * [At rest / in transit](#at-rest--in-transit)
     * [API](#api)
     * [Attach](#attach)
     * [Batch](#batch)
@@ -328,6 +329,21 @@ Pour vous assurer que votre traduction dispose d'espaces insécables, ce qui est
 Les autres commandes de pology telles que `check_rules`, `check_spell`, `check_grammar` et `find_messages` soit n'ont pas été testées, soit ne sont pas compatibles à cause de la façon dont les paramètres des chaînes de Mattermost sont représentés dans le langage Go. La présence de `{{.varName}}`, par exemple, est considérée comme une erreur par pology (un espace est requis après un point, etc.).
 
 ## Vocabulaire
+
+### At rest / in transit
+
+| EN | FR |
+| --- | --- |
+| Invalid at rest encrypt key for SQL settings. Must be 32 chars or more. | Clé de chiffrement invalide pour les paramètres SQL pour les données au repos (les données stockées sur des disques dans ces centres de données sont appelées « au repos », au contraire de « en transit » soit lorsqu'elles sont transférées sur le réseau). Doit être égale ou supérieure à 32 caractères. |
+
+Ce concept est assez récent et a reçu une plus grande notoritété récemment suite à l'entrée en vigueur des nouveaux règlements sur la protection des données personnelles comme le RGPD. 
+
+Dans le cadre du traitement des données, ces dernières se situent toujours dans l'un des états suivants :
+* `Data in use` (données en utilisation): les données sont constamment en cours de changement de stockage, passage en centre de données, utilisation dans des feuilles de calcul, etc.
+* `Data in motion` ou `Data in transit`: lorsque les données sont en cours de transfert via le réseau informatique ou lorsqu'elle sont transférées en mémoire vive ou simplement misesà jour .
+* `Data at rest`: données inactives stockées dans des bases de données, des archives, des sauvegardes, bref toutes les données qui ne sont pas susceptibles d'être directement utilisées. Dans ce cas de Mattermost, ceci peut être les vieilles données de chat échangées sur l'application il y a longtemps.
+
+Nous avons décidé de prendre quelques latitudes dans la chaîne traduite de permettre à rajouter des précisions sur ce terme assez nébuleux pour un francophone.
 
 ### API
 
