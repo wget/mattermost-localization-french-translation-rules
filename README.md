@@ -34,6 +34,7 @@
     * [Batch](#batch)
     * [Before taking effect](#before-taking-effect)
     * [BG](#bg)
+    * [Bot](#bot)
     * [Direct](#direct)
     * [Directory](#directory)
     * [Documentation](#documentation)
@@ -391,6 +392,10 @@ Simplement traduit de façon littérale. Ne pas utiliser `Pour prendre effet`.
 | Button BG | Arrière-plan du bouton |
 
 `BG` correspond à `background`. On n'utilise pas `fond` mais bien `arrière-plan`.
+
+### Bot
+
+Utilisez BOT ou Bot en contexte, car ce terme est de plus en plus utilisé en français dans le cadre des solutions de messagerie pour désigner des programmes informatiques qui interragissent comme s'il s'agissait d'une personne au sein du chat.
 
 ### Direct
 
@@ -760,6 +765,11 @@ Dans le jargon technique, le terme SSO tend à prendre le pas sur le terme `Auth
 Les traductions telles que `authentification simplifiée` ou `connexion unique` sont à proscrire.
 
 ### Token / secret key
+
+| EN | FR |
+| --- | --- |
+| Personal access token added to your account | Un jeton d'accès personnel a été ajouté à votre compte |
+
 
 * `token`: Utilisez le mot `jeton` à la place.
 * `secret key`: `clé secrète` si c'est une clé utilisée dans le sens clé à ne pas divulguer, `clé privée` dans le cas où il est fait mention de clé publique ou s'il est question de chiffrement asymétrique.
