@@ -54,6 +54,7 @@
     * [Kick / ban / remove](#kick--ban--remove)
     * [Message](#message)
     * [Message export job](#message-export-job)
+    * [Modify](#modify)
     * [Mute](#mute)
     * [Notifications push / mobile / desktop](#notifications-push--mobile--desktop)
     * [Optional](#optional)
@@ -568,6 +569,16 @@ On `compose` un message, une publication ou une réponse.
 | EN | FR |
 | --- | --- |
 | Message export job BatchSize must be a positive integer | Le paramètre BatchSize de la tâche d'exportation de messages doit être un entier positif |
+
+### Modify
+
+| EN | FR |
+| --- | --- |
+| Update Email | Modifier l'adresse e-mail |
+
+Bien qu'on ait tendance à vouloir traduire par `mettre à jour`, la plupart du temps traduire par `modifier` est plus simple et correct. On emploiera le terme `mise à jour` uniquement dans le cadre de mises à jour de l'application que nous parlions de la partie serveur ou cliente (webapp, application mobile ou de bureau).
+
+Par exception, on pourra employer le terme `mise à jour` lorsqu'on parlera de raffraichissement de l'affichage d'une vue du logiciel, de la mise à jour d'une connexion WebSocket ou lorsque l'on parle de connexion SMTP/STARTTLS, bien que dans ces derniers cas l'utilisation de `mise à niveau` semble plus appropriée.
 
 ### Mute
 
