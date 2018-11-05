@@ -76,6 +76,7 @@
     * [Scheme](#scheme)
     * [Slash commands](#slash-commands)
     * [SSO](#sso)
+    * [Terms](#terms)
     * [Token / secret key](#token--secret-key)
     * [Trigger](#trigger)
     * [Unread](#unread)
@@ -774,6 +775,14 @@ Il s'agit des commandes que vous spécifiez lorsque vous commencez votre message
 Dans le jargon technique, le terme SSO tend à prendre le pas sur le terme `Authentification unique`. Dans le cadre de Mattermost, il a donc été choisi de suffixer la traduction française par le terme SSO entre parenthèses de façon à préciser le contexte. En effet, le terme `authentification` pourrait être confondu avec le terme `authentification multi-facteurs` (MFA), autre fonctionnalité présente au sein de Mattermost.
 
 Les traductions telles que `authentification simplifiée` ou `connexion unique` sont à proscrire.
+
+### Terms
+
+| EN | FR |
+| --- | --- |
+| Please enter text for your Custom Terms of Service. | Veuillez spécifier le texte correspondant aux conditions d'utilisation personnalisées. |
+
+Utilisez le terme `conditions d'utilisation personnalisées`. `conditions personnalisées d'utilisation` semble être moins aisé à comprendre de prime abord. N'utilisez pas le terme `conditions de service` qui est une traduction trop littérale.
 
 ### Token / secret key
 
