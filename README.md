@@ -37,6 +37,7 @@
     * [Bot](#bot)
     * [Direct](#direct)
     * [Directory](#directory)
+    * [Details](#details)
     * [Documentation](#documentation)
     * [Enter / specify / input field](#enter--specify--input-field)
     * [Email](#email)
@@ -52,6 +53,8 @@
     * [Hours / timezone](#hours--timezone)
     * [Jobs](#jobs)
     * [Kick / ban / remove](#kick--ban--remove)
+    * [Link/linking](#linklinking)
+    * [Marshalling](#marshalling)
     * [Message](#message)
     * [Message export job](#message-export-job)
     * [Modify](#modify)
@@ -345,8 +348,8 @@ Ce concept est assez récent et a reçu une plus grande notoritété récemment 
 
 Dans le cadre du traitement des données, ces dernières se situent toujours dans l'un des états suivants :
 * `Data in use` (données en utilisation): les données sont constamment en cours de changement de stockage, passage en centre de données, utilisation dans des feuilles de calcul, etc.
-* `Data in motion` ou `Data in transit`: lorsque les données sont en cours de transfert via le réseau informatique ou lorsqu'elle sont transférées en mémoire vive ou simplement misesà jour .
-* `Data at rest`: données inactives stockées dans des bases de données, des archives, des sauvegardes, bref toutes les données qui ne sont pas susceptibles d'être directement utilisées. Dans ce cas de Mattermost, ceci peut être les vieilles données de chat échangées sur l'application il y a longtemps.
+* `Data in motion` ou `Data in transit`: lorsque les données sont en cours de transfert via le réseau informatique ou lorsqu'elle sont transférées en mémoire vive ou simplement mises à jour .
+* `Data at rest`: données inactives stockées dans des bases de données, des archives, des sauvegardes, bref toutes les données qui ne sont pas susceptibles d'être directement utilisées. Dans le cas de Mattermost, ceci peut être les vieilles données de chat échangées sur l'application il y a longtemps.
 
 Nous avons décidé de prendre quelques latitudes dans la chaîne traduite de permettre à rajouter des précisions sur ce terme assez nébuleux pour un francophone.
 
@@ -406,6 +409,14 @@ Utilisez BOT ou Bot en contexte, car ce terme est de plus en plus utilisé en fr
 ### Directory
 
 On utilise le terme dossier au sein de la traduction, excepté pour AD/LDAP ou Active Directory qui restent, eux, sans traduction vu qu'il s'agit du nom d'un produit.
+
+### Details
+
+| EN | FR |
+| --- | --- |
+| Please ask your system administrator for more details | Veuillez demander à votre administrateur système pour en savoir plus |
+
+N'utiliser pas `pour plus de détails`, `pour plus d'information` (ni sa variante au pluriel).
 
 ### Documentation
 
@@ -532,6 +543,25 @@ Le terme `tâche` est à employer dans le jargon (cf. les `tâches planifiées` 
 * Pour le fait de supprimer un utilisateur complètement, on emploie `supprimer`.
 * La différence entre un `bannissement` et une `éjection` se traduit par la possibilité pour l'utilisateur de se reconncter par la suite ou non. Pour le banissement, l'utilisateur ne pourra plus se connecter tant que l'administrateur du canal n'aura pas changé d'avis.
 
+### Link/linking
+
+| EN | FR |
+| --- | --- |
+| Link failed | L'association a échoué |
+| Linked | Associé |
+| Unlink failed | La dissociation a échoué |
+
+Ces mentions sont souvent rencontrées dans le cadre de la synchronisation d'utilisateurs entre plusieurs plateformes, notamment les annuaires AD/LDAP. Dans ce cadre, nous utiliserons les termes `association` et `dissociation` rencontrées le plus souvent au lieu du terme `lien`. Nous n'avons en effet pas de traduction pour `unlink` ce qui rendait l'ensemble moins harmonieux.
+
+### Marshalling
+
+| EN | FR |
+| --- | --- |
+| An error occurred marshalling the JSON data for export. | Une erreur s'est produite lors de la préparation à l'exportation (marshalling) des données JSON. |
+| marshal error | erreur de transformation de données (marshalling) |
+
+En sciences informatiques, le marshalling (ou marshaling) est le fait de transformer la représentation en mémoire d'un objet dans un format dédié au stockage ou à la transmission réseau. Ce terme est assez proche de la sérialisation. Pour s'adapter à cette définition, nous n'hésitons pas à prendre des latitudes dans la traduction de façon à ce que les non anglophones ou ceux qui n'ont pas des connaissances informatiques poussées puissent tout de même comprendre.
+
 ### Message
 
 Mattermost est utilisé pour envoyer des `messages`. Ces messages peuvent être composés de texte et/ou d'objets tels que des fichiers (images, documents, émoticônes, etc.).
@@ -610,7 +640,7 @@ Considérez les termes `NotifyProps` et `Notify Props` comme semblables. Ils doi
 
 ### Optional
 
-Par mesure de consistance, il est recommandé d'utilisé « Facultatif » au lieu du terme « Optionnel ».
+Par mesure de cohérence, il est recommandé d'utilisé `Facultatif` au lieu du terme `Optionnel`.
 
 ### Override
 
