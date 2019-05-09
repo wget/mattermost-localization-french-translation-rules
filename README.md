@@ -31,6 +31,7 @@
     * [At rest / in transit](#at-rest--in-transit)
     * [API](#api)
     * [Attach](#attach)
+    * [Autocompletion](#autocompletion)
     * [Batch](#batch)
     * [Before taking effect](#before-taking-effect)
     * [BG](#bg)
@@ -55,6 +56,7 @@
     * [Kick / ban / remove](#kick--ban--remove)
     * [Link/linking](#linklinking)
     * [Marshalling](#marshalling)
+    * [Member / channel member](#member--channel-member)
     * [Message](#message)
     * [Message export job](#message-export-job)
     * [Modify](#modify)
@@ -70,6 +72,8 @@
     * [Posted / posts / publication](#posted--posts--publication)
     * [Private message](#private-message)
     * [Preview mode](#preview-mode)
+    * [Preview features](#preview-features)
+    * [Privacy](#privacy)
     * [Purpose](#purpose)
     * [Rate limits](#rate-limits)
     * [Reactions](#reactions)
@@ -374,6 +378,15 @@ En parlant de pièces jointes (`attachments`) et donc de fichiers, utilisez le t
 
 Dans le cas contraire, utilisez le plus possible la mention de `lien`. En effet, nous utilisons déjà le terme `joindre`/`rejoindre` dans le cas d'un utilisateur joignant/quittant un canal.
 
+### Autocompletion
+
+| EN | FR |
+| --- | --- |
+| Check with your System Admin or open the autocomplete list by typing `/` to determine if your team configured any custom slash commands. | Demandez à votre administrateur système ou ouvrez la liste de suggestions de commandes en tapant `/` pour savoir si votre équipe a configuré des commandes slash personnalisées. |
+| When true, Elasticsearch will be used for all autocompletion queries on users and channels using the latest index. | Lorsqu'activé, Elasticsearch est utilisé pour toutes les requêtes d'auto-complétion sur les utilisateurs et les canaux en utilisant le dernier index disponible. |
+
+Selon le cas, peut également exprimer l'idée de « suggestion » ou de « saisie semi-automatique ».
+
 ### Batch
 
 | EN | FR |
@@ -562,6 +575,15 @@ Ces mentions sont souvent rencontrées dans le cadre de la synchronisation d'uti
 
 En sciences informatiques, le marshalling (ou marshaling) est le fait de transformer la représentation en mémoire d'un objet dans un format dédié au stockage ou à la transmission réseau. Ce terme est assez proche de la sérialisation. Pour s'adapter à cette définition, nous n'hésitons pas à prendre des latitudes dans la traduction de façon à ce que les non anglophones ou ceux qui n'ont pas des connaissances informatiques poussées puissent tout de même comprendre.
 
+### Member / channel member
+
+| EN | FR |
+| --- | --- |
+| Could not find channel member when importing direct channel | Impossible de trouver le membre du canal lors de l'importation du canal de messages personnels |
+| No channel member found for that user ID and channel ID | Aucun membre de canal trouvé pour cet ID utilisateur et cet ID de canal |
+
+En fonction du contexte et selon la phonétique, il se peut qu'on doive utiliser « de » plutôt que « du ».
+
 ### Message
 
 Mattermost est utilisé pour envoyer des `messages`. Ces messages peuvent être composés de texte et/ou d'objets tels que des fichiers (images, documents, émoticônes, etc.).
@@ -713,6 +735,14 @@ Concernant les messages épinglés, bien que `find` aurait pu être traduit par 
 ### Preview mode
 
 Il s'agit du mode dans lequel se trouve Mattermost lorsque les notifications par e-mail ne sont pas activées et que dés lors, la configuration n'est pas totalement terminée. De façon à ne pas créer de confusion, nous utilisons le terme « Mode de démo ».
+
+### Preview features
+
+Lorsque ce terme ets employé pour parler des fonctionnalités en test, qui ne sont pas encore stables, parfois appelées beta, on emploiera le terme « fonctionnalités expérimentales ».
+
+### Privacy
+
+Par mesure de cohérence surtout après les nouveaux réglements comme le RGPD/GDPR, on traduit par « vie privée ».
 
 ### Purpose
 
