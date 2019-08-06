@@ -36,6 +36,7 @@
     * [Before taking effect](#before-taking-effect)
     * [BG](#bg)
     * [Bot](#bot)
+    * [Constraints](#constraints)
     * [Direct](#direct)
     * [Directory](#directory)
     * [Details](#details)
@@ -77,9 +78,11 @@
     * [Purpose](#purpose)
     * [Rate limits](#rate-limits)
     * [Reactions](#reactions)
+    * [Refresh](#refresh)
     * [Retrieve](#retrieve)
     * [Rollback](#rollback)
     * [Routes](#routes)
+    * [Save](#save)
     * [Scheme](#scheme)
     * [Slash commands](#slash-commands)
     * [SSO](#sso)
@@ -415,6 +418,16 @@ Simplement traduit de façon littérale. Ne pas utiliser `Pour prendre effet`.
 
 Utilisez BOT ou Bot en contexte, car ce terme est de plus en plus utilisé en français dans le cadre des solutions de messagerie pour désigner des programmes informatiques qui interragissent comme s'il s'agissait d'une personne au sein du chat.
 
+### Constraints
+
+| EN | FR |
+| --- | --- |
+| Channel membership denied to the following users because of group constraints: {{ .UserIDs }} | L'ajout en tant que membre au canal a été refusé pour les utilisateurs suivants à cause de restrictions de groupe : {{ .UserIDs }} |
+| User cannot be added to this channel because it is constrained to group members only. | L'utilisateur ne peut pas être ajouté à ce canal parce ce canal est uniquement restreint aux membres de ce groupe. |
+| Unable to remove a user from a group-constrained team. | Impossible de retirer un utilisateur d'une équipe disposant de restrictions de groupe. |
+
+A traduire de façon similaire à « restrictions » en termes de droits d'accès.
+
 ### Direct
 
 [cf. Message](#message)
@@ -433,9 +446,9 @@ N'utiliser pas `pour plus de détails`, `pour plus d'information` (ni sa variant
 
 ### Documentation
 
-Dans ce contexte, on utilise le terme `Consultez la documentation pour en savoir plus.`. On n'utilise pas la tournure de phrase `pour en savoir davantage` c'est trop long. Il en est de même pour `Veuillez vous référer` qui est également trop long.
+Dans ce contexte, on utilise le terme `Consultez la documentation pour en savoir plus.`. On n'utilise pas la tournure de phrase `pour en savoir davantage`, c'est trop long. Il en est de même pour `Veuillez vous référer` qui est également trop long.
 
-Lorsque des mentions comme `our documentation` sont employées, il est important de les traduire par `notre documentation` et non par `la documentation`. En effet, on rencontre pareilles mentions dans le cas de ElasticSearch. Dans ce contexte, il s'agit de la documentation ElasticSearch propre et donc spécifique à Mattermost; il ne faudrait pas que l'utilisateur se rende sur la documentation générique de ElasticSearch qui ne l'aidera pas dans ce cas de figure.
+Lorsque des mentions comme `our documentation` sont employées, il est important de les traduire par `notre documentation` et non par `la documentation`. En effet, on rencontre pareilles mentions dans le cas de ElasticSearch. Dans ce contexte, il s'agit de la documentation ElasticSearch propre (et donc spécifique) à Mattermost; il ne faudrait pas que l'utilisateur se rende sur la documentation générique de ElasticSearch qui ne l'aidera pas dans ce cas de figure.
 
 ### Enter / specify / input field
 
@@ -683,7 +696,7 @@ Rappel: il n'y a pas de trait d'union avec le préfixe `pré`.
 | EN | FR |
 | --- | --- |
 | Elasticsearch indexing worker failed to parse the start time | Le système d’agrégation Elasticsearch n'a pas pu interpréter l'heure de début |
-| Could not parse multipart form | Impossible d'analyser le formulaire (multipart form)|
+| Could not parse multipart form | Impossible d'interpréter le formulaire multipart. |
 
 Ne pas traduire par `analyser`, même si ce terme le plus fréquent représente l'analyse de la syntaxe grammaticale d'un langage, `interpréter` dans le sens comprendre est plus correct dans ce cas d'utilisation.
 
@@ -770,6 +783,14 @@ Au sein de Mattermost, les réactions déterminent les +1 / -1 à des messages. 
 
 Les réactions ne doivent donc pas être confondues avec les réponses à un message ([cf. Message](#message)).
 
+### Refresh
+
+| EN | FR |
+| --- | --- |
+| Refresh the app now | Actualiser l'application maintenant |
+
+Le terme « refresh » est souvent employé pour déterminer le fait de rafraichir la page d'un navigateur web. Il arrive toutefois que ce terme soit employé pour demander à l'utilisateur de rafraichir l'application Mattermost. Dans ce sens, cela signifie qu'il faut que l'utilisateur appuie sur un bouton en particulier ou ferme ou relance l'application Mattermost. Dans ce dernier cas, on utilisera la traduction « actualiser » plutôt que « rafraichir ».
+
 ### Retrieve
 
 [cf. Get](#get--retrieve)
@@ -807,6 +828,10 @@ Les propositions suivantes seront donc considérées comme invalides et seront r
 | --- | --- |
 | Initialisation des routes de l'API d'équipe | Initialisation des routes de l'API des équipes |
 | Initialisation des routes des APIs d'équipes | Initialisation des routes des APIs de l'équipe |
+
+### Save
+
+Bien qu'on eusse préféré le terme le plus proche de l'anglais, à savoir « sauvegarder », « enregistrer » reste le terme le plus courant, car popularisé suite à l'usage massif des suites bureautique à la fin des années 2000. De plus, le terme « sauvegarde » fait trop penser à la copie de sauvegarde qu'on réalise dans le cas d'une politique de backup sur disques par exemple. On emploiera donc « enregistrer », « enregistrement » et bouton « Enregistrer ».
 
 ### Scheme
 
@@ -869,7 +894,7 @@ Ici il est proposé de ne pas placer de tiret et d'utiliser donc « non lu ».
 
 | EN | FR |
 | --- | --- |
-| Additional options such as the URL signing key. Refer to your image proxy documentation to learn more about what options are supported. | Paramètres additionnels tels que la clé de signature d'URL. Veuillez vous référer à la documentation du proxy d'images pour en savoir plus sur les paramètres supportés. |
+| Additional options such as the URL signing key. Refer to your image proxy documentation to learn more about what options are supported. | Paramètres additionnels tels que la clé de signature d'URL. Consultez la documentation du proxy d'images pour en savoir plus sur les paramètres supportés. |
 
 L'URL signing est un principe permettant de protéger les fichiers d'un serveur web d'accès non autorisés à l'aide d'une clé parfois spécifiée dans l'URL elle-même ([src.](https://www.limestonenetworks.com/support/knowledge-center/24/112/what_is_url_signing.html)). En pratique nous pouvons traduire par `clé de signature d'URL`.
 
