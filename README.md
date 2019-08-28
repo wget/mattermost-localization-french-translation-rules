@@ -46,6 +46,7 @@
     * [Emoji](#emoji)
     * [Encountered](#encountered)
     * [Endpoint](#endpoint)
+    * [Failed to](#failed-to)
     * [FileInfos](#fileinfos)
     * [Flag](#flag)
     * [Folder](#folder)
@@ -486,6 +487,15 @@ Utilisez `adresse e-mail` et non `adresse électronique`. `Adresse électronique
 ### Endpoint
 
 [cf. section relatives aux APIs et aux routes d'API](#Routes)
+
+
+### Failed to
+
+| EN | FR |
+| --- | --- |
+| Failed to upgrade websocket connection | Impossible de mettre à niveau la connexion WebSocket |
+
+De façon plus pragmatique, toutes les chaînes qui commencent (et uniquement celles qui commencent) par « Failed to » sont traduites par « Impossible de » par mesure de cohérence.
 
 ### FileInfos
 
