@@ -52,13 +52,15 @@
     * [Folder](#folder)
     * [Follow up](#follow-up)
     * [Get / retrieve](#get--retrieve)
+    * [Guest](#guest)
     * [Handle](#handle)
     * [Hours / timezone](#hours--timezone)
     * [Jobs](#jobs)
     * [Kick / ban / remove](#kick--ban--remove)
     * [Link/linking](#linklinking)
+    * [Marketplace](#marketplace)
     * [Marshalling](#marshalling)
-    * [Member / channel member](#member--channel-member)
+    * [Member / channel member / membership](#member--channel-member--membership)
     * [Message](#message)
     * [Message export job](#message-export-job)
     * [Modify](#modify)
@@ -87,6 +89,7 @@
     * [Scheme](#scheme)
     * [Slash commands](#slash-commands)
     * [SSO](#sso)
+    * [Sysadmin / system admin / team admin / channel admin](#sysadmin--system-admin--team-admin--channel-admin)
     * [Terms](#terms)
     * [Token / secret key](#token--secret-key)
     * [Trigger](#trigger)
@@ -458,8 +461,6 @@ Lorsque des mentions comme `our documentation` sont employées, il est important
 | Please enter your email | Veuillez **spécifier** votre adresse e-mail |
 | Please enter an email address | Veuillez **spécifier** une adresse e-mail |
 | SHIFT+DOWN (in input field): Highlight text to the next line\n | MAJ+BAS (dans le champ de saisie) : Sélectionne le texte jusqu'à la ligne suivante\n |
-| Delete a message by clicking the **[...]** icon next to any message text that you’ve composed | Supprimez un message en cliquant sur l'icône **[...]** située à côté de chaque message que vous avez composé | 
-
 Par mesure de cohérence, la règle générale est d'utiliser le terme `spécifier`. `saisir` est uniquement employé pour qualifier la `zone de saisie`.
 
 Pour ce qui est des messages qui ne spécifient pas une option : une publication, un message de texte, on utilisera le terme `composer` ([cf. Message](#message)).
@@ -536,6 +537,16 @@ Il s'agit simplement des indicateurs pour suivre un message.
 
 `récupérer` est à privilégier pour des raisons de cohérence.
 
+### Guest
+
+| EN | FR |
+| --- | --- |
+| Guests | Utilisateurs invités |
+| Invite guests | Inviter des utilisateurs invités |
+
+`Utilisateur invité` bien que plus long est nécessaire pour éviter de tomber sur des situations où on aurait `inviter des invités` qui semble bizarre.
+
+
 ### Handle
 
 | EN | FR |
@@ -589,21 +600,31 @@ Le terme `tâche` est à employer dans le jargon (cf. les `tâches planifiées` 
 
 Ces mentions sont souvent rencontrées dans le cadre de la synchronisation d'utilisateurs entre plusieurs plateformes, notamment les annuaires AD/LDAP. Dans ce cadre, nous utiliserons les termes `association` et `dissociation` rencontrées le plus souvent au lieu du terme `lien`. Nous n'avons en effet pas de traduction pour `unlink` ce qui rendait l'ensemble moins harmonieux.
 
+### Marketplace
+
+| EN | FR |
+| --- | --- |
+| Plugin Marketplace | Place de marché de plugins |
+| Failed to marshal marketplace plugins. | Impossible d'interpréter les données des plugins de la place de marché. |
+| URL of the marketplace server. | L'URL du serveur de place de marché. |
+
 ### Marshalling
 
 | EN | FR |
 | --- | --- |
 | An error occurred marshalling the JSON data for export. | Une erreur s'est produite lors de la préparation à l'exportation (marshalling) des données JSON. |
 | marshal error | erreur de transformation de données (marshalling) |
+| Failed to marshal marketplace plugins. | Impossible d'interpréter les données des plugins de la place de marché. |
 
 En sciences informatiques, le marshalling (ou marshaling) est le fait de transformer la représentation en mémoire d'un objet dans un format dédié au stockage ou à la transmission réseau. Ce terme est assez proche de la sérialisation. Pour s'adapter à cette définition, nous n'hésitons pas à prendre des latitudes dans la traduction de façon à ce que les non anglophones ou ceux qui n'ont pas des connaissances informatiques poussées puissent tout de même comprendre.
 
-### Member / channel member
+### Member / channel member / membership
 
 | EN | FR |
 | --- | --- |
 | Could not find channel member when importing direct channel | Impossible de trouver le membre du canal lors de l'importation du canal de messages personnels |
 | No channel member found for that user ID and channel ID | Aucun membre de canal trouvé pour cet ID utilisateur et cet ID de canal |
+| Failed to update the user channels memberships | Impossible de mettre à jour les canaux de l'utilisateur auxquels il appartient |
 
 En fonction du contexte et selon la phonétique, il se peut qu'on doive utiliser « de » plutôt que « du ».
 
@@ -870,6 +891,12 @@ Il s'agit des commandes que vous spécifiez lorsque vous commencez votre message
 Dans le jargon technique, le terme SSO tend à prendre le pas sur le terme `Authentification unique`. Dans le cadre de Mattermost, il a donc été choisi de suffixer la traduction française par le terme SSO entre parenthèses de façon à préciser le contexte. En effet, le terme `authentification` pourrait être confondu avec le terme `authentification multi-facteurs` (MFA), autre fonctionnalité présente au sein de Mattermost.
 
 Les traductions telles que `authentification simplifiée` ou `connexion unique` sont à proscrire.
+
+### Sysadmin / system admin / team admin / channel admin
+
+On a choisi `administrateur système` au singulier et `administrateurs système` au pluriel. On sous-entend en effet le terme administrateur de la qualité système de l'informatique (tout ce qui n'est donc pas relatif réseau). Il ne faut donc pas le comprendre comme administrateur des systèmes dinformations/systèmes d'information. D'ailleurs, ici, il est question d'un seul système, celui de Mattermost.
+
+On a appliqué la même logique aux administrateurs d'équipe et de canal (respectivement `team admins` et `channel admins`).
 
 ### Terms
 
