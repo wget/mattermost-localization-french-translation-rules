@@ -113,7 +113,11 @@ Enfin, veuillez prendre la peine de lire ces quelques règles de traduction à r
 
 Le nombre de chaînes à traduire étant assez élevé au sein du projet Mattermost, si vous trouvez des traductions qui ne respectent pas ces quelques règles, merci de proposer une correction dans l'[interface Pootle de traduction](http://translate.mattermost.com/fr/).
 
-Si vous ne trouvez pas comment traduire un terme, regardez comment le même terme a été traduit les fois précédentes, regardez sur le [glossaire de Traduc.org (organisation de volontaires de traducteurs francophones pour logiciels libres)](https://glossaire.traduc.org), ou posez votre question sur [le canal Mattermost de traduction francophone](https://pre-release.mattermost.com/core/channels/french-localization).
+Si vous ne trouvez pas comment traduire un terme, plusieurs solutions :
+* regardez comment le même terme a été traduit les fois précédentes dans la traduction de Mattermost,
+* regardez sur le [glossaire de Traduc.org (organisation de volontaires de traducteurs francophones pour logiciels libres)](https://glossaire.traduc.org),
+* regardez sur le [portail linguistique de Microsoft](https://www.microsoft.com/fr-fr/language/Search),
+* posez votre question sur [le canal Mattermost réservé à la traduction francophone](https://community.mattermost.com/core/channels/french-localization).
 
 ## Commentaires pour les traducteurs
 
