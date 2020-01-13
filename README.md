@@ -34,8 +34,10 @@
     * [Autocompletion](#autocompletion)
     * [Batch](#batch)
     * [Before taking effect](#before-taking-effect)
+    * [Beta](#beta)
     * [BG](#bg)
     * [Bot](#bot)
+    * [Canonical](#canonical)
     * [Constraints](#constraints)
     * [Direct](#direct)
     * [Directory](#directory)
@@ -55,6 +57,7 @@
     * [Guest](#guest)
     * [Handle](#handle)
     * [Hours / timezone](#hours--timezone)
+    * [Invitations](#invitations)
     * [Jobs](#jobs)
     * [Kick / ban / remove](#kick--ban--remove)
     * [Link/linking](#linklinking)
@@ -89,6 +92,7 @@
     * [Scheme](#scheme)
     * [Slash commands](#slash-commands)
     * [SSO](#sso)
+    * [Support](#support)
     * [Sysadmin / system admin / team admin / channel admin](#sysadmin--system-admin--team-admin--channel-admin)
     * [Terms](#terms)
     * [Token / secret key](#token--secret-key)
@@ -273,11 +277,15 @@ De façon à se calquer au plus près des autres traductions, pareil texte sera 
 | --- | --- |
 | @{{.Username}} was mentioned, but they did not receive notifications because they do not belong to this channel. | @{{.Username}} a été mentionné(e), mais, ne faisant pas partie de ce canal, il/elle ne recevra pas de notification. |
 
-Nous n'utilisons pas l'écriture inclusive, celle utilisant le '·', car en plus de ne pas avoir été validée par l'Académie française, elle rend le texte plus difficile à comprendre. Nous pensons qu'il s'agit surtout d'une solution temporaire, surfant sur la vague du féminisme français. Toutefois, lorsque rendu nécessaire comme dans le texte ci-dessus, nous privilégions plutôt les parenthèses ou la mention explicite il/elle, qui sont des emplois beaucoup plus répandus en francophonie. Par facilité de lecture, nous nous refusons à ajouter des contreparties féminines à tous les termes masculins; par conséquent nous considérons toujours la règle « le masculin l'emporte » comme étant valable au sein de cet effort de traduction/régionalisation.
+Nous n'utilisons pas l'écriture inclusive, celle utilisant le '·', car en plus de ne pas avoir été validée par l'Académie française, elle rend le texte plus difficile à comprendre. Nous pensons qu'il s'agit surtout d'une solution qui ne durera pas, portée le féminisme francophone.
+
+Toutefois, lorsque rendu nécessaire comme dans le texte ci-dessus, nous privilégions plutôt les parenthèses ou la mention explicite il/elle, qui sont des emplois beaucoup plus répandus en francophonie.
+
+Par facilité de lecture, nous nous refusons à ajouter des contreparties féminines à tous les termes masculins; par conséquent nous considérons toujours la règle « le masculin l'emporte » comme étant valable au sein de cet effort de traduction/régionalisation.
 
 ### Traduction trop longue
 
-Si votre traduction s'avère être trop longue pour l'espace octroyé par l'interface utilisateur et si, compte tenu du sens, vous n'êtes pas en mesure d'abréger la traduction francophone, veuillez exposer le problème sur le [canal "Localization" de Mattermost](https://pre-release.mattermost.com/core/channels/localization).
+Si votre traduction s'avère être trop longue pour l'espace octroyé par l'interface utilisateur et si, compte tenu du sens, vous n'êtes pas en mesure d'abréger la traduction francophone, veuillez exposer le problème sur le [canal « Localization » de Mattermost](https://community.mattermost.com/core/channels/localization).
 
 ### Gestion du pluriel
 
@@ -414,6 +422,16 @@ L'envoi par lots.
 
 Simplement traduit de façon littérale. Ne pas utiliser `Pour prendre effet`.
 
+### Beta
+
+| EN | FR |
+| --- | --- |
+| Compliance Export (Beta) | Compliance Export (Expérimental) |
+
+Ici, comme le terme « alpha » n'est pas présent au sein de l'interface, la notion de chemin de progression d'un projet ne doit pas être exprimée. Il n'est dès lors pas nécessaire d'employer le jargon des différentes étapes de la conception logicielle. Un terme plus francophone et compréhensible de tous peut alors être employé.
+
+De plus, `bêta`, en français, pourrait paraître comme une insulte. Ce terme peut être exprimé sous la forme de « fonctionnalités expérimentales », un terme d'autant plus connu dans d'autres logiciels comme LibreOffice.
+
 ### BG
 
 | EN | FR |
@@ -425,6 +443,14 @@ Simplement traduit de façon littérale. Ne pas utiliser `Pour prendre effet`.
 ### Bot
 
 Utilisez BOT ou Bot en contexte, car ce terme est de plus en plus utilisé en français dans le cadre des solutions de messagerie pour désigner des programmes informatiques qui interragissent comme s'il s'agissait d'une personne au sein du chat.
+
+### Canonical
+
+| EN | FR |
+| --- | --- |
+| Invalid Canonical Algorithm. | Algorithm canonique invalide. |
+
+Le terme `canonique` se réfère au processus de conversion de données dans une forme standardisée, normalisée. (cf. [canonicalization sur Wikipedia](https://en.wikipedia.org/wiki/Canonicalization)).
 
 ### Constraints
 
@@ -474,6 +500,7 @@ Pour ce qui est des messages qui ne spécifient pas une option : une publication
 | EN | FR |
 | --- | --- |
 | Unable to find status of recipient for batched email notification | Impossible de trouver le statut du destinataire pour l'envoi par lot des notifications par e-mail |
+| Email invitations are disabled, no invite(s) sent | Les invitations par e-mail sont désactivées, aucune invitation envoyée. |
 
 Utilisez `adresse e-mail` et non `adresse électronique`. `Adresse électronique` n'a jamais vraiment été utilisé en dehors de la France et tend à être rendu nébuleux à cause des protocoles récents tels que le Bitcoin ou la Blockchain qui, eux, utilisent une adresse que l'on qualifie d'électronique.
 
@@ -569,6 +596,10 @@ Veuillez ne pas utiliser pseudonyme dans ce contexte. Identifiant est suffisant.
 Le travail de traduction n'implique pas seulement une traduction bête et méchante des chaînes de caractères. Ces dernières doivent également être adaptée en fonction de la coutume ou des habitudes. Dans la francophonie, l'ordre des éléments d'une date n'est pas le même qu'en anglais. Il s'agit là tout d'un travail de localisation.
 
 Ici, en l'occurrence, on placera la date avant l'heure et les éléments de la chaîne de la data seront séparés par un slash (`/`).
+
+### Invitations
+
+[cf. e-mail](#email)
 
 ### Jobs
 
@@ -782,7 +813,7 @@ Concernant les messages épinglés, bien que `find` aurait pu être traduit par 
 
 ### Preview mode
 
-Il s'agit du mode dans lequel se trouve Mattermost lorsque les notifications par e-mail ne sont pas activées et que dés lors, la configuration n'est pas totalement terminée. De façon à ne pas créer de confusion, nous utilisons le terme « Mode de démo ».
+Il s'agit du mode dans lequel se trouve Mattermost lorsque les notifications par e-mail ne sont pas activées et que dès lors, la configuration n'est pas totalement terminée. De façon à ne pas créer de confusion, nous utilisons le terme « Mode de démo ».
 
 ### Preview features
 
@@ -841,11 +872,13 @@ Dans le contexte des bases de données et des transactions, on utilisera « ann
 | Initializing team API routes | Initialisation des routes de l'API équipe |
 | Auth Endpoint: | Noeud d'authentification (auth endpoint) |
 
-Bien que ces messages devraient être principalement être vus par du personnel technique et donc sachant parler anglais, il est toutefois préférable de les traduire.
+Bien que ces messages devraient principalement être vus par du personnel technique et donc sachant parler anglais, il est toutefois préférable de les traduire.
 
-Il faut voir une API comme un arbre composé de branche et de feuilles. Dans le contexte d'une API, chaque branche est appelée `route`, chaque embranchement (y compris le tout dernier placé en feuille) est appelé un `noeud`. Dans le cas d'une feuille, on appelle souvent ce noeud particulier le `noeud de terminaison` (`endpoint` en anglais). Ici, à cause de l'espace restreint, nous supprimons le terme `de terminaison`. Compte tenu de l'emplacement au sein du logiciel, il est préférable de repréciser le terme anglais original à coté du terme francisé, car ces chaines sont vues majoritairement par du personnel technique et les guides et tutoriels en ligne sont souvent en anglais, avoir le terme en anglais, facilite donc la recherche de correspondance.
+Il faut voir une API comme un arbre composé de branche et de feuilles. Dans le contexte d'une API, chaque branche est appelée `route`, chaque embranchement (y compris le tout dernier placé en feuille) est appelé un `noeud`. Dans le cas d'une feuille, on appelle souvent ce noeud particulier le `noeud de terminaison` (`endpoint` en anglais). Ici, à cause de l'espace restreint, nous supprimons le terme `de terminaison`.
 
-Microsoft, dans le cadre de sa plateforme .NET, possède une des rares documentations techniques traduites intégralement en français. Un [article en anglais sur le sujet qui nous préoccupe](https://msdn.microsoft.com/en-us//library/cc668201(v=vs.100).aspx) dispose d'[une correspondance française](https://msdn.microsoft.com/en-us//library/cc668201(v=vs.100).aspx).
+Compte tenu de l'emplacement de telles chaînes de caractère au sein du logiciel, il est préférable de repréciser le terme anglais original à coté du terme francisé. Ces chaines étant vues majoritairement par du personnel technique et les guides et tutoriels en ligne étant souvent en anglais, avoir le terme en anglais facilite donc la recherche de correspondance.
+
+Microsoft, dans le cadre de sa plateforme .NET, possèdait une des rares documentations techniques traduites intégralement en français. Un [article en anglais sur le sujet qui nous préoccupe](https://web.archive.org/web/20190314035849/https://docs.microsoft.com/en-us/previous-versions/aspnet/cc668201(v=vs.100)) disposait d'[une correspondance française](https://web.archive.org/web/20150103202536/https://msdn.microsoft.com/fr-fr/library/cc668201.aspx).
 
 On utilise le terme `routage` uniquement dans ce cas-ci :
 
@@ -895,6 +928,14 @@ Il s'agit des commandes que vous spécifiez lorsque vous commencez votre message
 Dans le jargon technique, le terme SSO tend à prendre le pas sur le terme `Authentification unique`. Dans le cadre de Mattermost, il a donc été choisi de suffixer la traduction française par le terme SSO entre parenthèses de façon à préciser le contexte. En effet, le terme `authentification` pourrait être confondu avec le terme `authentification multi-facteurs` (MFA), autre fonctionnalité présente au sein de Mattermost.
 
 Les traductions telles que `authentification simplifiée` ou `connexion unique` sont à proscrire.
+
+### Support
+
+| EN | FR |
+| --- | --- |
+| ID Loaded Push Notifications are not configured or supported on this server. | Les notifications push chargées à partir de leur identifiant ne sont pas configurées ou prises en charge sur ce serveur. |
+
+`support` est à traduire par `prendre en charge` de façon à rendre la chose plus correcte d'un point de vue francophone.
 
 ### Sysadmin / system admin / team admin / channel admin
 
