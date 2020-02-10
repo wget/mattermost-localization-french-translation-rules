@@ -3,14 +3,19 @@
 <!-- vim-markdown-toc GFM -->
 
 * [Introduction](#introduction)
-* [Commentaires pour les traducteurs](#commentaires-pour-les-traducteurs)
-* [Traduction hors ligne](#traduction-hors-ligne)
+    * [Instance de traduction](#instance-de-traduction)
+    * [Commentaires pour les traducteurs](#commentaires-pour-les-traducteurs)
+    * [Traduction hors ligne](#traduction-hors-ligne)
+    * [Tester ses traductions](#tester-ses-traductions)
+    * [Outils pour le traducteur](#outils-pour-le-traducteur)
+        * [Pology](#pology)
+        * [Bases de connaissance](#bases-de-connaissance)
+    * [Points à améliorer dans la traduction francophone](#points-à-améliorer-dans-la-traduction-francophone)
 * [Insertion de caractères unicodes](#insertion-de-caractères-unicodes)
     * [Introduction](#introduction-1)
     * [Touche compose](#touche-compose)
     * [Table de caractères](#table-de-caractères)
     * [Code des caractères](#code-des-caractères)
-* [Points à améliorer](#points-à-améliorer)
 * [Style](#style)
     * [Jargon](#jargon)
     * [Usage de l'impératif](#usage-de-limpératif)
@@ -18,7 +23,7 @@
     * [Majuscules](#majuscules)
     * [Abbréviations](#abbréviations)
     * [Guillemets](#guillemets)
-    * [Pluriel de majesté (We couldn't...)](#pluriel-de-majesté-we-couldnt)
+    * [Pluriel de majesté](#pluriel-de-majesté)
     * [Ecriture inclusive](#ecriture-inclusive)
     * [Traduction trop longue](#traduction-trop-longue)
     * [Gestion du pluriel](#gestion-du-pluriel)
@@ -26,7 +31,6 @@
         * [Exemple 2](#exemple-2)
         * [Exemple 3](#exemple-3)
         * [Exemple 4](#exemple-4)
-* [Outils pour le traducteur](#outils-pour-le-traducteur)
 * [Vocabulaire](#vocabulaire)
     * [At rest / in transit](#at-rest--in-transit)
     * [API](#api)
@@ -107,23 +111,17 @@
 
 Bonjour et merci de participer à la traduction francophone de Mattermost !
 
-Mattermost utilise [une instance Pootle pour ses traductions](http://translate.mattermost.com/fr/). Si ce n'est pas déjà fait, veuillez créer un compte sur cette instance pour pouvoir participer.
+La traduction francophone de Mattermost étant activement maintenue, voici quelques conseils et règles de traduction à respecter.
+
+### Instance de traduction
+
+Mattermost utilise [une instance Pootle pour ses traductions](https://translate.mattermost.com/fr/). Si ce n'est pas déjà fait, veuillez créer un compte sur cette instance pour pouvoir participer.
+
+Le nombre de chaînes traduites étant assez élevé au sein du projet Mattermost, si vous trouvez des traductions qui ne respectent pas ces quelques règles, n'hésitez pas à proposer une correction sur Pootle.
 
 Veuillez noter que cette instance est habituellement indisponible tous les jours de minuit à une heure du matin (UTC+1). L'instance doit en effet être coupée lorsque les traductions sont en cours de synchronisation avec le repository git de Mattermost.
 
-De même, il est vivement recommandé d'[utiliser une version de développement de Mattermost](https://docs.mattermost.com/developer/developer-setup.html) de façon à pouvoir vous [assurer que vos traductions soient correctes selon le contexte](https://docs.mattermost.com/developer/localization-process.html#test-translations).
-
-Enfin, veuillez prendre la peine de lire ces quelques règles de traduction à respecter.
-
-Le nombre de chaînes à traduire étant assez élevé au sein du projet Mattermost, si vous trouvez des traductions qui ne respectent pas ces quelques règles, merci de proposer une correction dans l'[interface Pootle de traduction](http://translate.mattermost.com/fr/).
-
-Si vous ne trouvez pas comment traduire un terme, plusieurs solutions :
-* regardez comment le même terme a été traduit les fois précédentes dans la traduction de Mattermost,
-* regardez sur le [glossaire de Traduc.org (organisation de volontaires de traducteurs francophones pour logiciels libres)](https://glossaire.traduc.org),
-* regardez sur le [portail linguistique de Microsoft](https://www.microsoft.com/fr-fr/language/Search),
-* posez votre question sur [le canal Mattermost réservé à la traduction francophone](https://community.mattermost.com/core/channels/french-localization).
-
-## Commentaires pour les traducteurs
+### Commentaires pour les traducteurs
 
 Pootle supporte l'ajout de commentaires permettant d'aider le traducteur. Ils sont utiles pour préciser à l'utilisateur si une chaîne doit se traduire à l'infinitif ou à l'impératif par exemple. En effet, en anglais il n'y a aucune différence entre ces deux formes, seul le contexte et la cohérence du reste de la boite de dialogue nous permettent de choisir un temps plutôt qu'un autre.
 
@@ -133,9 +131,9 @@ Ces commentaires peuvent être ajoutés par le biais de Pootle ou par le biais d
 
 Cependant, veuillez garder à l'esprit que ces commentaires doivent être courts.
 
-**Veuillez ne pas placer de retours à la ligne** insérés par `CTRL+ENTREE` dans ces commentaires. Le caractère produit `^M` (ou `0d` -zero d- en hexadecimal) n'est pas reconnu par `po2i18n` lorsqu'il est placé en début de ligne de commentaire. `po2i18n` fait partie de [Mattermosti18n](https://github.com/rodcorsi/mattermosti18n), une suite d'utilitaires écrits en Go, utilisés par Mattermost pour convertir les fichiers .po en fichiers JSON et inversément. Ces retours à la ligne créent également des problèmes avec l'instance Pootle utilisée par Mattermost. Une fois des commentaires avec des retours à la ligne ajoutés, même si ces commentaires sont supprimés par après, [ils sont toujours conservés dans les fichiers .po](https://pre-release.mattermost.com/core/pl/xw9j5r1uij8hxn8j35ippztxsh). Le responsable de Mattermost doit alors modifier le fichier manuellement. Nous ne savons pas quelle pourrait être la cause de ce problème; nous ne parvenons pas à reproduire le problème sur une installation fraîche de Pootle utilisée localement.
+**Veuillez ne pas placer de retours à la ligne** insérés par `CTRL+ENTREE` dans ces commentaires. Le caractère produit `^M` (ou `0d` -zero d- en hexadecimal) n'est pas reconnu par `po2i18n` lorsqu'il est placé en début de ligne de commentaire. `po2i18n` fait partie de [Mattermosti18n](https://github.com/rodcorsi/mattermosti18n), une suite d'utilitaires écrits en Go, utilisés par Mattermost pour convertir les fichiers .po en fichiers JSON et inversément. Ces retours à la ligne créent également des problèmes avec l'instance Pootle utilisée par Mattermost. Une fois des commentaires avec des retours à la ligne ajoutés, même si ces commentaires sont supprimés par après, [ils sont toujours conservés dans les fichiers .po](https://community.mattermost.com/core/pl/xw9j5r1uij8hxn8j35ippztxsh). Le responsable de Mattermost doit alors modifier le fichier manuellement. Nous ne savons pas quelle pourrait être la cause de ce problème; nous ne parvenons pas à reproduire le problème sur une installation fraîche de Pootle utilisée localement.
 
-## Traduction hors ligne
+### Traduction hors ligne
 
 Bien que l'instance Pootle utilisée par Mattermost offre la possibilité de télécharger les fichiers .po afin de les tester sur une instance de test de Mattermost, le responsable technique de Mattermost [a désactivé manuellement sur Pootle](https://pre-release.mattermost.com/core/pl/9x5msk5iuifuxfm8wyjadsdyec) la possibilité d'envoyer et remplacer les traductions par nos propres fichiers .po pour les raisons suivantes.
 
@@ -144,6 +142,47 @@ Bien que l'instance Pootle utilisée par Mattermost offre la possibilité de té
 * Renvoyer les fichiers sur la plateforme écrase la version précédente; dans le cas d'un problème, comme celui évoqué au point précédent avec les commentaires qui peuvent corrompre le build process, il faut qu'un développeur puisse restaurer le fichier dans le cas où il se rend compte que la convertion .po -> JSON échoue. Mattermost ne peut pas garantir qu'un développeur dispose du temps nécessaire pour affectuer cette action.
 
 C'est pourquoi, même si ces raisons sont discutables lorsqu'un contributeur agit en âme et conscience, la seule façon de traduire Mattermost, c'est en ligne par le biais de l'instance Pootle mise à disposition. Les traductions hors lignes ne sont pas possibles.
+
+### Tester ses traductions
+
+Il est vivement recommandé d'[utiliser une version de développement de Mattermost](https://developers.mattermost.com/contribute/server/developer-setup/) de façon à pouvoir vous [assurer que vos traductions soient correctes selon le contexte](https://docs.mattermost.com/developer/localization.html#test-translations).
+
+### Outils pour le traducteur
+
+#### Pology
+
+[La communauté francophone de KDE](https://fr.l10n.kde.org/pology.php) utilise un outil écrit en python appelé "pology". Cet outil permet d'effectuer toutes sortes d'opérations sur des fichiers po (gettext). Pour en savoir davantage sur les fonctionnalités de pology, [veuillez lire sa documentation](http://pology.nedohodnik.net//doc/user/en_US/index-mono.html).
+
+Installez le paquet correspondant à pology sous votre distribution (sous Arch Linux, utilisez [pology-svn](https://aur.archlinux.org/packages/pology-svn/)) ou clonez le dépôt SVN:
+
+    svn co svn://anonsvn.kde.org/home/kde/trunk/l10n-support/pology
+
+Pour vous assurer que votre traduction dispose d'espaces insécables, ce qui est vivement recommandé en français, téléchargez les fichiers .po de l'instance pootle et exécutez pology de façon à ajouter automatiquement des espaces insécables sur le fichier .po (ATTENTION: exécuter cette commande modifie directement le fichier, pensez donc à le sauvegarder avant) :
+
+    /usr/share/pology/scripts/posieve.py fr:setUbsp ./web_static.po
+
+Les autres commandes de pology telles que `check_rules`, `check_spell`, `check_grammar` et `find_messages` soit n'ont pas été testées, soit ne sont pas compatibles à cause de la façon dont les paramètres des chaînes de Mattermost sont représentés dans le langage Go. La présence de `{{.varName}}`, par exemple, est considérée comme une erreur par pology (un espace est requis après un point, etc.).
+
+#### Bases de connaissance
+
+Si vous ne trouvez pas comment traduire un terme, plusieurs solutions :
+
+* regardez comment le même terme a été traduit les fois précédentes dans la traduction de Mattermost,
+
+* regardez sur le [glossaire de Traduc.org (organisation de volontaires de traducteurs francophones pour logiciels libres)](https://glossaire.traduc.org),
+
+* regardez sur le [portail linguistique de Microsoft](https://www.microsoft.com/fr-fr/language/Search),
+
+* posez votre question sur [le canal Mattermost réservé à la traduction francophone](https://community.mattermost.com/core/channels/french-localization).
+
+### Points à améliorer dans la traduction francophone
+
+La traduction francophone est déjà dans un très bon état. Parmi les points à améliorer pour les prochaines versions :
+
+* Utiliser l'espace fine insécable plutôt que l'espace insécable est recommandé selon les règles typographiques francophones. Le caractère représentant l'espace fine insécable est disponible depuis la sortie de Unicode 3.0 et est bien supporté par les logiciels (cf. [le rapport sur l'utilisation de l'espace fine insécable au sein des logiciels libres](http://malizor.org/public/fines/fines.pdf)). L'espace insécable est, quant à lui, dans le monde du web et du domaine des zones de texte, souvent source d'erreurs (cf. [bug chromium](https://bugs.chromium.org/p/chromium/issues/detail?id=346096)) .
+* Remplacer les guillemets américains par leur version francophone.
+
+Ces deux éléments ne sont possibles que si nous pouvons éditer le fichier .po manuellement, passer par le site web de traduction prendrait trop de temps tant la procédure serait répétitive et source d'erreurs.
 
 ## Insertion de caractères unicodes
 
@@ -196,13 +235,6 @@ Guillemets fermants (` »`):
 
 * similaire aux guillemets ouvrants, en inversant le sens et les `<` par `>`.
 
-
-## Points à améliorer
-
-La traduction francophone est déjà dans un très bon état. Parmi les points à améliorer pour les prochaines versions :
-
-* Utiliser l'espace fine insécable plutôt que l'espace insécable est recommandé selon les règles typographiques francophones. Le caractère représentant l'espace fine insécable est disponible depuis la sortie de Unicode 3.0 et est bien supporté par les logiciels (cf. [le rapport sur l'utilisation de l'espace fine insécable au sein des logiciels libres](http://malizor.org/public/fines/fines.pdf)). L'espace insécable est, quant à lui, dans le monde du web et du domaine des zones de texte, souvent source d'erreurs (cf. [bug chromium](https://bugs.chromium.org/p/chromium/issues/detail?id=346096)) .
-* Remplacer les guillemets américains par leur version francophone.
 
 ## Style
 
@@ -265,7 +297,9 @@ Exemple s'abrège en `ex. :`. Notez l'utilisation d'une espace après le point. 
 
 Utilisez les guillemets francophones (cf. [Insertion de caractères unicodes](#insertion-de-caractères-unicodes)).
 
-### Pluriel de majesté (We couldn't...)
+### Pluriel de majesté
+
+Le pluriel de majesté est assez souvent employé dans les sources de langue anglaise au sein de Mattermost avec la mention du terme `We couldn't`.
 
 Il s'avère quelques fois que les messages de Mattermost s'expriment en `nous` plutôt qu'en `il`, par exemple: `We couldn't check the permissions`. Une traduction telle que `Nous ne pouvons pas vérifier les permissions` est tout à fait incorrecte.
 
@@ -345,19 +379,6 @@ Comme vous pouvez le voir, selon le contexte, il est possible que vous deviez pl
 
 Ici, il est question d'un changement important, la tournure de phrase ne se traduit pas du tout de la même façon suivant qu'il s'agisse du singulier ou du pluriel: `Chaque minute` vs `Toutes les x minutes`.
 
-## Outils pour le traducteur
-
-[La communauté francophone de KDE](https://fr.l10n.kde.org/pology.php) utilise un outil écrit en python appelé "pology". Cet outil permet d'effectuer toutes sortes d'opérations sur des fichiers po (gettext). Pour en savoir davantage sur les fonctionnalités de pology, [veuillez lire sa documentation](http://pology.nedohodnik.net//doc/user/en_US/index-mono.html).
-
-Installez le paquet correspondant à pology sous votre distribution (sous Arch Linux, utilisez [pology-svn](https://aur.archlinux.org/packages/pology-svn/)) ou clonez le dépôt SVN:
-
-    svn co svn://anonsvn.kde.org/home/kde/trunk/l10n-support/pology
-
-Pour vous assurer que votre traduction dispose d'espaces insécables, ce qui est vivement recommandé en français, téléchargez les fichiers .po de l'instance pootle et exécutez pology de façon à ajouter automatiquement des espaces insécables sur le fichier .po (ATTENTION: exécuter cette commande modifie directement le fichier, pensez donc à le sauvegarder avant) :
-
-    /usr/share/pology/scripts/posieve.py fr:setUbsp ./web_static.po
-
-Les autres commandes de pology telles que `check_rules`, `check_spell`, `check_grammar` et `find_messages` soit n'ont pas été testées, soit ne sont pas compatibles à cause de la façon dont les paramètres des chaînes de Mattermost sont représentés dans le langage Go. La présence de `{{.varName}}`, par exemple, est considérée comme une erreur par pology (un espace est requis après un point, etc.).
 
 ## Vocabulaire
 
