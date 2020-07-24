@@ -31,6 +31,7 @@
         * [Exemple 2](#exemple-2)
         * [Exemple 3](#exemple-3)
         * [Exemple 4](#exemple-4)
+        * [Outil en ligne](#outil-en-ligne)
     * [Gestion des messages d'erreurs](#gestion-des-messages-derreurs)
 * [Vocabulaire](#vocabulaire)
     * [Ability](#ability)
@@ -327,7 +328,9 @@ Si votre traduction s'avère être trop longue pour l'espace octroyé par l'inte
 
 ### Gestion du pluriel
 
-Au sein de Mattermost, les règles de pluralisation en fonction de la langue sont gérées par la bibliothèque formatjs. Il se peut que vous rencontriez la syntaxe de cette bibliothèque au gré de vos traductions. La syntaxe de formatjs se matérialise comme tel:
+Au sein de Mattermost, les règles de pluralisation en fonction de la langue sont gérées par la bibliothèque formatjs. Cette bibliothèque utilise la [syntaxe ICU](http://userguide.icu-project.org/formatparse/messages), une syntaxe devenue un standard d'ailleurs présent également dans Java et PHP.
+
+l se peut que vous rencontriez cette syntaxe au gré de vos traductions. La syntaxe de formatjs se matérialise comme tel :
 
     {key, plural, matches}
 
@@ -345,7 +348,7 @@ En place de `matches` peuvent donc se trouver un ou plusieurs des mots clés sui
 * `other`: Cette catégorie est utilisée si aucune value ne correspond à l'une des catégories précédentes. Cette catégorie est souvent utilisée comme la forme pluriel pour certaines langues comme le français ou l'anglais qui ont une grammaire distincte seulement pour les éléments singuliers et ceux pluriel.
 * `=value`: Cette catégorie est utilisée pour faire correspondre à une certaine valeur peu importe la catégorie de pluriel utilisée plus haut.
 
-Pour illustrer le [fonctionnement de cette bibliothèque](https://formatjs.io/guides/message-syntax/#plural-format), prenons les exemples suivants.
+Pour illustrer le [fonctionnement de cette bibliothèque](https://formatjs.io/docs/icu-syntax/#plural-format), prenons les exemples suivants.
 
 #### Exemple 1
 
@@ -382,6 +385,12 @@ Comme vous pouvez le voir, selon le contexte, il est possible que vous deviez pl
     {count, plural, one {Chaque minute} other {Toutes les {count, number} minutes}}
 
 Ici, il est question d'un changement important, la tournure de phrase ne se traduit pas du tout de la même façon suivant qu'il s'agisse du singulier ou du pluriel: `Chaque minute` vs `Toutes les x minutes`.
+
+#### Outil en ligne
+
+Pour faciliter l'édition de chaînes contenant cette syntaxe particulière (rappel : la syntaxe ICU), un développeur a créé un outil permettant de tester la chaîne et de la traduire plus facilement : https://format-message.github.io/icu-message-format-for-translators/editor.html
+
+L'utilisation de cet outil est recommandée surtout pour les traducteurs débutants dans la localisation de Mattermost.
 
 ### Gestion des messages d'erreurs
 
