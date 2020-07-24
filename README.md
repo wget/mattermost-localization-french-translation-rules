@@ -31,7 +31,9 @@
         * [Exemple 2](#exemple-2)
         * [Exemple 3](#exemple-3)
         * [Exemple 4](#exemple-4)
+    * [Gestion des messages d'erreurs](#gestion-des-messages-derreurs)
 * [Vocabulaire](#vocabulaire)
+    * [Ability](#ability)
     * [At rest / in transit](#at-rest--in-transit)
     * [API](#api)
     * [Attach](#attach)
@@ -42,6 +44,7 @@
     * [BG](#bg)
     * [Bot](#bot)
     * [Canonical](#canonical)
+    * [Channel mentions](#channel-mentions)
     * [Constraints](#constraints)
     * [Direct](#direct)
     * [Directory](#directory)
@@ -62,6 +65,7 @@
     * [Handle](#handle)
     * [Hours / timezone](#hours--timezone)
     * [Invitations](#invitations)
+    * [Icon / image](#icon--image)
     * [Jobs](#jobs)
     * [Kick / ban / remove](#kick--ban--remove)
     * [Link/linking](#linklinking)
@@ -379,8 +383,28 @@ Comme vous pouvez le voir, selon le contexte, il est possible que vous deviez pl
 
 Ici, il est question d'un changement important, la tournure de phrase ne se traduit pas du tout de la même façon suivant qu'il s'agisse du singulier ou du pluriel: `Chaque minute` vs `Toutes les x minutes`.
 
+### Gestion des messages d'erreurs
+
+Tout au long de la traduction, vous allez rencontrer des messages d'erreur forumés de différentes manières en anglais :
+* Update password failed because the user is logged in through an OAuth service.
+* Could not [...]
+* Unable to [...]
+* Invalid [...] --> [...] invalide
+* [...] is [...] must be set/must be valid/ --> [...] est [...], il/elle doit être défini(e)/valid(e)/...
+
+Bien que l'idéal soit de restandardiser toute la partie anglophone, cette idée n'est toutefois pas concevable vu que l'anglais fait autorité sur toutes les autres langues.
+
+L'idée globale pour une certaine cohérence est donc, à notre échelle francophone, d'utiliser la tournure de phrase "Impossible de [...]. [...] doit être". La traduction Mattermost francophone suit cette logique.
 
 ## Vocabulaire
+
+### Ability
+
+| EN | FR |
+| --- | --- |
+| Guests and members can not use channel mentions without the ability to create posts. | Les utilisateurs invités et les membres ne peuvent pas utiliser les mentions de canal sans avoir la permission de publier des messages. |
+
+Lié aux permissions (cf. [permissions](#permissions)).
 
 ### At rest / in transit
 
@@ -401,9 +425,11 @@ Nous avons décidé de prendre quelques latitudes dans la chaîne traduite de pe
 
 | EN | FR |
 | --- | --- |
-| Empty array under 'image' in request | Tableau vide dans le paramètre 'image' de la requête |
+| Empty array under 'image' in request | Tableau vide dans le champ « image » de la requête |
 
-Bien que « section » aurait pu convenir dans ce contexte, dans le cadre d'une requête sur une API, il est plus question de « paramètre ».
+Bien que « section » aurait pu convenir dans ce contexte, dans le cadre d'une requête sur une API, il est plus question de « champ ». En effet, les données sont la plupart du temps transmises via la méthode HTTP POST qui correspond un peu elle aussi à un tableau encodé transmis.
+
+« paramètre » pourra toutefois être employé dans le cas d'une requête dont le champ est passé par paramètre (cas typique de la méthode GET d'HTTP spécifiée en « query string »).
 
 ### Attach
 
@@ -472,6 +498,13 @@ Utilisez BOT ou Bot en contexte, car ce terme est de plus en plus utilisé en fr
 | Invalid Canonical Algorithm. | Algorithm canonique invalide. |
 
 Le terme `canonique` se réfère au processus de conversion de données dans une forme standardisée, normalisée. (cf. [canonicalization sur Wikipedia](https://en.wikipedia.org/wiki/Canonicalization)).
+
+### Channel mentions
+
+| EN | FR |
+| --- | --- |
+| Channel Mentions | Mentions de canal |
+| Channel mentions for members and guests are disabled | Les mentions de canal pour les membres et les utilisateurs invités sont désactivées |
 
 ### Constraints
 
@@ -621,6 +654,19 @@ Ici, en l'occurrence, on placera la date avant l'heure et les éléments de la c
 ### Invitations
 
 [cf. e-mail](#email)
+
+### Icon / image
+
+| EN | FR |
+| --- | --- |
+| Couldn't delete icon image. | Impossible de supprimer l'icône. |
+| Unable to read icon image file. | Impossible de lire le fichier d'icône. |
+| No file under 'image' in request. | Aucun fichier dans le champ 'image' de la requête. |
+| Could not open image file. | Impossible d'ouvrir le fichier image. |
+
+En français, une icône est déjà une image, pas besoin d'ajouter « image ». Aussi, en parlant d'icônes destinées à l'affichage d'une photo de profil pour un bot par exemple, on emploiera « image » par mesure de cohérence.
+
+Lorsqu'il y a la mention « fichier », on parle bien de « fichier image » et non de « fichier d'image ».
 
 ### Jobs
 
@@ -955,8 +1001,11 @@ Les traductions telles que `authentification simplifiée` ou `connexion unique` 
 | EN | FR |
 | --- | --- |
 | ID Loaded Push Notifications are not configured or supported on this server. | Les notifications push chargées à partir de leur identifiant ne sont pas configurées ou prises en charge sur ce serveur. |
+| Download the Mattermost app or use a supported browser for a better experience. | Téléchargez l'application Mattermost ou utilisez un navigateur web actuellement supporté pour une expérience utilisateur optimale. |
 
 `support` est à traduire par `prendre en charge` de façon à rendre la chose plus correcte d'un point de vue francophone.
+
+Toutefois dans le cadre d'un logiciel bénéficiant encore de mises à jour, on dit qu'il est encore pris en charge et donc que sa prise en charge est encore assurée. Utiliser « support » n'est qu'à réserver aux logiciels qui bénéficient encore d'aide de la part d'une équipe par exemple (support technique), bien que dans ce cas, le terme « assistance » soit plus approprié.
 
 ### Sysadmin / system admin / team admin / channel admin
 
