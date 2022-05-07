@@ -120,7 +120,7 @@ La traduction francophone de Mattermost étant activement maintenue, voici quelq
 
 ### Instance de traduction
 
-Mattermost utilise [une instance Pootle pour ses traductions](https://translate.mattermost.com/fr/). Si ce n'est pas déjà fait, veuillez créer un compte sur cette instance pour pouvoir participer.
+Mattermost utilise [une instance Pootle pour ses traductions](https://translate.mattermost.com). Si ce n'est pas déjà fait, veuillez créer un compte sur cette instance pour pouvoir participer.
 
 Le nombre de chaînes traduites étant assez élevé au sein du projet Mattermost, si vous trouvez des traductions qui ne respectent pas ces quelques règles, n'hésitez pas à proposer une correction sur Pootle.
 
